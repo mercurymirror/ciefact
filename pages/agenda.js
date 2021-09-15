@@ -7,13 +7,13 @@ import { fetchAPI } from "../lib/api"
 import Layout from "../components/layout"
 
 
-const Agenda = ({ agendas, categories }) => {
+const Agenda = ({ angendas, categories, representations }) => {
 
 
     return (
         <Layout categories={categories}>
             <Container>
-                {/* {agendas.map((agenda) => (
+                {angendas.map((agenda) => (
                     <div key={agenda.id}>
                         <p>
                             {agenda.name}
@@ -21,16 +21,17 @@ const Agenda = ({ agendas, categories }) => {
                         <p>
                             {agenda.author}
                         </p>
-                                <span>{agenda.representations.debutDate}</span> X <span>{representation.enDate}</span>
-                                <p>
-                                    {agenda.representations.place}
-                                </p>
-                            </div>
-                ))} */}
-            <h1>
-                Agenda
-
-            </h1>
+                        {agenda.representations.map((representation) =>
+                        (
+                        <div key={representation.id}>
+                            <span>{representation.debutDate}</span> X <span>{representation.endDate}</span>
+                            <p>
+                                {representation.place}
+                            </p>
+                        </div>
+                        ))}
+                    </div>
+                ))}
             </Container>
         </Layout>
     )
@@ -38,15 +39,16 @@ const Agenda = ({ agendas, categories }) => {
 
 export async function getStaticProps() {
     // Run API calls in parallel
-    const [agendas, categories] = await Promise.all([
-      fetchAPI("/agendas"),
-      fetchAPI("/categories"),
+    const [angendas, categories, representations] = await Promise.all([
+        fetchAPI("/angendas"),
+        fetchAPI("/categories"),
+        fetchAPI("/representations")
     ])
-  
+
     return {
-      props: { agendas, categories },
-      revalidate: 1,
+        props: { angendas, categories, representations },
+        revalidate: 1,
     }
-  }
+}
 
 export default Agenda

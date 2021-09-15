@@ -36,13 +36,13 @@ const Nav = ({ categories }) => {
               }).map((category) => {
                 return (
                   <Dropdown.Item>
-                    <li key={category.id}>
+                    <span key={category.id}>
                       <Link as={`/category/${category.slug}`} href="/category/[id]">
                         <a
                         >{category.name}
                         </a>
                       </Link>
-                    </li>
+                    </span>
                   </Dropdown.Item>
                 )
               })}
