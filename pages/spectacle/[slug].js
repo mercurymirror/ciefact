@@ -28,7 +28,7 @@ const Spectacle = ({ spectacle, categories }) => {
       >
         <h1>{spectacle.title}</h1>
       </div>
-      <div className="uk-section">
+      {/* <div className="uk-section">
         <div className="uk-container uk-container-small">
           <ReactMarkdown source={spectacle.description} escapeHtml={false} />
           <hr className="uk-divider-small" />
@@ -48,7 +48,7 @@ const Spectacle = ({ spectacle, categories }) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </Layout>
   )
 }

@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 import Link from "next/link"
 import { Row, Col, Navbar, Dropdown, DropdownButton } from "react-bootstrap";
 
-const Nav = ({ categories }) => {
+const Nav = ({ spectacles }) => {
 
   return (
     <Navbar>
@@ -30,24 +30,11 @@ const Nav = ({ categories }) => {
             </Link>
           </li>
           <li>
-            <DropdownButton className="" id="dropdown-basic-button" title="Spectacles">
-              {categories.sort(function (a, b) {
-                return a.nb - b.nb;
-              }).map((category) => {
-                return (
-                  <Dropdown.Item>
-                    <span key={category.id}>
-                      <Link as={`/category/${category.slug}`} href="/category/[id]">
-                        <a
-                        >{category.name}
-                        </a>
-                      </Link>
-                    </span>
-                  </Dropdown.Item>
-                )
-              })}
-            </DropdownButton>
-
+          <Link as="/spectacles" href="/spectacles">
+              <a>
+                Spectacles
+              </a>
+            </Link>
           </li>
           <li>
             <Link as="/podcast" href="/podcast">
@@ -71,6 +58,17 @@ const Nav = ({ categories }) => {
             </Link>
           </li>
         </ul>
+        <Row>
+        {/* {spectacles.category.map((category) => {
+                return (
+                  <div key={category.id}>
+                      <Link as={`/category/${category.slug}`} href="/category/[id]">
+                        {category.name}
+                      </Link>
+                  </div>
+                )
+              })} */}
+        </Row>
       </Navbar.Collapse>
     </Navbar>
   )

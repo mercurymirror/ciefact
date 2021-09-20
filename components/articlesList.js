@@ -19,7 +19,7 @@ const ArticlesList = ({ articles, categories }) => {
                   </Col>
                   <Col md={8} className="contentActu">
                   <Col>
-                   <img className="imgActu" src={getStrapiMedia(item.image.url)}
+                   <img className="imgActu" src={item.image.url}
                   />
                   </Col>
                   <Col className="titre">

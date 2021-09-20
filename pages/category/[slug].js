@@ -1,6 +1,6 @@
 import React from "react"
 import Articles from "../articles"
-import Spectacles from "../../components/spectacle"
+import Spectacles from "../../components/spectacles"
 import Agenda from "../agenda"
 import { fetchAPI } from "../../lib/api"
 import Layout from "../../components/layout"
@@ -26,11 +26,6 @@ const Category = ({ category, categories }) => {
           <Spectacles spectacles={category.spectacles} />
           </Col>
           </Row>
-          <style jsx>{`
-        .alert {
-          display: ${category.name == 'spectacles' ? 'block' : 'none'};
-        }
-      `}</style>
       </Container>
     </Layout>
   )

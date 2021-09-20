@@ -1,20 +1,20 @@
 import Nav from "./nav"
 
-const Layout = ({ children, categories, seo }) => (
+const Layout = ({ children, spectacles, seo }) => (
   <>
-    <Nav categories={categories} />
+    <Nav spectacles={spectacles} />
     {children}
   </>
 )
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [categories] = await Promise.all([
-    fetchAPI("/categories"),
+  const [spectacles] = await Promise.all([
+    fetchAPI("/spectacles"),
   ])
 
   return {
-    props: { categories },
+    props: { spectacles },
     revalidate: 1,
   }
 }

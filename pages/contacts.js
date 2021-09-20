@@ -27,7 +27,7 @@ const Contacts = ({ contacts, categories }) => {
                 </p>
                 </Col>
                 <Col>
-                <img className="imgContacts" src={getStrapiMedia(contacts.img.url)}
+                <img className="imgContacts" src={contacts.img.url}
                 width="500" height="100%" />
                 </Col>
                 </Row>
