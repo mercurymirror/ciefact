@@ -1,5 +1,5 @@
 import React from "react"
-import Spectacles from "../components/spectacles";
+import Spectacles from "./spectacles";
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { fetchAPI } from "../lib/api"
@@ -10,7 +10,13 @@ const Home = ({ spectacles, categories, homepage }) => {
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.seo} />
+      <div className="uk-section">
+        <div className="uk-container uk-container-large">
+          <h1>{homepage.hero.title}</h1>
+          <Category categories={categories} />
           <Spectacles spectacles={spectacles} />
+        </div>
+      </div>
     </Layout>
   )
 }

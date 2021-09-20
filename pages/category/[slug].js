@@ -1,6 +1,6 @@
 import React from "react"
 import Articles from "../articles"
-import Spectacles from "../../components/spectacles"
+import Spectacles from "../spectacles"
 import Agenda from "../agenda"
 import { fetchAPI } from "../../lib/api"
 import Layout from "../../components/layout"
@@ -9,22 +9,22 @@ import { Container, Col, Row }  from "react-bootstrap"
 
 
 const Category = ({ category, categories }) => {
-  const seo = {
-    metaTitle: category.name,
-    metaDescription: `All ${category.name} spectacles`,
-  }
+  // const seo = {
+  //   metaTitle: category.name,
+  //   metaDescription: `All ${category.name} spectacles`,
+  // }
 
   return (
     <Layout categories={categories}>
-      <Seo seo={seo} />
+      {/* <Seo seo={seo} /> */}
       <Container>
           <Row>
-            <Col sm={1}>
+            {/* <Col sm={1}>
           <h1 className="alert">{category.name}</h1>
           </Col>
           <Col sm={11}>
           <Spectacles spectacles={category.spectacles} />
-          </Col>
+          </Col> */}
           </Row>
       </Container>
     </Layout>

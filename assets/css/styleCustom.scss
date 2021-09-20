@@ -127,28 +127,20 @@ h1 {
             min-height: 0;
             font-family: $font-titles;
             &:hover {
-                text-decoration: underline !important;
+                text-decoration: none;
                 color: $main-red !important;
             }
         }
     }
 }
-.active {
-    text-decoration: underline !important;
-    color: blue !important;
-}
+
 
 //HOMEPAGE
 .container {
     max-width: 100%;
     height: auto;
     margin-top: 22vh;
-    .row {
-        display: flex;
-        flex-direction: row;
-        padding-top: 6vh;
-    }
-    .alert {
+    .vertical-title {
         writing-mode: vertical-rl;
         text-orientation: mixed;
         transform: rotate(180deg);
@@ -158,6 +150,11 @@ h1 {
         z-index: 800;
         width: 10vw;
         margin-left: 2vw;
+    }
+    .row {
+        display: flex;
+        flex-direction: row;
+        padding-top: 6vh;
     }
     .tableau {
         .row {
@@ -188,7 +185,6 @@ h1 {
     text-align: end;
     position: absolute;
     right: 0;
-    margin-top: 8.6vh;
 }
 
 //Actu

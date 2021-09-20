@@ -1,5 +1,6 @@
-import React, { useRef } from "react"
-import Link from "next/link"
+import React, { useRef } from "react";
+import Link from "next/link";
+import ActiveLink from './ActiveLink';
 import { Row, Col, Navbar, Dropdown, DropdownButton } from "react-bootstrap";
 
 const Nav = ({ spectacles }) => {
@@ -14,52 +15,62 @@ const Nav = ({ spectacles }) => {
         </Navbar.Brand>
       </Row>
       <Navbar.Collapse id="responsive-navbar-nav">
+        <style jsx>{`
+      .nav-link {
+        text-decoration: none;
+      }
+
+      .active {
+        text-decoration: underline solid .14rem;
+        text-underline-offset: 5px;
+      }
+    `}</style>
         <ul className="menu">
           <li>
-            <Link as="/actualites" href="/articles">
+            <ActiveLink activeClassName="active" as="/actualites" href="/articles">
               <a>
                 Actualitées
               </a>
-            </Link>
+            </ActiveLink>
           </li>
           <li>
-            <Link as="/membres" href="/membres">
+            <ActiveLink activeClassName="active" as="/membres" href="/membres">
               <a>
                 Membres
               </a>
-            </Link>
+            </ActiveLink>
           </li>
           <li>
-          <Link as="/spectacles" href="/spectacles">
+            <ActiveLink activeClassName="active" as="/spectacles" href="/spectacles">
               <a>
                 Spectacles
               </a>
-            </Link>
+            </ActiveLink>
           </li>
           <li>
-            <Link as="/podcast" href="/podcast">
+            <ActiveLink activeClassName="active" as="/podcast" href="/podcast">
               <a>
                 Podcast
               </a>
-            </Link>
+            </ActiveLink>
           </li>
           <li>
-            <Link as="/agenda" href="/agenda">
+            <ActiveLink activeClassName="active" as="/agenda" href="/agenda">
               <a>
                 Agenda
               </a>
-            </Link>
+            </ActiveLink>
           </li>
           <li>
-            <Link as="/contacts" href="/contacts">
+            <ActiveLink activeClassName="active" as="/contacts" href="/contacts">
               <a>
                 Contacts
               </a>
-            </Link>
+            </ActiveLink>
           </li>
         </ul>
         <Row>
-        {/* {spectacles.category.map((category) => {
+          {/* {spectacles.category.map((category) => {
                 return (
                   <div key={category.id}>
                       <Link as={`/category/${category.slug}`} href="/category/[id]">
