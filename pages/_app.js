@@ -5,6 +5,9 @@ import "../assets/css/styleCustom.scss"
 import { createContext } from "react"
 import { fetchAPI } from "../lib/api"
 import { getStrapiMedia } from "../lib/media"
+import { QueryClientProvider, QueryClient } from "react-query";
+
+const queryClient = new QueryClient;
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({})
@@ -18,7 +21,9 @@ const MyApp = ({ Component, pageProps }) => {
         <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} />
       </Head>
       <GlobalContext.Provider value={global}>
+        <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
+        </QueryClientProvider>
       </GlobalContext.Provider>
     </>
   )

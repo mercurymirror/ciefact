@@ -23,7 +23,7 @@ const Membre = ({ types }) => {
                                             <div key="membres.id">
                                                 <Link href={`/membres/${membres.id}`}
                                                 >
-                                                    <a>
+                                                    <a target="">
                                                         {membres.name}
                                                     </a>
                                                 </Link>

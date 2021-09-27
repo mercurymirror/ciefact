@@ -1,15 +1,16 @@
-import React, { useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import ActiveLink from './ActiveLink';
-import { Row, Col, Navbar, Dropdown, DropdownButton } from "react-bootstrap";
+import { Row, Col, Navbar } from "react-bootstrap";
+import Category from "../pages/category/[slug]";
 
-const Nav = ({ spectacles }) => {
+const Nav = ({ categories }) => {
 
   return (
     <Navbar>
       <Row>
         <Navbar.Brand>
-          <Link href="/actualites">
+          <Link href="/">
             <a className="logo"> FACT</a>
           </Link>
         </Navbar.Brand>
@@ -34,18 +35,19 @@ const Nav = ({ spectacles }) => {
             </ActiveLink>
           </li>
           <li>
-            <ActiveLink activeClassName="active" as="/membres" href="/membres">
+            <ActiveLink activeClassName="active" as="/membres" href="/">
               <a>
                 Membres
               </a>
             </ActiveLink>
           </li>
-          <li>
+          <li >
             <ActiveLink activeClassName="active" as="/spectacles" href="/spectacles">
               <a>
                 Spectacles
               </a>
             </ActiveLink>
+          
           </li>
           <li>
             <ActiveLink activeClassName="active" as="/podcast" href="/podcast">
@@ -69,17 +71,6 @@ const Nav = ({ spectacles }) => {
             </ActiveLink>
           </li>
         </ul>
-        <Row>
-          {/* {spectacles.category.map((category) => {
-                return (
-                  <div key={category.id}>
-                      <Link as={`/category/${category.slug}`} href="/category/[id]">
-                        {category.name}
-                      </Link>
-                  </div>
-                )
-              })} */}
-        </Row>
       </Navbar.Collapse>
     </Navbar>
   )

@@ -1,9 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap"
 import Link from "next/link";
 import gsap from "gsap";
 import { getStrapiMedia } from "../../lib/media";
 import Layout from "../../components/layout";
+import SubMenu from "../../components/sousMenu";
 import { fetchAPI } from "../../lib/api";
 
 
@@ -32,27 +33,42 @@ const Spectacles = ({ spectacles, categories }) => {
     })
   }
 
+  const [toggle, setToggle] = useState(false)
+
+  useEffect(() => {
+    const path = window.location.pathname;
+    if (path === "/spectacles") {
+      setToggle(true);
+    }
+  }, []);
+
   return (
     <Layout categories={categories}>
-      <Container>
+        {toggle && (
+      <SubMenu 
+      spectacles={spectacles}
+      categories={categories} 
+      />
+      )}
+      <Container className="catalogue">
         <Row>
-          <Col>
+          <Col sm="1">
             <h1 className="vertical-title">Spéctacles</h1>
             <h5 className="vertical-title subtitle">{state.subtitle}</h5>
           </Col>
-          <Col>
+          <Col sm="11">
             <div className="tableau">
               {spectacles.map((item) => (
                 <Row key={item.id}
                   onMouseEnter={(e) => handleHover(e, item.id)}
                   onMouseOut={(e) => handleHoverExit(e, item.id)}
                 >
-                  <Link as={`/spectacle/${item.title}`} href={`/spectacle/${item.id}`}>
+                  <Link as={`/spectacles/${item.slug}`} href={`/spectacles/${item.id}`}>
                     <a className="titre"
                     >{item.title} </a>
                   </Link>
-                  <img className="imgHome" src={item.image.url}
-                    width="900"
+                  <img className="imgCatalog" src={item.image.url}
+                    width="50%"
                     ref={(el) => (imagesRef.current[item.id] = el)}
                   />
                 </Row>

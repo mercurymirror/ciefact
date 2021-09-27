@@ -15,6 +15,10 @@
     font-family: "Pressura-regular";
     src: url(../../public/GT-Pressura/GT-Pressura-Regular.ttf) format("opentype");
 }
+@font-face {
+    font-family: "Pressura-mono";
+    src: url(../../public/GT-Pressura/GT-Pressura-Mono-Regular.ttf) format("opentype");
+}
 
 //couleurs
 $main-red: #eb1615;
@@ -25,6 +29,10 @@ $fact-font: "Junicode", sans-serif;
 $font-titles: "Pressura", sans-serif;
 $font-titles-bold: "Pressura-bold", sans-serif;
 $font-titles-regular: "Pressura-regular", sans-serif;
+$font-titles-mono: "Pressura-mono", sans-serif;
+
+// paragraphs styles
+$indent: 3rem;
 
 html,
 body {
@@ -79,7 +87,7 @@ h1 {
     position: fixed;
     display: -moz-box;
     width: 100%;
-    height: 22vh;
+    height: 23vh;
     z-index: 990;
     top: 0;
     background-color: #ffffff;
@@ -88,17 +96,17 @@ h1 {
         justify-content: center;
         margin-top: 4vh;
     }
-    button {
-        text-decoration: none;
-        border: none;
-        color: #eb1615;
-        background: none;
-        font-size: 1rem;
-        &:hover {
-            text-decoration: underline !important;
-            color: $main-red !important;
-        }
-    }
+    // button {
+    //     text-decoration: none;
+    //     border: none;
+    //     color: #eb1615;
+    //     background: none;
+    //     font-size: 1rem;
+    //     &:hover {
+    //         text-decoration: underline !important;
+    //         color: $main-red !important;
+    //     }
+    // }
     a.logo {
         font-size: 7rem;
         margin: auto;
@@ -109,7 +117,6 @@ h1 {
         }
     }
 }
-
 .menu {
     position: relative;
     width: max-content;
@@ -118,9 +125,16 @@ h1 {
     margin: auto;
     margin-top: 2vh;
     color: $main-red;
+    .sous-menu {
+        position: absolute;
+        margin-top: 1.5vh;
+        padding-left: 0;
+        margin-left: -11%;
+    }
     li {
         display: inline-block;
         padding: 0 1.7vw 0 1.7vw;
+        text-transform: capitalize;
         a {
             color: $main-red;
             text-transform: capitalize;
@@ -134,57 +148,16 @@ h1 {
     }
 }
 
-
 //HOMEPAGE
 .container {
     max-width: 100%;
     height: auto;
-    margin-top: 22vh;
-    .vertical-title {
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
-        transform: rotate(180deg);
-        font-size: 4.5rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        z-index: 800;
-        width: 10vw;
-        margin-left: 2vw;
-    }
+    margin-top: 23vh;
     .row {
         display: flex;
         flex-direction: row;
         padding-top: 6vh;
     }
-    .tableau {
-        .row {
-            border-collapse: collapse;
-            font-size: 1.5rem;
-            width: 80vw;
-            border: none;
-            border: 1.7px solid black;
-            border-top: none;
-            border-right: none;
-            padding: 0 6px 0 6px;
-            a {
-                &:hover {
-                    text-decoration: none;
-                }
-            }
-            .titre {
-                color: black;
-                padding-left: 0.7vw;
-                font-size: 2.5rem;
-            }
-        }
-    }
-}
-
-.imgHome {
-    display: none;
-    text-align: end;
-    position: absolute;
-    right: 0;
 }
 
 //Actu
@@ -232,7 +205,7 @@ h1 {
                 line-height: 0.6;
             }
             .textArticle {
-                text-indent: 3em;
+                text-indent: $indent;
                 text-align: justify;
             }
         }
@@ -300,7 +273,130 @@ h1 {
         }
     }
 }
+// Spectacle catalogue
 
+.catalogue {
+    margin-top: 22vh;
+    .row {
+        padding-top: 0;
+    }
+    .col-sm-11 {
+        margin-left: -8vw;
+        .tableau {
+            .row {
+                border-collapse: collapse;
+                font-size: 1.5rem;
+                width: 100vw;
+                border: none;
+                border: 1.7px solid black;
+                border-top: none;
+                border-right: none;
+                padding: 0 5vh 0 5vh;
+                a {
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+                .titre {
+                    color: black;
+                    font-size: 3.2rem;
+                    padding: 1vh 0.7vw 1vh 0;
+                }
+            }
+        }
+    }
+    .imgCatalog {
+        display: none;
+        text-align: end;
+        position: absolute;
+        right: 0;
+    }
+}
+//Get Spectacle
+.spectacle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 100vw;
+    }
+    .spectacle-big-title {
+        margin: auto;
+        font-size: 15vw;
+        font-family: $font-titles-bold;
+        color: #ffffff;
+        text-transform: uppercase;
+        position: absolute;
+        left: 50%;
+        top: 60%;
+        transform: translate(-50%, -50%);
+    }
+    .spectacle-subtitle {
+        position: absolute;
+        left: 50%;
+        top: 69%;
+        transform: translate(-50%, -50%);
+        color: #ffffff;
+        font-size: 1.6vw;
+    }
+}
+.vertical-title {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-family: $font-titles;
+    font-size: 6vw;
+    font-weight: 100;
+    color: #000;
+    text-transform: uppercase;
+    z-index: 800;
+    width: 10vw;
+    margin-left: 2vw;
+    &.red {
+        color: $main-red;
+        margin: 7vh 0 0 2vw;
+    }
+}
+.row {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    color: $main-red;
+    font-family: $font-titles-regular;
+    .status {
+        font-size: 1.4vw;
+        text-transform: capitalize;
+        justify-content: space-between;
+    }
+    .middle-col {
+        max-width: 50vw;
+        p {
+            margin-bottom: 0;
+        }
+        .date {
+            font-family: $fact-font;
+            font-size: 1.8rem;
+            margin-top: 0;
+        }
+        .description {
+            text-indent: $indent;
+            color: #000;
+            font-size: 1.3vw;
+            font-weight: 100;
+            font-family: $font-titles;
+        }
+    }
+}
+
+.shows {
+    padding: 0 3vw 0 3vw;
+    font-family: "Junicode";
+    text-align: center;
+    margin-top: 20vh;
+}
+.generic {
+    padding: 0 3vw 0 5vw;
+}
 //Contacts
 .contacts {
     margin-top: 25vh;
