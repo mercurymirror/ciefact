@@ -58,7 +58,8 @@ const Spectacles = ({ spectacles, categories }) => {
           </Col>
           <Col sm="11">
             <div className="tableau">
-              {spectacles.map((item) => (
+              {spectacles.sort((a, b) => b.year - a.year)
+              .map((item) => (
                 <Row key={item.id}
                   onMouseEnter={(e) => handleHover(e, item.id)}
                   onMouseOut={(e) => handleHoverExit(e, item.id)}

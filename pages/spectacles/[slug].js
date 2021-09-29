@@ -19,11 +19,12 @@ const Spectacle = ({ spectacle, categories }) => {
       <Seo seo={seo} />
       <Container className="spectacle">
         <img src={spectacle.image.url} />
-        <div>
-          <h1 className="spectacle-big-title">{spectacle.title}</h1>
-          <h5 className="spectacle-subtitle">{spectacle.sousTitre}</h5>
+        <div className="spectacle-titles">
+          <h1 className="big-title">{spectacle.title}</h1>
+          <h5 className="subtitle">{spectacle.sousTitre}</h5>
         </div>
       </Container>
+      <Container className="spectacle-text">
       <Row>
         <Col sm="1">
           <h1 className="vertical-title red">{spectacle.title}</h1>
@@ -58,7 +59,7 @@ Collaboratrices techniques et artistiques Amélie Géhin Justine Denos
           </p>
           </Col>
       </Row>
-
+      </Container>
     </Layout>
   )
 }

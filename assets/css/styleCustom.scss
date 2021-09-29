@@ -204,6 +204,12 @@ h1 {
                 margin-bottom: 2vh;
                 line-height: 0.6;
             }
+            .content-css {
+                .uk-link,
+                a, .my-anchor-css-class {
+                    color: #eb1615;
+                }
+            }
             .textArticle {
                 text-indent: $indent;
                 text-align: justify;
@@ -320,24 +326,29 @@ h1 {
     img {
         width: 100vw;
     }
-    .spectacle-big-title {
-        margin: auto;
-        font-size: 15vw;
-        font-family: $font-titles-bold;
+    .spectacle-titles {
         color: #ffffff;
-        text-transform: uppercase;
         position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         left: 50%;
         top: 60%;
         transform: translate(-50%, -50%);
-    }
-    .spectacle-subtitle {
-        position: absolute;
-        left: 50%;
-        top: 69%;
-        transform: translate(-50%, -50%);
-        color: #ffffff;
-        font-size: 1.6vw;
+        .big-title {
+            position: relative;
+            font-size: 15vw;
+            font-family: $font-titles-bold;
+            text-transform: uppercase;
+            margin: auto;
+        }
+        .subtitle {
+            position: relative;
+            font-family: $font-titles;
+            font-weight: 200;
+            font-size: 1.8vw;
+            margin: auto;
+        }
     }
 }
 .vertical-title {
@@ -357,33 +368,37 @@ h1 {
         margin: 7vh 0 0 2vw;
     }
 }
-.row {
-    display: flex;
-    justify-content: center;
-    justify-content: space-around;
-    color: $main-red;
-    font-family: $font-titles-regular;
-    .status {
-        font-size: 1.4vw;
-        text-transform: capitalize;
-        justify-content: space-between;
-    }
-    .middle-col {
-        max-width: 50vw;
-        p {
-            margin-bottom: 0;
+.spectacle-text {
+    margin-top: 0;
+    .row {
+        display: flex;
+        justify-content: center;
+        justify-content: space-around;
+        padding: 0 0 10vh 0;
+        color: $main-red;
+        font-family: $font-titles-regular;
+        .status {
+            font-size: 1.4vw;
+            text-transform: capitalize;
+            justify-content: space-between;
         }
-        .date {
-            font-family: $fact-font;
-            font-size: 1.8rem;
-            margin-top: 0;
-        }
-        .description {
-            text-indent: $indent;
-            color: #000;
-            font-size: 1.3vw;
-            font-weight: 100;
-            font-family: $font-titles;
+        .middle-col {
+            max-width: 50vw;
+            p {
+                margin-bottom: 0;
+            }
+            .date {
+                font-family: $fact-font;
+                font-size: 1.8rem;
+                margin-top: 0;
+            }
+            .description {
+                text-indent: $indent;
+                color: #000;
+                font-size: 1.3vw;
+                font-weight: 100;
+                font-family: $font-titles;
+            }
         }
     }
 }
@@ -396,6 +411,58 @@ h1 {
 }
 .generic {
     padding: 0 3vw 0 5vw;
+}
+
+// Agenda
+.agenda-bloc {
+    margin-top: 30vh;
+    display: grid;
+    grid-template-columns: repeat(3, 30vw [col-start]);
+    justify-content: center;
+    .agenda {
+        color: $main-red;
+        text-align: center;
+        &.title {
+            font-weight: 900;
+            font-family: $font-titles-bold;
+            font-size: 3vw;
+            text-transform: uppercase;
+            margin-bottom: 0;
+        }
+        &.author {
+            font-family: $font-titles-regular;
+            font-weight: 500;
+            font-size: 1.5vw;
+            margin-top: 0;
+        }
+        &.repres {
+            color: $main-red;
+            text-align: center;
+        }
+        &.dates {
+            font-family: $fact-font;
+            font-size: 2.8vw;
+        }
+        &.place {
+            font-family: $font-titles-regular;
+            font-weight: 500;
+            font-size: 2vw;
+            margin-top: 0;
+        }
+        .section {
+            font-family: $fact-font;
+            font-size: 2.8vw;
+        }
+    }
+    hr {
+        border: none;
+        border-top: 2px solid #000000;
+        color: #000000;
+        overflow: visible;
+        text-align: center;
+        height: 5px;
+        width: 22vw;
+    }
 }
 //Contacts
 .contacts {

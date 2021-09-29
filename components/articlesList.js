@@ -1,21 +1,21 @@
-import { Container, Row, Col } from "react-bootstrap"
-import Link from "next/link";
-import gsap from "gsap";
-import { getStrapiMedia } from "../lib/media";
-
+import { Container, Row, Col } from "react-bootstrap";
+import Moment from "react-moment";
+import ShowMoreText from "react-show-more-text";
 
 const ArticlesList = ({ articles, categories }) => {
 
+  function executeOnClick(isExpanded) {
+}
 
   return (
     <div className="bloc-actu">
         <Container>
-            {articles.map((item) => (
+            {articles.sort((a, b) => b.date - a.date).map((item) => (
               <Row key={item.id}
                 >
                   <Col className="widget" md={4}>
                     <p>Posté par {item.author}</p>
-                    <p className="date">{item.date}</p>
+                    <Moment format="DD.MM.YYYY" className="date">{item.date}</Moment>
                   </Col>
                   <Col md={8} className="contentActu">
                   <Col>
@@ -31,9 +31,20 @@ const ArticlesList = ({ articles, categories }) => {
                   </h2>
                 </Col>
                 <Col>
+                <ShowMoreText
+                lines={5}
+                more="Show more"
+                less="Show less"
+                className="textArticle"
+                anchorClass="my-anchor-css-class"
+                onClick={executeOnClick}
+                expanded={false}
+                truncatedEndingComponent={"... "}
+            >
                 <p className="textArticle">
                   {item.texte}
                 </p>
+                </ShowMoreText>
                 </Col>
                 </Col>
               </Row>
