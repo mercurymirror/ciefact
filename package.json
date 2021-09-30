@@ -7,12 +7,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next export",
     "deploy": "next build && next export",
     "lint": "next lint",
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
     "bootstrap": "^5.1.0",
+    "firebase": "^9.1.0",
     "git": "^0.1.5",
     "gsap": "^3.7.1",
     "moment": "^2.24.0",
@@ -31,7 +33,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^7.30.0",
+    "eslint": "^7.32.0",
     "eslint-config-next": "^11.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",

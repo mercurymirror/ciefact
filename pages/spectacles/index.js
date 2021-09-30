@@ -1,10 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { Row, Col, Container } from "react-bootstrap"
 import Link from "next/link";
 import gsap from "gsap";
-import { getStrapiMedia } from "../../lib/media";
 import Layout from "../../components/layout";
-import SubMenu from "../../components/sousMenu";
+// import SubMenu from "../../components/sousMenu";
 import { fetchAPI } from "../../lib/api";
 
 
@@ -13,11 +12,10 @@ const Spectacles = ({ spectacles, categories }) => {
   const imagesRef = useRef({});
 
   //state for subtitle
-  const [state, setState] = useState({
-    initial: false,
-    clicked: null,
-    subtitle: " ",
-  });
+  // const [state, setState] = useState({
+  //   clicked: null,
+  //   subtitle: " ",
+  // });
 
   const handleHover = (e, id) => {
     gsap.to(imagesRef.current[id], {
@@ -33,28 +31,28 @@ const Spectacles = ({ spectacles, categories }) => {
     })
   }
 
-  const [toggle, setToggle] = useState(false)
+  // const [toggle, setToggle] = useState(false)
 
-  useEffect(() => {
-    const path = window.location.pathname;
-    if (path === "/spectacles") {
-      setToggle(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const path = window.location.pathname;
+  //   if (path === "/spectacles") {
+  //     setToggle(true);
+  //   }
+  // }, []);
 
   return (
     <Layout categories={categories}>
-        {toggle && (
+        {/* {toggle && (
       <SubMenu 
       spectacles={spectacles}
       categories={categories} 
       />
-      )}
+      )} */}
       <Container className="catalogue">
         <Row>
           <Col sm="1">
             <h1 className="vertical-title">Spéctacles</h1>
-            <h5 className="vertical-title subtitle">{state.subtitle}</h5>
+            {/* <h5 className="vertical-title subtitle">{state.subtitle}</h5> */}
           </Col>
           <Col sm="11">
             <div className="tableau">

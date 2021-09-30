@@ -2,9 +2,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import Moment from "react-moment";
 import ShowMoreText from "react-show-more-text";
 
-const ArticlesList = ({ articles, categories }) => {
+const ArticlesList = ({ articles }) => {
 
-  function executeOnClick(isExpanded) {
+  function executeOnClick() {
 }
 
   return (

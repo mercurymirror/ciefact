@@ -2,21 +2,13 @@ import ReactMarkdown from "react-markdown"
 import Moment from "react-moment"
 import { fetchAPI } from "../../lib/api"
 import Layout from "../../components/layout"
-import Seo from "../../components/seo"
 import { Container, Row, Col } from "react-bootstrap"
 
 const Spectacle = ({ spectacle, categories }) => {
 
-  const seo = {
-    metaTitle: spectacle.title,
-    metaDescription: spectacle.description,
-    shareImage: spectacle.image,
-    spectacle: true,
-  }
 
   return (
     <Layout categories={categories}>
-      <Seo seo={seo} />
       <Container className="spectacle">
         <img src={spectacle.image.url} />
         <div className="spectacle-titles">
@@ -39,7 +31,7 @@ const Spectacle = ({ spectacle, categories }) => {
               <span>{spectacle.status}</span>
             </Col>
             <Col>
-              <span>{spectacle.categories[0].name}</span>
+              <span>{spectacle.category.name}</span>
             </Col>
           </Row>
           <Row>

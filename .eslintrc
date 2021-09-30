@@ -1,12 +1,14 @@
 {
   "extends": [
     "next",
-    "prettier"
-  ],
-  "plugins": [
-    "prettier"
+    "prettier",
+    "eslint:recommended"
   ],
   "rules": {
-    "prettier/prettier": "error"
+    // "prettier/prettier": "warn",
+    // "semi": ["warn", "always"],
+    // "quotes": ["warn", "double"]
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off"
   }
 }
