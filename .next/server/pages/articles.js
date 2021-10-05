@@ -117,24 +117,17 @@ module.exports = require("react-bootstrap");
 
 /***/ }),
 
+/***/ 3703:
+/***/ ((module) => {
+
+module.exports = require("react-markdown");
+
+/***/ }),
+
 /***/ 3818:
 /***/ ((module) => {
 
 module.exports = require("react-moment");
-
-/***/ }),
-
-/***/ 2585:
-/***/ ((module) => {
-
-module.exports = require("react-query");
-
-/***/ }),
-
-/***/ 8879:
-/***/ ((module) => {
-
-module.exports = require("react-show-more-text");
 
 /***/ }),
 
@@ -159,7 +152,7 @@ module.exports = require("styled-jsx/style");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [544,664,672,631], () => (__webpack_exec__(5356)));
+var __webpack_exports__ = __webpack_require__.X(0, [544,664,672,436], () => (__webpack_exec__(5356)));
 module.exports = __webpack_exports__;
 
 })();

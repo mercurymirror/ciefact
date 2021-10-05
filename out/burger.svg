@@ -1,0 +1,27 @@
+import React from 'react';
+
+const Burger = () => (
+
+<svg enable-background="new 0 0 92 54" version="1.1" viewBox="0 0 92 54" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+<style type="text/css">
+	.Ombre_x0020_portée{fill:none;}
+	.Lueur_x0020_externe_x0020_5 pt{fill:none;}
+	.Néon_x0020_bleu{fill:none;stroke:#8AACDA;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;}
+	.Ton_x0020_clair_x0020_chrome{fill:url(#a);stroke:#FFFFFF;stroke-width:0.3629;stroke-miterlimit:1;}
+	.Swing_GS{fill:#FFDD00;}
+	.Alysse_GS{fill:#A6D0E4;}
+	.st0{fill:#FFFFFF;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+</style>
+<linearGradient id="a" x1="-995" x2="-995" y1="-61" y2="-62" gradientUnits="userSpaceOnUse">
+	<stop stop-color="#656565" offset="0"/>
+	<stop stop-color="#1B1B1B" offset=".618"/>
+	<stop stop-color="#545454" offset=".6292"/>
+	<stop stop-color="#3E3E3E" offset=".9831"/>
+</linearGradient>
+
+	<line class="st0" x2="91.64" y1=".5" y2=".5"/>
+	<line class="st0" x1=".36" x2="92" y1="54.5" y2="54.5"/>
+	<line class="st0" x1=".36" x2="92" y1="27.5" y2="27.5"/>
+
+</svg>
+)

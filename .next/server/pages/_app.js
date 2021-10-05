@@ -26,13 +26,6 @@ module.exports = require("react");
 
 /***/ }),
 
-/***/ 2585:
-/***/ ((module) => {
-
-module.exports = require("react-query");
-
-/***/ }),
-
 /***/ 5282:
 /***/ ((module) => {
 
