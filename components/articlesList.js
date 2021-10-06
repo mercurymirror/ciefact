@@ -4,8 +4,6 @@ import Moment from "react-moment";
 
 const ArticlesList = ({ articles }) => {
 
-  const [readMore,setReadMore] = useState(false);
-
 
   return (
     <div className="bloc-actu">
