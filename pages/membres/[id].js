@@ -1,13 +1,12 @@
 import { fetchAPI } from "../../lib/api";
 import ReactMarkdown from "react-markdown";
 import { Container, Col, Row } from "react-bootstrap";
-import Layout from '../../components/layout';
 import Membre from "../../components/membre";
 
 
 export default function Member({ membre, membres, categories, quote, types }) {
   return (
-    <Layout categories={categories}>
+    <>
       <Container>
         <Row>
           <p className="quote">
@@ -33,7 +32,7 @@ export default function Member({ membre, membres, categories, quote, types }) {
               <Membre types={types} />
         </Row>
       </Container>
-    </Layout>
+    </>
   )
 }
 

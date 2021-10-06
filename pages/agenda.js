@@ -3,14 +3,13 @@ import { Container } from "react-bootstrap"
 import Moment from "react-moment"
 import Link from "next/link";
 import { fetchAPI } from "../lib/api"
-import Layout from "../components/layout"
 
 const section = ">";
 const Agenda = ({ angendas, categories }) => {
 
 
     return (
-        <Layout categories={categories}>
+        <>
             <Container>
                 <div className="agenda-bloc">
                     {angendas.sort((a, b) => b.published_at - a.published_at)
@@ -39,7 +38,7 @@ const Agenda = ({ angendas, categories }) => {
                     ))}
                 </div>
             </Container>
-        </Layout>
+        </>
     )
 }
 

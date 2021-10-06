@@ -3,17 +3,23 @@ import Link from "next/link";
 import ActiveLink from './ActiveLink';
 import { Row, Col, Navbar } from "react-bootstrap";
 import Category from "../pages/category/[slug]";
+import Header from "./header";
 
 const Nav = ({ categories }) => {
 
   return (
     <Navbar>
       <Row>
+        <Col>
         <Navbar.Brand>
           <Link href="/">
             <a className="logo"> FACT</a>
           </Link>
         </Navbar.Brand>
+        </Col>
+        <Col>
+        <Header />
+        </Col>
       </Row>
       <Navbar.Collapse id="responsive-navbar-nav">
         <style jsx>{`

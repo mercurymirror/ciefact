@@ -3,7 +3,6 @@ import Articles from "../articles"
 import Spectacles from "../spectacles"
 import Agenda from "../agenda"
 import { fetchAPI } from "../../lib/api"
-import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 import { Container, Col, Row }  from "react-bootstrap"
 
@@ -15,7 +14,7 @@ const Category = ({ category, categories }) => {
   // }
 
   return (
-    <Layout categories={categories}>
+    <>
       {/* <Seo seo={seo} /> */}
       <Container>
           <Row>
@@ -27,7 +26,7 @@ const Category = ({ category, categories }) => {
           </Col> */}
           </Row>
       </Container>
-    </Layout>
+    </>
   )
 }
 

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import Hamburger from "./Hamburger";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import Hamburger from "./hamburger";
 
 
 const Header = () => {
@@ -14,6 +15,20 @@ const Header = () => {
  //state for disabled button
  const [disabled, setDisabled] = useState(false);
 
+ const router = useRouter();
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      setState({ clicked: false, menuName: "Menu" });
+    };
+
+    router.events.on("routeChangeStart", handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method:
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
+  }, []);
  const handleMenu = () => {
     disabledMenu();
     if (state.initial === false) {

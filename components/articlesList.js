@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
+import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
-import ShowMoreText from "react-show-more-text";
 
 const ArticlesList = ({ articles }) => {
 
@@ -31,20 +31,7 @@ const ArticlesList = ({ articles }) => {
                   </h2>
                 </Col>
                 <Col>
-                <ShowMoreText
-                lines={5}
-                more="Show more"
-                less="Show less"
-                className="textArticle"
-                anchorClass="my-anchor-css-class"
-                onClick={executeOnClick}
-                expanded={false}
-                truncatedEndingComponent={"... "}
-            >
-                <p className="textArticle">
-                  {item.texte}
-                </p>
-                </ShowMoreText>
+                <ReactMarkdown source={item.texte} />
                 </Col>
                 </Col>
               </Row>

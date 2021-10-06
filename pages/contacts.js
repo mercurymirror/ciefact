@@ -3,7 +3,6 @@ import Link from "next/link";
 import gsap from "gsap";
 import { getStrapiMedia } from "../lib/media"
 import { fetchAPI } from "../lib/api"
-import Layout from "../components/layout"
 import { Container, Row, Col } from "react-bootstrap"
 
 
@@ -11,7 +10,7 @@ const Contacts = ({ contacts, categories }) => {
 
 
     return (
-        <Layout categories={categories}>
+        <>
             <Container>
                 {contacts.map((contacts) => (
                     <Row className="contacts" key="contacts.id">
@@ -33,7 +32,7 @@ const Contacts = ({ contacts, categories }) => {
                 </Row>
                 ))}
             </Container>
-        </Layout>
+        </>
     )
 }
 

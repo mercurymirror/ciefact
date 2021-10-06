@@ -8,8 +8,8 @@ const Spectacle = ({ spectacle, categories }) => {
 
 
   return (
-    <Layout categories={categories}>
-      <Container className="spectacle">
+    <>
+      <Container className="spectacle-header">
         <img src={spectacle.image.url} />
         <div className="spectacle-titles">
           <h1 className="big-title">{spectacle.title}</h1>
@@ -52,7 +52,7 @@ Collaboratrices techniques et artistiques Amélie Géhin Justine Denos
           </Col>
       </Row>
       </Container>
-    </Layout>
+    </>
   )
 }
 
