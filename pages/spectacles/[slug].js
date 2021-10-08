@@ -2,6 +2,7 @@ import ReactMarkdown from "react-markdown"
 import Moment from "react-moment"
 import { fetchAPI } from "../../lib/api"
 import { Container, Row, Col, NavItem } from "react-bootstrap"
+import { wrap } from "gsap/all"
 
 const Spectacle = ({ spectacle, spectacles, categories }) => {
 
@@ -52,7 +53,10 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
         </Row>
         <Row className="gallery">
           {spectacle.galery.map((item) => (
+            <div key={item.id}>
             <img width="400" height="400" src={item.url} />
+            <p>{item.id}</p>
+            </div>
           ))} 
 
         </Row>
