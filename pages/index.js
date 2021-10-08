@@ -1,5 +1,4 @@
 import React from "react"
-import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { fetchAPI } from "../lib/api"
 import Homepage from "../components/homepage";
@@ -7,7 +6,7 @@ import Homepage from "../components/homepage";
 const Home = ({ categories, homepage, quote, types }) => {
 
   return (
-    <Layout categories={categories}>
+    <>
       <Seo seo={homepage.seo} />
       <div className="uk-section">
         <div className="uk-container uk-container-large">
@@ -17,7 +16,7 @@ const Home = ({ categories, homepage, quote, types }) => {
           types={types} />
         </div>
       </div>
-    </Layout>
+    </>
   )
 }
 

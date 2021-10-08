@@ -1,11 +1,10 @@
 import { Container, Row, Col } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
+import { ReadMoreToggler } from "read-more-read-less-toggler";
 
 const ArticlesList = ({ articles }) => {
 
-  function executeOnClick() {
-}
 
   return (
     <div className="bloc-actu">
@@ -31,11 +30,13 @@ const ArticlesList = ({ articles }) => {
                   </h2>
                 </Col>
                 <Col>
-                <ReactMarkdown>
-                <p className="textArticle">
-                  {item.texte}
-                </p>
-                </ReactMarkdown>
+                <ReadMoreToggler
+                buttonColor="#eb1615"
+                >
+        
+          <ReactMarkdown source={item.texte} />
+
+        </ReadMoreToggler>
                 </Col>
                 </Col>
               </Row>

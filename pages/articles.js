@@ -3,7 +3,6 @@ import Link from "next/link";
 import gsap from "gsap";
 import { getStrapiMedia } from "../lib/media";
 import { fetchAPI } from "../lib/api"
-import Layout from "../components/layout"
 import ArticlesList from "../components/articlesList";
 
 
@@ -11,9 +10,9 @@ const Articles = ({ articles, categories }) => {
 
 
   return (
-    <Layout categories={categories}>
+    <>
     <ArticlesList articles={articles} />
-    </Layout>
+    </>
   )
 }
 

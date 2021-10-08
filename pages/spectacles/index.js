@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { Row, Col, Container } from "react-bootstrap"
 import Link from "next/link";
 import gsap from "gsap";
-import Layout from "../../components/layout";
 // import SubMenu from "../../components/sousMenu";
 import { fetchAPI } from "../../lib/api";
 
@@ -20,7 +19,6 @@ const Spectacles = ({ spectacles, categories }) => {
   const handleHover = (e, id) => {
     gsap.to(imagesRef.current[id], {
       display: "block",
-      delay: 0.8
     })
   }
 
@@ -41,14 +39,14 @@ const Spectacles = ({ spectacles, categories }) => {
   // }, []);
 
   return (
-    <Layout categories={categories}>
+    <>
         {/* {toggle && (
       <SubMenu 
       spectacles={spectacles}
       categories={categories} 
       />
       )} */}
-      <Container className="catalogue">
+      <Container>
         <Row>
           <Col sm="1">
             <h1 className="vertical-title">Spéctacles</h1>
@@ -60,7 +58,7 @@ const Spectacles = ({ spectacles, categories }) => {
               .map((item) => (
                 <Row key={item.id}
                   onMouseEnter={(e) => handleHover(e, item.id)}
-                  onMouseOut={(e) => handleHoverExit(e, item.id)}
+                  onMouseLeave={(e) => handleHoverExit(e, item.id)}
                 >
                   <Link as={`/spectacles/${item.slug}`} href={`/spectacles/${item.id}`}>
                     <a className="titre"
@@ -77,7 +75,7 @@ const Spectacles = ({ spectacles, categories }) => {
           </Col>
         </Row>
       </Container>
-    </Layout>
+    </>
   )
 }
 

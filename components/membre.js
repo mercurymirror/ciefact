@@ -1,5 +1,7 @@
 import { Col } from "react-bootstrap"
 import Link from "next/link";
+import BreadCrumb from "../components/breadCrumbs";
+
 
 
 const Membre = ({ types }) => {
@@ -7,6 +9,7 @@ const Membre = ({ types }) => {
 
     return (
         <>
+            <BreadCrumb />
             <Col id="membre-types">
                 {types.map((type) => (
                     <div key={type.id} className="type">
@@ -21,9 +24,9 @@ const Membre = ({ types }) => {
                                     <td>
                                         {type.membres.map((membres) => (
                                             <div key="membres.id">
-                                                <Link href={`/membres/${membres.id}`}
+                                                <Link href={`/membres/${membres.id}#membre-anchor`}
                                                 >
-                                                    <a target="">
+                                                    <a>
                                                         {membres.name}
                                                     </a>
                                                 </Link>
