@@ -14,12 +14,12 @@ export default function Member({ membre, membres, categories, quote, types }) {
           </p>
         </Row>
         <Row className="col-membre">
-              <Col className="img-membre">
+              <Col className="img-membre" id="membre-anchor">
                 <img src={membre.img.url}
                   width="200" />
               </Col>
               <Col className="text-membre">
-                <p className="name">
+                <p className="name" >
                   {membre.name}
                 </p>
                 <p className="fonction">
@@ -43,7 +43,7 @@ export async function getStaticPaths() {
   return {
     paths: membres.map((membre) => ({
       params: {
-        id: membre.id.toString()
+        slug: membre.slug
       },
     })),
     fallback: false,
@@ -51,7 +51,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const membre = (await fetchAPI(`/membres?id=${params.id}`))[0]
+  const membre = (await fetchAPI(`/membres?slug=${params.slug}`))[0]
   const [membres, categories, quote, types] = await Promise.all([
     fetchAPI("/membres"),
     fetchAPI("/categories"),

@@ -1,13 +1,7 @@
 {
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/agenda": "pages/agenda.js",
-  "/articles": "pages/articles.js",
-  "/category/[slug]": "pages/category/[slug].js",
-  "/contacts": "pages/contacts.js",
+  "/_error": "pages/_error.js",
   "/": "pages/index.js",
-  "/membres/[id]": "pages/membres/[id].js",
-  "/spectacles/[slug]": "pages/spectacles/[slug].js",
-  "/spectacles": "pages/spectacles.js",
-  "/_error": "pages/_error.js"
+  "/membres/[slug]": "pages/membres/[slug].js"
 }

@@ -91,7 +91,11 @@ h1 {
     z-index: 990;
     top: 0;
     background-color: #ffffff;
-    .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .navRow {
         display: flex;
         justify-content: center;
         margin-top: 4vh;
@@ -159,6 +163,7 @@ header {
     max-width: 100%;
     height: auto;
     margin-top: 28vh;
+    padding-bottom: 15vh;
     .row {
         display: flex;
         flex-direction: row;
@@ -223,21 +228,36 @@ header {
         }
     }
 }
-
+//read more custom
+.LNroN {
+    width: 20px !important;
+    height: 20px !important;
+}
+.heKCPX {
+    width: 20px !important;
+    height: 20px !important;
+}
+.cgQmrj {
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to bottom, #000, #fff) !important;
+    max-height: 150px !important;
+    margin: 0;
+}
+.gERFfz {
+    background-image: linear-gradient(to bottom, #000, #fff) !important;
+}
 //membres
 .quote {
     max-width: 70vw;
     color: $main-red;
     font-family: $font-titles;
     font-size: 2rem;
-    margin: auto;
-    margin-top: 16vh;
-    margin-bottom: 16vh;
+    margin: 16vw auto;
+
 }
 .col-membre {
     display: flex;
     .img-membre {
-        margin-top: 10vh;
         margin-left: 6vw;
         text-align: end;
     }
@@ -262,6 +282,7 @@ header {
     display: flex;
     padding-left: 5vw;
     min-width: 25vw;
+    margin-right: 2vw;
     .type {
         width: 9.5vw;
         thead {
@@ -323,6 +344,7 @@ header {
 }
 //Get Spectacle
 .spectacle-header {
+    margin-top: 23vh;
     img {
         width: 100vw;
     }
@@ -336,11 +358,14 @@ header {
         top: 60%;
         transform: translate(-50%, -50%);
         .big-title {
+            max-width: 80vw;
+            width: 80vw;
             position: relative;
             font-size: 15vw;
             font-family: $font-titles-bold;
             text-transform: uppercase;
             margin: auto;
+            text-align: center;
         }
         .subtitle {
             position: relative;
@@ -348,6 +373,7 @@ header {
             font-weight: 200;
             font-size: 1.8vw;
             margin: auto;
+            text-shadow: #000 1.3px 0.6px 2px;
         }
     }
 }
@@ -373,17 +399,19 @@ header {
     .row {
         display: flex;
         justify-content: center;
-        justify-content: space-around;
+        justify-content: space-between;
         padding: 0 0 10vh 0;
         color: $main-red;
         font-family: $font-titles-regular;
+        .ext {
+            max-width: 20vw;
+        }
         .status {
-            font-size: 1.4vw;
+            font-size: 1rem;
             text-transform: capitalize;
             justify-content: space-between;
         }
         .middle-col {
-            max-width: 50vw;
             p {
                 margin-bottom: 0;
             }
@@ -395,14 +423,25 @@ header {
             .description {
                 text-indent: $indent;
                 color: #000;
-                font-size: 1.3vw;
                 font-weight: 100;
                 font-family: $font-titles;
             }
         }
     }
+    .gallery {
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none;
+        padding: 0 2vw;
+        img {
+            margin: 0 1vw;
+            &:hover {
+                border: #eb1615 3px solid;
+            }
+        }
+    }
 }
-
 .shows {
     padding: 0 3vw 0 3vw;
     font-family: "Junicode";
@@ -465,7 +504,6 @@ header {
 }
 //Contacts
 .contacts {
-    margin-top: 25vh;
     padding-left: 3vw;
     p {
         font-size: 3.4rem;
@@ -554,7 +592,7 @@ header {
                 align-items: center;
                 position: relative;
                 top: 18vh;
-                padding-left: 3vw;
+                padding-left: 5.5vw;
                 nav {
                     display: block;
                     ul {
@@ -562,10 +600,10 @@ header {
                         margin: 0;
                         li {
                             list-style: none;
-                            font-size: 4rem;
+                            font-size: 3.5rem;
                             font-weight: 500;
                             cursor: pointer;
-                            height: 13vh;
+                            height: 12vh;
                             overflow: hidden;
                             position: relative;
                             width: 700px;
@@ -599,11 +637,10 @@ header {
     header {
         display: block;
     }
-    .uk-navbar {
-        flex-direction: column;
-        min-height: 18vh;
+    .navbar .row {
+        margin-top: 21vh;
     }
-    .uk-navbar-nav > li > a.logo {
+    .navbar a.logo {
         font-size: 5rem;
     }
     .uk-navbar-nav > li > a > menu {
@@ -611,7 +648,7 @@ header {
     }
 
     .navbar {
-        height: 18vh;
+        height: 15vh;
     }
     .navbar-collapse {
         display: none;
@@ -634,12 +671,36 @@ header {
         color: #ffffff;
     }
     //MEMBRES
-    .img-membre {
-        align-items: flex-start;
-        &img {
-            width: 40vw;
+    .row.col-membre {
+        flex-direction: column;
+        align-items: center;
+        .img-membre {
+            align-items: flex-start;
+            order: 2;
+            &img {
+                width: 40vw;
+            }
+        }
+        .text-membre {
+            order: 3;
+        }
+        #membre-types{
+            order: 1;
+            padding: 0 2vw;
+            margin-bottom: 7vh;
+            .type {
+                width: auto;
+                text-align: center;
+                tbody div {
+                    margin-top: 2vh;
+                }
+            }
         }
     }
+    .quote {
+        margin: 8vw auto;
+    }
+   
     //ACTU
     .bloc-actu .row {
         flex-direction: column;
@@ -647,7 +708,7 @@ header {
             text-align: start;
             padding-left: 5vw;
             p {
-                font-size: .9rem;
+                font-size: 0.9rem;
             }
             .date {
                 font-size: 1.4rem;
@@ -659,7 +720,6 @@ header {
                 width: 100%;
             }
         }
-        
     }
 
     .contentActu {
@@ -686,5 +746,43 @@ header {
         .agenda.place {
             font-size: 5vw;
         }
+    }
+    // SPECTACLES
+
+    .imgCatalog {
+        display: none;
+    }
+
+    //GET SPECTACLES
+    .spectacle-header {
+        margin-top: 15vh;
+        img {
+            width: auto;
+        }
+    }
+    .spectacle-text .row {
+        flex-direction: column;
+        justify-content: center;
+        padding: 0;
+    }
+    .spectacle-text .row .ext {
+        max-width: 100vw;
+    }
+    .a {
+        order: 2;
+    }
+    .b {
+        order: 3;
+    }
+    .middle-col {
+        order: 1;
+        .status {
+            flex-direction: row;
+        }
+    }
+
+    //CONTACTS
+    .container .contacts {
+        flex-direction: column;
     }
 }

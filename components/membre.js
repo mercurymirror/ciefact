@@ -2,6 +2,7 @@ import { Col } from "react-bootstrap"
 import Link from "next/link";
 
 
+
 const Membre = ({ types }) => {
 
 
@@ -21,9 +22,9 @@ const Membre = ({ types }) => {
                                     <td>
                                         {type.membres.map((membres) => (
                                             <div key="membres.id">
-                                                <Link href={`/membres/${membres.id}`}
+                                                <Link href={`/membres/${membres.slug}#membre-anchor`} as={`/membres/${membres.slug}`}
                                                 >
-                                                    <a target="">
+                                                    <a>
                                                         {membres.name}
                                                     </a>
                                                 </Link>
