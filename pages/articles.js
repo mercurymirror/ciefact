@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { getStrapiMedia } from "../lib/media";
 import { fetchAPI } from "../lib/api"
 import ArticlesList from "../components/articlesList";
+import BreadCrumb from "../components/breadCrumbs";
 
 
 const Articles = ({ articles, categories }) => {
@@ -11,6 +12,7 @@ const Articles = ({ articles, categories }) => {
 
   return (
     <>
+    <BreadCrumb />
     <ArticlesList articles={articles} />
     </>
   )

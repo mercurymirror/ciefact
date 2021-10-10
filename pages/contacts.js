@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { getStrapiMedia } from "../lib/media"
 import { fetchAPI } from "../lib/api"
 import { Container, Row, Col } from "react-bootstrap"
+import BreadCrumb from "../components/breadCrumbs";
 
 
 const Contacts = ({ contacts, categories }) => {
@@ -11,6 +12,7 @@ const Contacts = ({ contacts, categories }) => {
 
     return (
         <>
+        <BreadCrumb />
             <Container>
                 {contacts.map((contacts) => (
                     <Row className="contacts" key="contacts.id">

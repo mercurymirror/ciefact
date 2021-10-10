@@ -22,7 +22,7 @@ const Membre = ({ types }) => {
                                     <td>
                                         {type.membres.map((membres) => (
                                             <div key="membres.id">
-                                                <Link href={`/membres/${membres.slug}#membre-anchor`} as={`/membres/${membres.slug}`}
+                                                <Link href={`/membres/${membres.slug}#membre-anchor`}
                                                 >
                                                     <a>
                                                         {membres.name}

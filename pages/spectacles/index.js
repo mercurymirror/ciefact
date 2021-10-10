@@ -4,6 +4,7 @@ import Link from "next/link";
 import gsap from "gsap";
 // import SubMenu from "../../components/sousMenu";
 import { fetchAPI } from "../../lib/api";
+import BreadCrumb from "../../components/breadCrumbs";
 
 
 const Spectacles = ({ spectacles, categories }) => {
@@ -46,6 +47,7 @@ const Spectacles = ({ spectacles, categories }) => {
       categories={categories} 
       />
       )} */}
+      <BreadCrumb />
       <Container>
         <Row>
           <Col sm="1">
