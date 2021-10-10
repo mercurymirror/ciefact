@@ -253,7 +253,6 @@ header {
     font-family: $font-titles;
     font-size: 2rem;
     margin: 10vw auto;
-
 }
 .col-membre {
     display: flex;
@@ -465,9 +464,9 @@ header {
     }
     p {
         font-size: 1.5rem;
-line-height: 1.2;
-margin-top: 1vh;
-    } 
+        line-height: 1.2;
+        margin-top: 1vh;
+    }
 }
 
 // Agenda
@@ -702,7 +701,7 @@ header {
         .text-membre {
             order: 3;
         }
-        #membre-types{
+        #membre-types {
             order: 1;
             padding: 0 2vw;
             margin-bottom: 7vh;
@@ -719,7 +718,7 @@ header {
         margin: 5vw auto;
         font-size: 1.5rem;
     }
-   
+
     //ACTU
     .bloc-actu .row {
         flex-direction: column;

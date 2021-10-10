@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
-import { ReadMoreToggler } from 'read-more-read-less-toggler';
+// import { ReadMoreToggler } from 'read-more-read-less-toggler';
 
 const ArticlesList = ({ articles }) => {
 
@@ -30,11 +30,11 @@ const ArticlesList = ({ articles }) => {
                   </h2>
                 </Col>
                 <Col>
-                <ReadMoreToggler
+                {/* <ReadMoreToggler
                 buttonColor="#eb1615"
-                >
+                > */}
                 <ReactMarkdown source={item.texte} />
-                </ReadMoreToggler>
+                {/* </ReadMoreToggler> */}
                 </Col>
                 </Col>
               </Row>
