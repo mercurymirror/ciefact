@@ -1,5 +1,5 @@
 import React from "react"
-import Articles from "../articles"
+import Articles from "../actualites"
 import Spectacles from "../spectacles"
 import Agenda from "../agenda"
 import { fetchAPI } from "../../lib/api"

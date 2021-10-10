@@ -41,12 +41,7 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
           </Col>
           <Col className="ext b">
             <p className="generic">
-              Conception
-              Clement Gœthals
-              Hélène Beutin
-              Interprétation
-              Lucile Charnier Mercedes Dassy Adèle Zouane
-              Collaboratrices techniques et artistiques Amélie Géhin Justine Denos
+            <ReactMarkdown source={spectacle.cast} />
             </p>
           </Col>
         </Row>

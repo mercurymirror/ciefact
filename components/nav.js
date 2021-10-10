@@ -34,14 +34,14 @@ const Nav = ({ categories }) => {
     `}</style>
         <ul className="menu">
           <li>
-            <ActiveLink activeClassName="active" as="/actualites" href="/articles">
+            <ActiveLink activeClassName="active" href="/actualites">
               <a>
-                Actualitées
+                Actualités
               </a>
             </ActiveLink>
           </li>
           <li>
-            <ActiveLink activeClassName="active" as="/membres" href="/">
+            <ActiveLink activeClassName="active" href="/membres">
               <a>
                 Membres
               </a>

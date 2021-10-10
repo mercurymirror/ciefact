@@ -2,10 +2,13 @@ import { fetchAPI } from "../lib/api";
 import ReactMarkdown from "react-markdown";
 import { Container, Col, Row } from "react-bootstrap";
 import Membre from "./membre";
+import BreadCrumb from "./breadCrumbs";
 
 
 export default function Homepage({ homepage, quote, types }) {
   return (
+    <>
+    <BreadCrumb />
       <Container>
         <Row>
           <p className="quote">
@@ -21,6 +24,7 @@ export default function Homepage({ homepage, quote, types }) {
               <Membre types={types} />
         </Row>
       </Container>
+      </>
   )
 }
 

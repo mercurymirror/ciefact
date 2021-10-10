@@ -127,7 +127,7 @@ const Hamburger = ({ state }) => {
                         onMouseOut={(e) => handleHoverExit(e)}
                         ref={line1}
                       >
-                        Actualitées
+                        Actualités
                       </a>
                     </ActiveLink>
                   </li>

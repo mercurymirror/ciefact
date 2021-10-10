@@ -252,11 +252,14 @@ header {
     color: $main-red;
     font-family: $font-titles;
     font-size: 2rem;
-    margin: 16vw auto;
+    margin: 10vw auto;
 
 }
 .col-membre {
     display: flex;
+    .col {
+        margin-left: 3vw;
+    }
     .img-membre {
         margin-left: 6vw;
         text-align: end;
@@ -388,10 +391,9 @@ header {
     text-transform: uppercase;
     z-index: 800;
     width: 10vw;
-    margin-left: 2vw;
     &.red {
         color: $main-red;
-        margin: 7vh 0 0 2vw;
+        margin: 0;
     }
 }
 .spectacle-text {
@@ -405,9 +407,14 @@ header {
         font-family: $font-titles-regular;
         .ext {
             max-width: 20vw;
+            margin: 5vh 4vw;
+            &.b {
+                margin-right: 8vw;
+            }
         }
         .status {
-            font-size: 1rem;
+            font-size: 1.3rem;
+            font-weight: 900;
             text-transform: capitalize;
             justify-content: space-between;
         }
@@ -425,6 +432,7 @@ header {
                 color: #000;
                 font-weight: 100;
                 font-family: $font-titles;
+                font-size: 1.2rem;
             }
         }
     }
@@ -443,13 +451,23 @@ header {
     }
 }
 .shows {
-    padding: 0 3vw 0 3vw;
+    padding: 0 2vw;
     font-family: "Junicode";
     text-align: center;
     margin-top: 20vh;
 }
 .generic {
-    padding: 0 3vw 0 5vw;
+    padding-left: 5vw;
+    font-family: $fact-font;
+    h2 {
+        font-family: $font-titles;
+        margin-bottom: 0;
+    }
+    p {
+        font-size: 1.5rem;
+line-height: 1.2;
+margin-top: 1vh;
+    } 
 }
 
 // Agenda
@@ -591,7 +609,7 @@ header {
                 justify-content: space-between;
                 align-items: center;
                 position: relative;
-                top: 18vh;
+                top: 17vh;
                 padding-left: 5.5vw;
                 nav {
                     display: block;
@@ -600,10 +618,10 @@ header {
                         margin: 0;
                         li {
                             list-style: none;
-                            font-size: 3.5rem;
+                            font-size: 3.3rem;
                             font-weight: 500;
                             cursor: pointer;
-                            height: 12vh;
+                            height: 11vh;
                             overflow: hidden;
                             position: relative;
                             width: 700px;
@@ -698,7 +716,8 @@ header {
         }
     }
     .quote {
-        margin: 8vw auto;
+        margin: 5vw auto;
+        font-size: 1.5rem;
     }
    
     //ACTU
