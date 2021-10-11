@@ -4,6 +4,7 @@ import ActiveLink from './ActiveLink';
 import { Row, Col, Navbar } from "react-bootstrap";
 import Header from "./header";
 import { MouseContext } from "../lib/context/mouse-context";
+import DotRing from "../components/DotRing/DotRing";
 
 
 const Nav = ({ burger }) => {
@@ -11,6 +12,7 @@ const Nav = ({ burger }) => {
 
   return (
     <Navbar>
+      <DotRing />
       <Row>
         <Col>
         <Navbar.Brand>

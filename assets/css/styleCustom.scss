@@ -823,6 +823,14 @@ header {
     .container .contacts {
         flex-direction: column;
     }
+
+    //CURSOR MOBILE
+    .ring {
+        display: none;
+    }
+    .dot {
+        display: none;
+    }
 }
 
 
