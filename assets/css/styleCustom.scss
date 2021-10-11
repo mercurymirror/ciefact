@@ -397,7 +397,7 @@ header {
 }
 .spectacle-text {
     margin-top: 0;
-    .row {
+    .bloc-mob {
         display: flex;
         justify-content: center;
         justify-content: space-between;
@@ -781,11 +781,11 @@ header {
             top: 34%;
         }
     }
-    .spectacle-text .row {
+    .spectacle-text .bloc-mob {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 0;
+        padding: 0 5vw;
         img {
             margin-bottom: 3vh;
         }
@@ -803,6 +803,7 @@ header {
         order: 1;
         .status {
             flex-direction: row;
+            padding-left: 0 0;
         }
     }
 

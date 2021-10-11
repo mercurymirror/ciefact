@@ -16,7 +16,7 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
         </div>
       </div>
       <Container className="spectacle-text">
-        <Row>
+        <Row className= "bloc-mob">
           <Col className="ext a">
             <h1 className="vertical-title red">{spectacle.title}</h1>
             <h2 className="quote shows">{spectacle.citation}</h2>
