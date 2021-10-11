@@ -4,8 +4,9 @@ import "../assets/css/style.css"
 import "../assets/css/styleCustom.scss"
 import { createContext } from "react"
 import { fetchAPI } from "../lib/api"
-import { getStrapiMedia } from "../lib/media"
 import Layout from "../components/layout";
+import DotRing from "../components/DotRing/DotRing";
+import MouseContextProvider from "../lib/context/mouse-context";
 
 
 // Store Strapi Global object in context
@@ -17,10 +18,13 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <Layout>
     <Head>
-        <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} />
+        <link rel="shortcut icon" href={global.favicon} />
       </Head>
       <GlobalContext.Provider value={global}>
+      <MouseContextProvider>
+      <DotRing />
         <Component {...pageProps} />
+        </MouseContextProvider>
       </GlobalContext.Provider>
     </Layout>
   )

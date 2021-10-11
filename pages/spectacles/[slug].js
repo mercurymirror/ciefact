@@ -47,7 +47,7 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
         </Row>
         <Row className="gallery">
           {spectacle.galery.map((item) => (
-            <img width="400" height="400" src={item.url} />
+            <img src={item.url} />
           ))} 
 
         </Row>

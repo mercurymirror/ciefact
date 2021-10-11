@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import ActiveLink from './ActiveLink';
 import { Row, Col, Navbar } from "react-bootstrap";
-import Category from "../pages/category/[slug]";
 import Header from "./header";
+import { MouseContext } from "../lib/context/mouse-context";
 
-const Nav = ({ categories }) => {
+
+const Nav = ({ burger }) => {
+  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
   return (
     <Navbar>
@@ -18,7 +20,7 @@ const Nav = ({ categories }) => {
         </Navbar.Brand>
         </Col>
         <Col>
-        <Header />
+        <Header burger={burger} />
         </Col>
       </Row>
       <Navbar.Collapse id="responsive-navbar-nav">
@@ -35,13 +37,18 @@ const Nav = ({ categories }) => {
         <ul className="menu">
           <li>
             <ActiveLink activeClassName="active" href="/actualites">
-              <a>
+              <a
+              onMouseEnter={() => cursorChangeHandler("hovered")}
+              onMouseLeave={() => cursorChangeHandler("")}
+              >
                 Actualités
               </a>
             </ActiveLink>
           </li>
           <li>
-            <ActiveLink activeClassName="active" href="/membres">
+            <ActiveLink activeClassName="active" href="/membres"
+            onMouseEnter={() => cursorChangeHandler("hovered")}
+            onMouseLeave={() => cursorChangeHandler("")}>
               <a>
                 Membres
               </a>
@@ -80,6 +87,18 @@ const Nav = ({ categories }) => {
       </Navbar.Collapse>
     </Navbar>
   )
+}
+
+export async function getStaticProps() {
+  // Run API calls in parallel
+  const [ burger ] = await Promise.all([
+    fetchAPI("/burger"),
+  ])
+
+  return {
+    props: { burger },
+    revalidate: 1,
+  }
 }
 
 export default Nav

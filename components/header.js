@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Hamburger from "./hamburger";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 
-const Header = () => {
 
-    //state for menu button
+const Header = (burger) => {
+
+  //state for menu button
   const [state, setState] = useState({
     initial: false,
     clicked: null,
     menuName: "Menu",
   });
 
- //state for disabled button
- const [disabled, setDisabled] = useState(false);
+  //state for disabled button
+  const [disabled, setDisabled] = useState(false);
 
- const router = useRouter();
+  const router = useRouter();
   useEffect(() => {
     const handleRouteChange = (url) => {
       setState({ clicked: false, menuName: "Menu" });
@@ -29,7 +31,7 @@ const Header = () => {
       router.events.off("routeChangeStart", handleRouteChange);
     };
   }, []);
- const handleMenu = () => {
+  const handleMenu = () => {
     disabledMenu();
     if (state.initial === false) {
       setState({
@@ -50,37 +52,38 @@ const Header = () => {
     }
   };
 
-   // determine if our menu button should be disabled
-   const disabledMenu = () => {
+  // determine if our menu button should be disabled
+  const disabledMenu = () => {
     setDisabled(!disabled);
     setTimeout(() => {
       setDisabled(false);
     }, 1200);
   };
 
-    return (
-        <header>
-            <div className="container-burger">
-                <div className="wrapper">
-                    <div className="inner-header">
-                        <div className="menu">
-                            <button
-                                disabled={disabled}
-                                onClick={handleMenu}
-                            // {...cursorHandlers}
-                            >
-                                <a className="menuBtn">
-                                  {state.menuName}  
-                                </a>
-                            </button>
+  return (
+    <header>
+      <div className="container-burger">
+        <div className="wrapper">
+          <div className="inner-header">
+            <div className="menu">
+              <button
+                disabled={disabled}
+                onClick={handleMenu}
+              // {...cursorHandlers}
+              >
+                <a className="menuBtn">
+<GiHamburgerMenu />
+                  </a>
+              </button>
 
-                        </div>
-                    </div>
-                </div>
             </div>
-            <Hamburger state={state} />
-        </header>
-    );
+          </div>
+        </div>
+      </div>
+      <Hamburger state={state} />
+    </header>
+  );
 }
+
 
 export default Header
