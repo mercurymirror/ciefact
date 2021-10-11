@@ -775,13 +775,20 @@ header {
     .spectacle-header {
         margin-top: 15vh;
         img {
-            width: auto;
+            width: 100vw;
+        }
+        .spectacle-titles {
+            top: 34%;
         }
     }
     .spectacle-text .row {
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         padding: 0;
+        img {
+            margin-bottom: 3vh;
+        }
     }
     .spectacle-text .row .ext {
         max-width: 100vw;
