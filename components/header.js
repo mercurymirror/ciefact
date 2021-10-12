@@ -5,7 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 
 
-const Header = (burger) => {
+const Header = () => {
 
   //state for menu button
   const [state, setState] = useState({

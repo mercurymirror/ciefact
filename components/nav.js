@@ -7,7 +7,7 @@ import { MouseContext } from "../lib/context/mouse-context";
 import DotRing from "../components/DotRing/DotRing";
 
 
-const Nav = ({ burger }) => {
+const Nav = () => {
   const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
   return (
@@ -22,7 +22,7 @@ const Nav = ({ burger }) => {
         </Navbar.Brand>
         </Col>
         <Col>
-        <Header burger={burger} />
+        <Header/>
         </Col>
       </Row>
       <Navbar.Collapse id="responsive-navbar-nav">
@@ -89,18 +89,6 @@ const Nav = ({ burger }) => {
       </Navbar.Collapse>
     </Navbar>
   )
-}
-
-export async function getStaticProps() {
-  // Run API calls in parallel
-  const [ burger ] = await Promise.all([
-    fetchAPI("/burger"),
-  ])
-
-  return {
-    props: { burger },
-    revalidate: 1,
-  }
 }
 
 export default Nav

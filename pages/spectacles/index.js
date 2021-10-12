@@ -51,7 +51,7 @@ const Spectacles = ({ spectacles, categories }) => {
       <Container>
         <Row>
           <Col>
-            <h1 className="vertical-title">Spéctacles</h1>
+            <h1 className="vertical-title">Spectacles</h1>
             {/* <h5 className="vertical-title subtitle">{state.subtitle}</h5> */}
           </Col>
           <Col sm={11}>
@@ -62,14 +62,15 @@ const Spectacles = ({ spectacles, categories }) => {
                   onMouseEnter={(e) => handleHover(e, item.id)}
                   onMouseLeave={(e) => handleHoverExit(e, item.id)}
                 >
+                    <img className="imgCatalog" src={item.image.url}
+                    width="50%"
+                    ref={(el) => (imagesRef.current[item.id] = el)}
+                  />
                   <Link as={`/spectacles/${item.slug}`} href={`/spectacles/${item.id}`}>
                     <a className="titre"
                     >{item.title} </a>
                   </Link>
-                  <img className="imgCatalog" src={item.image.url}
-                    width="50%"
-                    ref={(el) => (imagesRef.current[item.id] = el)}
-                  />
+                
                 </Row>
 
               ))}

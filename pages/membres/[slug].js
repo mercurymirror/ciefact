@@ -5,16 +5,17 @@ import Membre from "../../components/membre";
 
 
 export default function Member({ membre, membres, categories, quote, types }) {
+
   return (
     <>
-      <Container>
+      <Container className="member-container">
         <Row>
           <p className="quote">
             {quote.text}
           </p>
         </Row>
-        <Row className="col-membre">
-              <Col className="img-membre" id="membre-anchor">
+        <Row className="col-membre" id="membre-anchor">
+              <Col className="img-membre">
                 <img src={membre.img.url}
                   width="200" />
               </Col>

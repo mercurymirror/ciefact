@@ -378,9 +378,8 @@ header {
             position: relative;
             font-family: $font-titles;
             font-weight: 200;
-            font-size: 1.8vw;
+            font-size: 1rem;
             margin: auto;
-            text-shadow: #000 1.3px 0.6px 2px;
         }
     }
 }
@@ -701,6 +700,9 @@ header {
         color: #ffffff;
     }
     //MEMBRES
+    .member-container {
+        margin-top: 20vh;
+    }
     .row.col-membre {
         flex-direction: column;
         align-items: center;
