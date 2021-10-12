@@ -317,11 +317,12 @@ header {
 .container {
     .col-sm-11 {
         margin-left: -2vw;
+        width: 84vw;
         .tableau {
             .row {
                 border-collapse: collapse;
                 font-size: 1.5rem;
-                width: 100vw;
+                width: auto;
                 border: none;
                 border: 1.7px solid black;
                 border-top: none;

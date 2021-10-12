@@ -50,11 +50,11 @@ const Spectacles = ({ spectacles, categories }) => {
       <BreadCrumb />
       <Container>
         <Row>
-          <Col sm="1">
+          <Col>
             <h1 className="vertical-title">Spéctacles</h1>
             {/* <h5 className="vertical-title subtitle">{state.subtitle}</h5> */}
           </Col>
-          <Col sm="11">
+          <Col sm={11}>
             <div className="tableau">
               {spectacles.sort((a, b) => b.year - a.year)
               .map((item) => (
