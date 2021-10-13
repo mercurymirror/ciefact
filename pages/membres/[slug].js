@@ -42,7 +42,7 @@ export async function getStaticPaths() {
   const membres = await fetchAPI("/membres")
 
   return {
-    paths: membres.map((membre) => ({
+    paths: membres.filter(membre => membre.slug).map((membre) => ({
       params: {
         slug: membre.slug
       },
