@@ -36,7 +36,7 @@ $indent: 3rem;
 
 * {
     cursor: none !important;
-  }
+}
 
 html,
 body {
@@ -133,12 +133,6 @@ h1 {
     margin: auto;
     margin-top: 2vh;
     color: $main-red;
-    .sous-menu {
-        position: absolute;
-        margin-top: 1.5vh;
-        padding-left: 0;
-        margin-left: -11%;
-    }
     li {
         display: inline-block;
         padding: 0 1.7vw 0 1.7vw;
@@ -160,6 +154,22 @@ h1 {
 }
 header {
     display: none;
+}
+.sous-menu {
+    position: absolute;
+    margin-top: -9vh;
+    padding-left: 0;
+    margin-left: 39.4%;
+    z-index: 10000;
+    li {
+        text-decoration: none;
+        display: inline-block;
+        padding: 1vh 1vw;
+        a {
+            color: $main-red;
+            text-transform: capitalize;
+        }
+    }
 }
 
 //HOMEPAGE
@@ -316,7 +326,7 @@ header {
 
 .container {
     .col-sm-11 {
-        margin-left: -2vw;
+        margin-left: -12vw;
         width: 84vw;
         .tableau {
             .row {
@@ -347,6 +357,7 @@ header {
         text-align: end;
         position: absolute;
         right: 0;
+        margin-top: 4.4rem;
     }
 }
 //Get Spectacle
@@ -383,6 +394,9 @@ header {
         }
     }
 }
+.col-sm-1 {
+    display: flex;
+    align-items: baseline;
 .vertical-title {
     writing-mode: vertical-rl;
     text-orientation: mixed;
@@ -390,7 +404,6 @@ header {
     font-family: $font-titles;
     font-size: 5rem;
     font-weight: 100;
-    color: #000;
     text-transform: uppercase;
     z-index: 800;
     width: 10vw;
@@ -398,6 +411,13 @@ header {
         color: $main-red;
         margin: 0;
     }
+    &.subtitle {
+        font-size: 1.2rem;
+        text-transform: capitalize;
+        margin-top: 0;
+        color: $main-red;
+    }
+}
 }
 .spectacle-text {
     margin-top: 0;
@@ -836,8 +856,7 @@ header {
     }
 }
 
-
-//Custom cursor 
+//Custom cursor
 .ring {
     position: fixed;
     top: 0;
@@ -854,9 +873,9 @@ header {
     will-change: width, height, transform, border;
     z-index: 999;
     pointer-events: none;
-  }
-  
-  .dot {
+}
+
+.dot {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -867,15 +886,15 @@ header {
     transform: translate(-50%, -50%);
     z-index: 999;
     pointer-events: none;
-  }
-  
-  .ring.hovered {
+}
+
+.ring.hovered {
     width: 90px;
     height: 90px;
     border-width: 3px;
     border-color: rgb(0, 0, 0);
-  }
-  
-  .dot.hovered {
+}
+
+.dot.hovered {
     display: none;
-  }
+}

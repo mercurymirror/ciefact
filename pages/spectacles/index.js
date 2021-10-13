@@ -1,8 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap"
 import Link from "next/link";
 import gsap from "gsap";
-// import SubMenu from "../../components/sousMenu";
+import SubMenu from "../../components/sousMenu";
 import { fetchAPI } from "../../lib/api";
 import BreadCrumb from "../../components/breadCrumbs";
 
@@ -12,10 +12,10 @@ const Spectacles = ({ spectacles, categories }) => {
   const imagesRef = useRef({});
 
   //state for subtitle
-  // const [state, setState] = useState({
-  //   clicked: null,
-  //   subtitle: " ",
-  // });
+  const [state, setState] = useState({
+    clicked: null,
+    subtitle: " ",
+  });
 
   const handleHover = (e, id) => {
     gsap.to(imagesRef.current[id], {
@@ -30,29 +30,28 @@ const Spectacles = ({ spectacles, categories }) => {
     })
   }
 
-  // const [toggle, setToggle] = useState(false)
+  const [toggle, setToggle] = useState(false)
 
-  // useEffect(() => {
-  //   const path = window.location.pathname;
-  //   if (path === "/spectacles") {
-  //     setToggle(true);
-  //   }
-  // }, []);
+  useEffect(() => {
+    const path = window.location.pathname;
+    if (path === "/spectacles") {
+      setToggle(true);
+    }
+  }, []);
 
   return (
     <>
-        {/* {toggle && (
+        {toggle && (
       <SubMenu 
-      spectacles={spectacles}
       categories={categories} 
       />
-      )} */}
+      )}
       <BreadCrumb />
       <Container>
         <Row>
           <Col>
             <h1 className="vertical-title">Spectacles</h1>
-            {/* <h5 className="vertical-title subtitle">{state.subtitle}</h5> */}
+            <h5 className="vertical-title subtitle">{state.subtitle}</h5>
           </Col>
           <Col sm={11}>
             <div className="tableau">
