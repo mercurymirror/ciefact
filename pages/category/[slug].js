@@ -39,7 +39,8 @@ const [toggle, setToggle] = useState(false)
 
 useEffect(() => {
   const path = window.location.pathname;
-  if (path === "/spectacles") {
+  console.log(path);
+  if (path == "/spectacles" || "/category/soutenues" || "/category/fondateurs") {
     setToggle(true);
   }
 }, []);
@@ -47,6 +48,11 @@ useEffect(() => {
 
   return (
     <>
+      {toggle && (
+      <SubMenu 
+      categories={categories} 
+      />
+      )}
       <Container>
         <Row>
           <Col sm={1}>

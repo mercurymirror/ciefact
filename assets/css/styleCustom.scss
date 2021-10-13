@@ -226,7 +226,7 @@ header {
                 font-family: $font-titles;
                 margin-top: 1vh;
                 margin-bottom: 2vh;
-                line-height: 0.6;
+                line-height: 1;
             }
             .content-css {
                 .uk-link,
@@ -326,7 +326,6 @@ header {
 
 .container {
     .col-sm-11 {
-        margin-left: -12vw;
         width: 84vw;
         .tableau {
             .row {
@@ -389,7 +388,7 @@ header {
             position: relative;
             font-family: $font-titles;
             font-weight: 200;
-            font-size: 1rem;
+            font-size: 2vw;
             margin: auto;
         }
     }
@@ -397,28 +396,27 @@ header {
 .col-sm-1 {
     display: flex;
     align-items: baseline;
-.vertical-title {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    transform: rotate(180deg);
-    font-family: $font-titles;
-    font-size: 5rem;
-    font-weight: 100;
-    text-transform: uppercase;
-    z-index: 800;
-    width: 10vw;
-    &.red {
-        color: $main-red;
-        margin: 0;
+    .vertical-title {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transform: rotate(180deg);
+        font-family: $font-titles;
+        font-size: 5rem;
+        font-weight: 100;
+        text-transform: uppercase;
+        z-index: 800;
+        width: 10vw;
     }
-    &.subtitle {
-        font-size: 1.2rem;
+    .subtitle {
+        font-size: 1.4rem;
         text-transform: capitalize;
-        margin-top: 0;
+        margin-top: 0.5rem;
         color: $main-red;
+        position: absolute;
+        left: 6.3rem;
     }
 }
-}
+
 .spectacle-text {
     margin-top: 0;
     .bloc-mob {
@@ -431,13 +429,32 @@ header {
         .ext {
             max-width: 20vw;
             margin: 5vh 4vw;
+            &.a {
+                width: 23vw;
+            }
+            .vertical-title.red {
+                writing-mode: vertical-rl;
+                text-orientation: mixed;
+                transform: rotate(180deg);
+                font-family: $font-titles;
+                font-size: 5rem;
+                font-weight: 100;
+                text-transform: uppercase;
+                z-index: 800;
+                width: 10vw;
+                color: $main-red;
+                margin: 0; 
+            }
+            .shows {
+            padding: 0 2vw 0 0;
+            width: 19vw;
+            }
             &.b {
                 margin-right: 8vw;
             }
         }
         .status {
             font-size: 1.3rem;
-            font-weight: 900;
             text-transform: capitalize;
             justify-content: space-between;
         }
@@ -466,8 +483,8 @@ header {
         scrollbar-width: none;
         padding: 0 2vw;
         img {
-            width: 50vw;
-            height: 50vh;
+            width: auto;
+            height: 60vh;
             margin: 0 1vw;
             &:hover {
                 border: #eb1615 3px solid;
@@ -702,6 +719,10 @@ header {
     .navbar-collapse {
         display: none;
     }
+
+    .sous-menu {
+        display: none;
+    }
     //wrapper
     .vertical-title {
         display: none;
@@ -805,6 +826,10 @@ header {
     .imgCatalog {
         display: none;
     }
+    
+    .container .col-sm-11 .tableau .row .titre {
+font-size: 2.3rem;
+    }
 
     //GET SPECTACLES
     .spectacle-header {
@@ -841,7 +866,9 @@ header {
             padding-left: 0 0;
         }
     }
-
+    .spectacle-text .gallery img {
+        height: 35vh;
+    }
     //CONTACTS
     .container .contacts {
         flex-direction: column;

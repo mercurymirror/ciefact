@@ -13,6 +13,7 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
+    "@loadable/component": "^5.15.0",
     "bootstrap": "^5.1.0",
     "firebase": "^9.1.0",
     "git": "^0.1.5",
@@ -27,6 +28,7 @@
     "react-icons": "^4.3.1",
     "react-markdown": "^4.2.2",
     "react-moment": "^0.9.6",
+    "react-p5-wrapper": "^3.0.2",
     "read-more-read-less-toggler": "^1.0.9",
     "sass": "^1.37.5"
   },

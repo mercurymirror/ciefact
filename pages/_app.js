@@ -10,6 +10,7 @@ import DotRing from "../components/DotRing/DotRing";
 import MouseContextProvider from "../lib/context/mouse-context";
 
 
+
 // Store Strapi Global object in context
 export const GlobalContext = createContext({})
 
