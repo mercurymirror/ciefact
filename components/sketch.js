@@ -1,6 +1,5 @@
 function sketch(p) {
-    if(typeof window === 'undefined') return;
-    // console.log(props.mode_react)
+    // if(typeof window === 'undefined') return;
     // UNITS
     let padding = [2,2]; // units
     let logo_dimensions = [80, 22]; // units
@@ -55,13 +54,12 @@ function sketch(p) {
     //     SETUP       //
     /////////////////////
     p.setup = function() {
+        // p.colorMode(p.RGB);
         let div_width = document.getElementById("logo_canvas").offsetWidth
         tile_size = div_width / (logo_dimensions[0]+padding[1]);
-        // tile_size = p.windowWidth / (logo_dimensions[0]+padding[1]);
         box_size = [p.floor(tile_size*box_dimensions[0]), p.floor(tile_size*box_dimensions[1])]
-        let canvas = p.createCanvas(div_width, tile_size*logo_dimensions[1]+padding[1]*tile_size)
-        // let canvas = p.createCanvas(p.windowWidth, tile_size*logo_dimensions[1]+padding[1]*tile_size, p.P2D)
-        // canvas.parent("logo_canvas")
+        let canvas = p.createCanvas(div_width, tile_size*logo_dimensions[1]+padding[1]*tile_size, p.P2D)
+
     };
 
     p.windowResized = function() {
@@ -73,7 +71,8 @@ function sketch(p) {
     //      DRAW      //
     ////////////////////
     p.draw = function() {
-        p.background(220);
+        // ICI LA COULEUR DU FOND / background-color
+        p.background(255,255,255);
         p.translate(padding[0]*tile_size/2, padding[1]*tile_size/2)
         p.draw_logo();
         zoff += zinc;
@@ -88,8 +87,8 @@ function sketch(p) {
         let x = letter_position[0]*tile_size ;
         let y = letter_position[1]*tile_size;
         p.translate(x, y);
-        p.fill(0);
-    
+        p.noStroke();
+        p.fill(235, 22, 21);
         let angle = p.get_angle(x, y) ;
         p.rotate(angle);  
         
