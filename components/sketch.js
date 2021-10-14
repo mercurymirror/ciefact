@@ -1,5 +1,5 @@
 function sketch(p) {
-
+    if(typeof window === 'undefined') return;
     // console.log(props.mode_react)
     // UNITS
     let padding = [2,2]; // units

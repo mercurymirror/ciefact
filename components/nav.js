@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import Link from "next/link";
+import dynamic from 'next/dynamic';
 import ActiveLink from './ActiveLink';
 import { Row, Col, Navbar } from "react-bootstrap";
 import Header from "./header";
@@ -10,14 +11,25 @@ import DotRing from "../components/DotRing/DotRing";
 const Nav = () => {
   const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
+  
+  const DynamicComponentWithNoSSR = dynamic(
+    () => import('./logo'), //ici j'importe le module ,enfin voulais importer
+    
+    { ssr: false }
+  )
+  
+ 
+
   return (
     <Navbar>
       <DotRing />
       <Row>
         <Col>
         <Navbar.Brand>
-          <Link href="/">
-            <a className="logo"> FACT</a>
+            <Link href="/">
+            <a className="logo">
+            <DynamicComponentWithNoSSR />
+            </a>
           </Link>
         </Navbar.Brand>
         </Col>

@@ -1,12 +1,24 @@
-// import { useEffect } from "react";
-// // import sketch from "../components/sketch";
-// // import { ReactP5Wrapper } from "react-p5-wrapper";
+import sketch from "../components/sketch.js";
+import { ReactP5Wrapper } from "react-p5-wrapper";
 
+const Logo = () => {
 
-// const Logo = () => {
+    let canvas_logo_style = {
+        width: '100%',
+        margin: '5%'
+      }
 
+      return (
+<div id='logo_canvas' style={canvas_logo_style}>
+          {typeof window !== "undefined" &&
+          
+            <ReactP5Wrapper  sketch={sketch} mode='all_dir' /> 
+          }
+          {/* Essai sa! Remet les window et tout dans sketch, y'avais des truc commenté je crois */}
+            {/* mode : 'mouse_dir', 'all_dir', 'noise', 'fixe' */}
+          </div>      
 
-    
-// }
+      )
+        }
 
-// export default Logo
+        export default Logo
