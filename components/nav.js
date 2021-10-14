@@ -12,27 +12,22 @@ const Nav = () => {
   const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
   
-  const DynamicComponentWithNoSSR = dynamic(
-    () => import('./logo'), //ici j'importe le module ,enfin voulais importer
+  // const DynamicComponentWithNoSSR = dynamic(
+  //   () => import('./logo'), //ici j'importe le module ,enfin voulais importer
     
-    { ssr: false }
-  )
+  //   { ssr: false }
+  // )
   
  
 
   return (
+    <>
     <Navbar>
       <DotRing />
       <Row>
-        <Col>
-        <Navbar.Brand>
-            <Link href="/">
-            <a className="logo">
-            <DynamicComponentWithNoSSR />
-            </a>
-          </Link>
-        </Navbar.Brand>
-        </Col>
+    {/* <DynamicComponentWithNoSSR /> */}
+    </Row>
+      <Row>
         <Col>
         <Header/>
         </Col>
@@ -100,6 +95,7 @@ const Nav = () => {
         </ul>
       </Navbar.Collapse>
     </Navbar>
+    </>
   )
 }
 

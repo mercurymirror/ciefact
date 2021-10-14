@@ -86,19 +86,30 @@ h1 {
 }
 
 //NAVBAR
-
+.head-logo {
+    z-index: 910;
+    display: flex;
+    justify-content: center;
+    width: 33rem;
+    margin: 3vh auto;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
 .navbar {
     position: fixed;
     display: -moz-box;
     width: 100%;
-    height: 23vh;
-    z-index: 990;
+    height: 13rem;
+    z-index: 900;
     top: 0;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    padding-bottom: 2rem;
     .navRow {
         display: flex;
         justify-content: center;
@@ -115,15 +126,7 @@ h1 {
     //         color: $main-red !important;
     //     }
     // }
-    a.logo {
-        font-size: 7rem;
-        margin: auto;
-        color: $main-red;
-        line-height: 0.5;
-        &:hover {
-            text-decoration: none;
-        }
-    }
+
 }
 .menu {
     position: relative;
@@ -133,6 +136,7 @@ h1 {
     margin: auto;
     margin-top: 2vh;
     color: $main-red;
+    padding-left: 0;
     li {
         display: inline-block;
         padding: 0 1.7vw 0 1.7vw;
@@ -157,9 +161,9 @@ header {
 }
 .sous-menu {
     position: absolute;
-    margin-top: -9vh;
+    top: 12.3rem;
     padding-left: 0;
-    margin-left: 39.4%;
+    left: 40%;
     z-index: 10000;
     li {
         text-decoration: none;
@@ -176,7 +180,7 @@ header {
 .container {
     max-width: 100%;
     height: auto;
-    margin-top: 28vh;
+    margin-top: 17rem;
     padding-bottom: 15vh;
     .row {
         display: flex;
@@ -848,6 +852,12 @@ font-size: 2.3rem;
         padding: 0 5vw;
         img {
             margin-bottom: 3vh;
+        }
+        .ext.a {
+            width: auto;
+        }
+        .quote.shows {
+            width: auto;
         }
     }
     .spectacle-text .row .ext {
