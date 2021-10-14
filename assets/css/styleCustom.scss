@@ -259,13 +259,14 @@ header {
 }
 .cgQmrj {
     -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(to bottom, #000, #fff) !important;
-    max-height: 150px !important;
+    background-image: linear-gradient(to bottom, #000, #d3d2d29e) !important;
+    max-height: 300px !important;
     margin: 0;
 }
 .gERFfz {
-    background-image: linear-gradient(to bottom, #000, #fff) !important;
+    background-image: linear-gradient(to bottom, #000, #d3d2d29e) !important;
 }
+
 //membres
 .quote {
     max-width: 70vw;
@@ -346,6 +347,7 @@ header {
                 a {
                     &:hover {
                         text-decoration: none;
+                        color: $main-red;
                     }
                 }
                 .titre {
@@ -649,6 +651,7 @@ header {
             background: $main-grey;
             height: 100%;
             overflow: hidden;
+            margin-top: 5.8rem;
         }
         .wrapper {
             position: relative;
@@ -657,7 +660,7 @@ header {
                 justify-content: space-between;
                 align-items: center;
                 position: relative;
-                top: 23vh;
+                top: 8vh;                
                 padding-left: 5.5vw;
                 nav {
                     display: block;
