@@ -4,7 +4,13 @@ import { fetchAPI } from "../../lib/api"
 import { Container, Row, Col } from "react-bootstrap";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import dynamic from 'next/dynamic';
 
+
+const DynamicComponentWithNoSSR = dynamic(
+  () => import('read-more-read-less-toggler'),
+  { ssr: false }
+)
 
 const Spectacle = ({ spectacle, spectacles, categories }) => {
 
@@ -45,7 +51,11 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
           </Col>
           <Col className="ext b">
             <p className="generic">
+            <DynamicComponentWithNoSSR
+                buttonColor="#eb1615"
+                >
               <ReactMarkdown source={spectacle.cast} />
+              </DynamicComponentWithNoSSR>
             </p>
           </Col>
         </Row>

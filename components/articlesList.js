@@ -1,7 +1,13 @@
 import { Container, Row, Col } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
-import { ReadMoreToggler } from 'read-more-read-less-toggler';
+import dynamic from 'next/dynamic';
+
+
+const DynamicComponentWithNoSSR = dynamic(
+  () => import('read-more-read-less-toggler'),
+  { ssr: false }
+)
 
 const ArticlesList = ({ articles }) => {
 
@@ -30,11 +36,11 @@ const ArticlesList = ({ articles }) => {
                   </h2>
                 </Col>
                 <Col>
-                <ReadMoreToggler
+                <DynamicComponentWithNoSSR
                 buttonColor="#eb1615"
                 >
                 <ReactMarkdown source={item.texte} />
-                </ReadMoreToggler>
+                </DynamicComponentWithNoSSR>
                 </Col>
                 </Col>
               </Row>
