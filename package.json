@@ -30,6 +30,7 @@
     "react-moment": "^0.9.6",
     "react-multi-carousel": "^2.6.5",
     "react-p5-wrapper": "^3.0.2",
+    "react-responsive-carousel": "^3.2.21",
     "read-more-read-less-toggler": "^1.0.9",
     "sass": "^1.37.5"
   },

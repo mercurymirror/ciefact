@@ -2,36 +2,13 @@ import ReactMarkdown from "react-markdown"
 import Moment from "react-moment"
 import { fetchAPI } from "../../lib/api"
 import { Container, Row, Col } from "react-bootstrap";
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+
 
 const Spectacle = ({ spectacle, spectacles, categories }) => {
 
-  // const CustomDot = ({ onClick, ...rest }) => {
-  //   const {
-  //     onMove,
-  //     index,
-  //     active,
-  //     carouselState: { currentSlide, deviceType }
-  //   } = rest;
-  //   const carouselItems =  
-  //   spectacle.galery.map((item) => (
-  //     <img src={item.url} />
-  //   )) ;
-  //   // onMove means if dragging or swiping in progress.
-  //   // active is provided by this lib for checking if the item is active or not.
-  //   return (
-  //     <button
-  //       className={active ? "active" : "inactive"}
-  //       onClick={() => onClick()}
-  //     >
-  //       {React.Children.toArray(carouselItems)[index]}
-  //     </button>
-  //   );
-  // };
-  // <Carousel showDots customDot={<CustomDot />}>
-  //   {carouselItems}
-  // </Carousel>;
+
 
   return (
     <>
@@ -43,7 +20,7 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
         </div>
       </div>
       <Container className="spectacle-text">
-        <Row className= "bloc-mob">
+        <Row className="bloc-mob">
           <Col className="ext a">
             <h1 className="vertical-title red">{spectacle.title}</h1>
             <h2 className="quote shows">{spectacle.citation}</h2>
@@ -68,17 +45,26 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
           </Col>
           <Col className="ext b">
             <p className="generic">
-            <ReactMarkdown source={spectacle.cast} />
+              <ReactMarkdown source={spectacle.cast} />
             </p>
           </Col>
         </Row>
-        {/* <Row className="gallery">
-          
 
-        </Row> */}
         <Row>
-    
-{/* {CustomDot} */}
+          <Carousel
+           emulateTouch= {true}
+           useKeyboardArrows= {true}
+           showThumbs= {false}
+
+          >
+            {spectacle.galery.map(item => (
+              <img  key={item.id} src={item.url} alt="Image galery" />
+            ))}
+          </Carousel>;
+
+
+
+
         </Row>
       </Container>
     </>
