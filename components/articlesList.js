@@ -1,16 +1,26 @@
+import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
-import dynamic from 'next/dynamic';
 
 
-const DynamicComponentWithNoSSR = dynamic(
-  () => import('read-more-read-less-toggler'),
-  { ssr: false }
-)
 
 const ArticlesList = ({ articles }) => {
 
+
+  // const ReadMore = ({ children, maxCharacterCount = 100 }) => {
+  //   const text = children;
+  
+  
+  // const [isTruncated, setIsTruncated] = useState(true);
+  
+  // const resultString = isTruncated ? text.slice(0, 100) : text;
+
+  // const toggleIsTruncated = () => {
+  //   setIsTruncated(!isTruncated);
+  // }
+
+  // }
 
   return (
     <div className="bloc-actu">
@@ -36,11 +46,10 @@ const ArticlesList = ({ articles }) => {
                   </h2>
                 </Col>
                 <Col>
-                <DynamicComponentWithNoSSR
-                buttonColor="#eb1615"
-                >
+                {/* <ReadMore> */}
                 <ReactMarkdown source={item.texte} />
-                </DynamicComponentWithNoSSR>
+                {/* </ReadMore>
+                <span onClick={toggleIsTruncated}>Voir plus</span> */}
                 </Col>
                 </Col>
               </Row>
