@@ -45,11 +45,7 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
           </Col>
           <Col className="ext b">
             <p className="generic">
-            <DynamicComponentWithNoSSR
-                buttonColor="#eb1615"
-                >
               <ReactMarkdown source={spectacle.cast} />
-              </DynamicComponentWithNoSSR>
             </p>
           </Col>
         </Row>
