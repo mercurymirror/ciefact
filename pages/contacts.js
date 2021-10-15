@@ -29,7 +29,7 @@ const Contacts = ({ contacts, categories }) => {
                 </Col>
                 <Col>
                 <img className="imgContacts" src={contacts.img.url}
-                width="500" height="100%" />
+                  />
                 </Col>
                 </Row>
                 ))}

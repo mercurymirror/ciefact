@@ -270,7 +270,8 @@ header {
     color: $main-red;
     font-family: $font-titles;
     font-size: 2rem;
-    margin: 6vw auto 10vh;
+    padding: 6vw 10vh;
+    margin: auto;
 }
 .col-membre {
     display: flex;
@@ -304,6 +305,8 @@ header {
     }
     h1 {
         color: $main-red;
+        font-family: "Pressura";
+        font-weight: 100;
     }
 }
 #membre-types {
@@ -403,7 +406,7 @@ header {
             margin: auto;
             margin-top: 15%;
             text-align: center;
-            line-height: .9;
+            line-height: 0.9;
         }
         .subtitle {
             position: relative;
@@ -529,8 +532,8 @@ header {
 // Agenda
 .agenda-bloc {
     display: grid;
-    grid-template-columns: repeat(3, 30vw [col-start]);
-    justify-content: center;
+    grid-template-columns: repeat(3, 25vw [col-start]);
+    justify-content: space-evenly;
     .agenda {
         color: $main-red;
         text-align: center;
@@ -577,8 +580,10 @@ header {
     }
 }
 //Contacts
+
 .contacts {
     padding-left: 3vw;
+    max-width: 90vw;
     p {
         font-size: 3.4rem;
         margin-top: 0;
@@ -589,10 +594,12 @@ header {
         }
     }
     .imgContacts {
-        max-width: 100%;
+        max-width: 50vw;
     }
 }
-//MOBILE
+///////////
+//MOBILE///
+//////////
 
 //header
 .catergories-btn {
@@ -707,7 +714,7 @@ header {
     }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
     .container {
         margin-top: 0;
         .row {
@@ -778,10 +785,10 @@ header {
             }
         }
         .text-membre {
-            order: 3;
+            order: 2;
         }
         #membre-types {
-            order: 1;
+            order: 3;
             padding: 0 2vw;
             margin-bottom: 7vh;
             .type {
@@ -874,7 +881,6 @@ header {
                 margin-top: 1vh;
             }
         }
-    
     }
     .spectacle-text .bloc-mob {
         flex-direction: column;
@@ -895,13 +901,13 @@ header {
         max-width: 100vw;
     }
     .a {
-        order: 2;
+        order: 1;
     }
     .b {
         order: 3;
     }
     .middle-col {
-        order: 1;
+        order: 2;
         .status {
             flex-direction: row;
             padding-left: 0 0;
@@ -914,6 +920,33 @@ header {
     .container .contacts {
         flex-direction: column;
     }
+
+    //////////
+    //Tablet//
+    //////////
+
+    @media (min-width: 569px) and (max-width: 1023px) {
+        // body {
+        //     margin: 0 3vw;
+        // }
+    }
+
+    @media screen and (min-width: 1400px) {
+        .container {
+          width: 1370px;
+        }
+     
+      }
+      @media screen and (min-width: 1600px) {
+        .container {
+          width: 1570px;
+        }
+      }
+      @media screen and (min-width: 1900px) {
+        .container {
+          width: 1870px;
+        }
+      }
 
     //CURSOR MOBILE
     .ring {

@@ -28,14 +28,15 @@ const Agenda = ({ angendas, categories }) => {
                                     .map((representation) =>
                                     (
                                         <div className="agenda repres" key={representation.id}>
-                                            <span><Moment format="DD.MM.YYYY" className="agenda dates">{representation.debutDate}</Moment></span>
+                                            <a href={representation.link}><span><Moment format="DD.MM.YYYY" className="agenda dates">{representation.debutDate}</Moment></span>
                                             <span className="section">{section}</span> <span><Moment format="DD.MM.YYYY" className="agenda dates">{representation.endDate}</Moment></span>
                                             <p className="agenda place">
                                                 {representation.place}
                                             </p>
+                                            </a>
                                             <hr />
                                         </div>
-                                    ))}
+                                    ))}     
                             </div>
                         ))}
                 </div>
