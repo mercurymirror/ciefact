@@ -1,23 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap");
 @font-face {
     font-family: "Junicode";
-    src: url(../../public/junicode/Junicode-RegularCondensed.ttf) format("opentype");
+    src: url(../../public/junicode/Junicode-RegularCondensed.ttf)format("opentype");
 }
 @font-face {
     font-family: "Pressura";
-    src: url(../../public/GT-Pressura/GT-Pressura-Light.ttf) format("opentype");
+    src: url(../../public/GT-Pressura/GT-Pressura-Light.ttf)format("opentype");
 }
 @font-face {
     font-family: "Pressura-bold";
-    src: url(../../public/GT-Pressura/GT-Pressura-Bold.ttf) format("opentype");
+    src: url(../../public/GT-Pressura/GT-Pressura-Bold.ttf)format("opentype");
 }
 @font-face {
     font-family: "Pressura-regular";
-    src: url(../../public/GT-Pressura/GT-Pressura-Regular.ttf) format("opentype");
+    src: url(../../public/GT-Pressura/GT-Pressura-Regular.ttf)format("opentype");
 }
 @font-face {
     font-family: "Pressura-mono";
-    src: url(../../public/GT-Pressura/GT-Pressura-Mono-Regular.ttf) format("opentype");
+    src: url(../../public/GT-Pressura/GT-Pressura-Mono-Regular.ttf)format("opentype");
 }
 
 //couleurs
@@ -61,8 +61,6 @@ p {
 h1 {
     font-family: $font-titles;
 }
-
-
 
 #category {
     font-family: $fact-font;
@@ -128,7 +126,6 @@ h1 {
     //         color: $main-red !important;
     //     }
     // }
-
 }
 .menu {
     position: relative;
@@ -300,20 +297,33 @@ header {
             margin-top: -0.8vh;
         }
     }
+    .presentation {
+        min-width: 30vw;
+        max-width: 60vw;
+        margin-left: 25vw;
+    }
+    h1 {
+        color: $main-red;
+    }
 }
 #membre-types {
     display: flex;
     padding-left: 5vw;
     min-width: 25vw;
     margin-right: 2vw;
+    text-align: start;
     .type {
-        width: 9.5vw;
+        width: 11vw;
+        margin: 0 0.6vw;
         thead {
             tr {
                 text-transform: capitalize;
                 text-align: start;
                 font-family: $font-titles-regular;
                 font-size: 1.1rem;
+            }
+            th {
+                text-align: start;
             }
         }
         tbody {
@@ -324,7 +334,8 @@ header {
             td a {
                 color: $main-red;
                 font-family: $fact-font;
-                font-size: 1.3rem;
+                font-size: 1.4rem;
+                line-height: 1.1;
             }
         }
     }
@@ -364,7 +375,7 @@ header {
         text-align: end;
         position: absolute;
         right: 0;
-        margin-top: 4.4rem;
+        margin-top: 4.45rem;
     }
 }
 //Get Spectacle
@@ -386,11 +397,13 @@ header {
             max-width: 80vw;
             width: 80vw;
             position: relative;
-            font-size: 15vw;
+            font-size: 14vw;
             font-family: $font-titles-bold;
             text-transform: uppercase;
             margin: auto;
+            margin-top: 15%;
             text-align: center;
+            line-height: .9;
         }
         .subtitle {
             position: relative;
@@ -413,7 +426,7 @@ header {
         font-weight: 100;
         text-transform: uppercase;
         z-index: 800;
-        width: 10vw;
+        width: 5rem;
     }
     .subtitle {
         font-size: 1.4rem;
@@ -451,11 +464,11 @@ header {
                 z-index: 800;
                 width: 10vw;
                 color: $main-red;
-                margin: 0; 
+                margin: 0;
             }
             .shows {
-            padding: 0 2vw 0 0;
-            width: 19vw;
+                padding: 0 2vw 0 0;
+                width: 19vw;
             }
             &.b {
                 margin-right: 8vw;
@@ -484,14 +497,13 @@ header {
             }
         }
     }
-  
+
     .gallery {
         overflow-x: scroll;
         scroll-behavior: smooth;
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none;
         padding: 0 2vw;
-       
     }
 }
 .shows {
@@ -575,6 +587,9 @@ header {
             color: $main-red;
             font-family: $fact-font;
         }
+    }
+    .imgContacts {
+        max-width: 100%;
     }
 }
 //MOBILE
@@ -660,7 +675,7 @@ header {
                 justify-content: space-between;
                 align-items: center;
                 position: relative;
-                top: 8vh;                
+                top: 8vh;
                 padding-left: 5.5vw;
                 nav {
                     display: block;
@@ -743,7 +758,7 @@ header {
     }
     .breadcrumb {
         display: block;
-        margin-top: 23vh;
+        margin-top: 19vh;
         margin-left: 3vh;
         text-transform: capitalize;
         color: #ffffff;
@@ -771,11 +786,14 @@ header {
             margin-bottom: 7vh;
             .type {
                 width: auto;
-                text-align: center;
+                text-align: start;
                 tbody div {
                     margin-top: 2vh;
                 }
             }
+        }
+        .presentation {
+            margin: auto;
         }
     }
     .quote {
@@ -834,13 +852,13 @@ header {
     .imgCatalog {
         display: none;
     }
-    
+
     .container .col-sm-11 .tableau .row .titre {
-font-size: 2.3rem;
+        font-size: 2.3rem;
     }
 
     .container .col-sm-11 {
-    margin-left: 3vh;
+        margin-left: 3vh;
     }
 
     //GET SPECTACLES
@@ -851,7 +869,12 @@ font-size: 2.3rem;
         }
         .spectacle-titles {
             top: 34%;
+            .subtitle {
+                font-size: 3vw;
+                margin-top: 1vh;
+            }
         }
+    
     }
     .spectacle-text .bloc-mob {
         flex-direction: column;
@@ -911,8 +934,8 @@ font-size: 2.3rem;
     border: 2px solid $main-red;
     border-radius: 100%;
     transform: translate(-50%, -50%);
-    -webkit-transition-duration: 80ms;
-    transition-duration: 80ms;
+    -webkit-transition-duration: 20ms;
+    transition-duration: 20ms;
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
     will-change: width, height, transform, border;
@@ -976,6 +999,6 @@ font-size: 2.3rem;
 
 @media screen and (max-width: 576px) {
     .carousel.carousel-slider {
-    width: 65% !important;
+        width: 65% !important;
     }
 }

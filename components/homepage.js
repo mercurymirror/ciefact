@@ -16,7 +16,7 @@ export default function Homepage({ homepage, quote, types }) {
           </p>
         </Row>
         <Row className="col-membre">
-          <Col>
+          <Col className="presentation">
                 <div>
                   <ReactMarkdown source={homepage.hero[0].bio} />
                 </div>

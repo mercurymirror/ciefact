@@ -19,12 +19,14 @@ const Spectacles = ({ spectacles, categories }) => {
 
   const handleHover = (e, id) => {
     gsap.to(imagesRef.current[id], {
+      duration: 0,
       display: "block",
     })
   }
 
   const handleHoverExit = (e, id) => {
     gsap.to(imagesRef.current[id], {
+      duration: 0,
       display: "none",
       delay: "none"
     })
