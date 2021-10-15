@@ -19,13 +19,14 @@ const MyApp = ({ Component, pageProps }) => {
 
   return (
     <Layout>
-    <Head>
-        <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} />
+      <Head>
+        <title>Cie FACT</title>
+        <link rel="shortcut icon" href={global.favicon} />
       </Head>
       <GlobalContext.Provider value={global}>
-      <MouseContextProvider>
-      <DotRing />
-        <Component {...pageProps} />
+        <MouseContextProvider>
+          <DotRing />
+          <Component {...pageProps} />
         </MouseContextProvider>
       </GlobalContext.Provider>
     </Layout>

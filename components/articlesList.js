@@ -1,36 +1,19 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
 
-// const ReadMore = ({ children, maxCharacterCount = 100 }) => {
-//   const text = children;
-
-//   const resultString = text.slice(0, 100);
-
-//   return (
-//     <p>
-//       {resultString}
-//       <span>
-//         Read more
-//         {/* {isTruncated ? "Voir plus" : "Voir moins"} */}
-//       </span>
-//     </p>
-//   );
-
-
-
-// }
-
 
 const ArticlesList = ({ articles }) => {
 
-  // const [isTruncated, setIsTruncated] = useState(true);
+//   const articleRef = useRef({});
+// console.log(articleRef);
 
+  const [isVisible, setIsVisible] = useState(false);
 
-  // const toggleIsTruncated = () => {
-  //   setIsTruncated(!isTruncated);
-  // }
+  const handleClick = (e => {
+      setIsVisible(!isVisible)
+  })
 
   return (
     <div className="bloc-actu">
@@ -49,6 +32,7 @@ const ArticlesList = ({ articles }) => {
               </Col>
               <Col className="titre">
                 <h1 className="titre"
+                  onClick={(e) => handleClick(e)}
                 >{item.title}
                 </h1>
                 <h2 className="subtitle">
@@ -56,10 +40,10 @@ const ArticlesList = ({ articles }) => {
                 </h2>
               </Col>
               <Col>
-                {/* <ReadMore>
-                  <ReactMarkdown source={item.texte} />
-                </ReadMore> */}
-
+              {isVisible && (
+                <ReactMarkdown source={item.texte}
+                  ref={(el) => (articleRef.current = el)} />
+              )}
               </Col>
             </Col>
           </Row>

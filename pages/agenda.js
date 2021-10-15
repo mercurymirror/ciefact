@@ -5,7 +5,7 @@ import Link from "next/link";
 import { fetchAPI } from "../lib/api"
 import BreadCrumb from "../components/breadCrumbs";
 
-const section = ">";
+
 const Agenda = ({ angendas, categories }) => {
 
 
@@ -29,14 +29,24 @@ const Agenda = ({ angendas, categories }) => {
                                     (
                                         <div className="agenda repres" key={representation.id}>
                                             <a href={representation.link}><span><Moment format="DD.MM.YYYY" className="agenda dates">{representation.debutDate}</Moment></span>
-                                            <span className="section">{section}</span> <span><Moment format="DD.MM.YYYY" className="agenda dates">{representation.endDate}</Moment></span>
-                                            <p className="agenda place">
-                                                {representation.place}
-                                            </p>
+                                                <span className="section">
+                                                    <svg viewBox="0 0 20 20">
+                                                        <path
+                                                            fill="none"
+                                                            stroke="#eb1615"
+                                                            strokeMiterlimit={10}
+                                                            d="M5.55-.15l6.95 10L5.19 20"
+                                                        />
+                                                    </svg>
+                                                </span>
+                                                <span><Moment format="DD.MM.YYYY" className="agenda dates">{representation.endDate}</Moment></span>
+                                                <p className="agenda place">
+                                                    {representation.place}
+                                                </p>
                                             </a>
                                             <hr />
                                         </div>
-                                    ))}     
+                                    ))}
                             </div>
                         ))}
                 </div>
