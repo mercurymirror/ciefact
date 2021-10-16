@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
@@ -11,9 +11,9 @@ const ArticlesList = ({ articles }) => {
 
   const [isVisible, setIsVisible] = useState(false);
 
-  const handleClick = (e) => {
+  const handleClick = (e => {
       setIsVisible(!isVisible)
-  }
+  })
 
   return (
     <div className="bloc-actu">
@@ -41,8 +41,8 @@ const ArticlesList = ({ articles }) => {
               </Col>
               <Col>
               {isVisible && (
-                <ReactMarkdown source={item.texte}
-                  ref={(el) => (articleRef.current = el)} />
+                <ReactMarkdown source={item.texte} />
+                  // ref={(el) => (articleRef.current = el)}
               )}
               </Col>
             </Col>

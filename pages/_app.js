@@ -20,8 +20,7 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <Layout>
       <Head>
-        <title>Cie FACT</title>
-        <link rel="shortcut icon" href={global.favicon} />
+
       </Head>
       <GlobalContext.Provider value={global}>
         <MouseContextProvider>

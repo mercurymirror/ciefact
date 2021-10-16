@@ -5,7 +5,7 @@ import Link from "next/link";
 
 
 const DynamicComponentWithNoSSR = dynamic(
-  () => import('./logo'), //ici j'importe le module ,enfin voulais importer
+  () => import('./logo'), 
 
   { ssr: false }
 )
