@@ -12,7 +12,7 @@ const ArticlesList = ({ articles }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleClick = (e) => {
-      e.setIsVisible(!isVisible)
+      setIsVisible(!isVisible)
   }
 
   return (

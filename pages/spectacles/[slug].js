@@ -80,7 +80,7 @@ export async function getStaticPaths() {
         slug: spectacle.slug,
       },
     })),
-    fallback: true,
+    fallback: false,
   }
 }
 

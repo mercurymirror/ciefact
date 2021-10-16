@@ -47,7 +47,7 @@ export async function getStaticPaths() {
         slug: membre.slug
       },
     })),
-    fallback: true,
+    fallback: false,
   }
 }
 
