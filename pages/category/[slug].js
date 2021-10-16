@@ -7,10 +7,6 @@ import SubMenu from "../../components/sousMenu";
 import BreadCrumb from "../../components/breadCrumbs";
 
 
-
-
-
-
 const Category = ({ category, categories }) => {
 
   const imagesRef = useRef({});
@@ -53,6 +49,7 @@ useEffect(() => {
       categories={categories} 
       />
       )}
+      <BreadCrumb />
       <Container>
         <Row>
           <Col sm={1}>

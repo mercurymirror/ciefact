@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import ActiveLink from "./ActiveLink";
 import gsap from "gsap";
 
-const Hamburger = ({ state }) => {
+const Hamburger = ({ state }, categories) => {
   //vars for our animated DOM nodes
   let menu = useRef(null);
   let revealMenu = useRef(null);
