@@ -11,9 +11,9 @@ const ArticlesList = ({ articles }) => {
 
   const [isVisible, setIsVisible] = useState(false);
 
-  const handleClick = (e => {
-      setIsVisible(!isVisible)
-  })
+  const handleClick = (e) => {
+      e.setIsVisible(!isVisible)
+  }
 
   return (
     <div className="bloc-actu">
