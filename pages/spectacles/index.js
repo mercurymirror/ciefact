@@ -48,7 +48,7 @@ const Spectacles = ({ spectacles, categories }) => {
       categories={categories} 
       />
       )}
-      <BreadCrumb style={{backgroundColor: "lightblue"}} />
+      <BreadCrumb />
       <Container>
         <Row>
           <Col sm={1}>
