@@ -91,7 +91,7 @@ h1 {
 
 //NAVBAR
 .head-logo {
-    // display: none !important;  // Temporaire pour OFF
+    display: none !important;  // Temporaire pour OFF
     position: fixed;
     top: 0;
     z-index: 910;
@@ -104,7 +104,7 @@ h1 {
     transform: translate(-50%);
 }
 .navbar {
-    // display: none !important;  //Attention à le remettre après la mise en OFF
+    display: none !important;  //Attention à le remettre après la mise en OFF
     position: fixed;
     display: -moz-box;
     width: 100%;

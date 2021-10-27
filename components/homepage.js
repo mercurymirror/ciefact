@@ -8,23 +8,23 @@ import BreadCrumb from "./breadCrumbs";
 export default function Homepage({ homepage, quote, types }) {
   return (
     <>
-    <BreadCrumb />
+    {/* <BreadCrumb /> */}
       <Container>
         <Row className= "row-quote">
           <p className="quote">
-            {/* Site en Construction. Retrouvez-nous très vite */}
-            {quote.text}
+            Site en Construction. Retrouvez-nous très vite
+            {/* {quote.text} */}
           </p>
         </Row>
         
-        <Row className="col-membre">
+        {/* <Row className="col-membre">
           <Col className="presentation">
                 <div>
                   <ReactMarkdown source={homepage.hero[0].bio} />
                 </div>
               </Col>
               <Membre types={types} />
-        </Row>
+        </Row> */}
       </Container>
       </>
   )
