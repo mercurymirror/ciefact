@@ -2,20 +2,48 @@ import ReactMarkdown from "react-markdown"
 import Moment from "react-moment"
 import { fetchAPI } from "../../lib/api"
 import { Container, Row, Col } from "react-bootstrap";
+import { useEffect } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
 
 
 
 const Spectacle = ({ spectacle, spectacles, categories }) => {
 
+ 
+
+  const slideRight = () => {
+    const slider = document.querySelector('.gallery');
+    console.log(slider);
+    slider.scrollBy({
+      left: 300,
+      behavior: 'smooth'
+    });
+  }
+
+  const slideLeft = () => {
+    const slider = document.querySelector('.gallery');
+    console.log(slider);
+    slider.scrollBy({
+      left: -300,
+      behavior: 'smooth'
+    });
+  }
+
+  useEffect(() => {
+    const bigTitle = document.getElementById('big-title');
+    const title = spectacle.title;
+    if (title.length > 30) {
+      bigTitle.style.fontSize = "8vw";
+    }
+  }, []);
+  
 
   return (
     <>
       <div className="spectacle-header">
         <img src={spectacle.image.url} />
         <div className="spectacle-titles">
-          <h1 className="big-title">{spectacle.title}</h1>
+          <h1 id="big-title" className="big-title">{spectacle.title}</h1>
           <h5 className="subtitle">{spectacle.sousTitre}</h5>
         </div>
       </div>
@@ -47,25 +75,36 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
             <p className="generic">
               <ReactMarkdown source={spectacle.cast} />
             </p>
+            <div className="scroll-down">
+              Scroll down
+              <img src="https://res.cloudinary.com/ciefact/image/upload/v1634668021/arrow_0e058f1520.svg"
+                className="arrow-down" />
+            </div>
           </Col>
         </Row>
 
-        <Row>
-          <Carousel
-           emulateTouch= {true}
-           useKeyboardArrows= {true}
-           showThumbs= {false}
+        <Row className="gallery">
 
-          >
-            {spectacle.galery.map(item => (
-              <img  key={item.id} src={item.url} alt="Image galery" />
-            ))}
-          </Carousel>;
-
-
-
-
+          {spectacle.galery.map((item) => (
+            <img key={item.id} className="gallery-content" src={item.url} />
+          ))}
         </Row>
+        <button
+          id="slideLeft"
+          type="button"
+          onClick={slideLeft}
+        >
+          <img src="https://res.cloudinary.com/ciefact/image/upload/v1634668021/arrow_0e058f1520.svg"
+            className="arrow-down" />
+        </button>
+        <button
+          id="slideRight"
+          type="button"
+          onClick={slideRight}
+        >
+          <img src="https://res.cloudinary.com/ciefact/image/upload/v1634668021/arrow_0e058f1520.svg"
+            className="arrow-down" />
+        </button>
       </Container>
     </>
   )
@@ -80,7 +119,7 @@ export async function getStaticPaths() {
         slug: spectacle.slug,
       },
     })),
-    fallback: false,
+    fallback: 'blocking',
   }
 }
 

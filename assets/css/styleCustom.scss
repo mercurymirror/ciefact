@@ -1,23 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap");
 @font-face {
     font-family: "Junicode";
-    src: url(../../public/junicode/Junicode-RegularCondensed.ttf)format("opentype");
+    src: url(../../public/junicode/Junicode-RegularCondensed.ttf) format("opentype");
 }
 @font-face {
     font-family: "Pressura";
-    src: url(../../public/GT-Pressura/GT-Pressura-Light.ttf)format("opentype");
+    src: url(../../public/GT-Pressura/GT-Pressura-Light.ttf) format("opentype");
 }
 @font-face {
     font-family: "Pressura-bold";
-    src: url(../../public/GT-Pressura/GT-Pressura-Bold.ttf)format("opentype");
+    src: url(../../public/GT-Pressura/GT-Pressura-Bold.ttf) format("opentype");
 }
 @font-face {
     font-family: "Pressura-regular";
-    src: url(../../public/GT-Pressura/GT-Pressura-Regular.ttf)format("opentype");
+    src: url(../../public/GT-Pressura/GT-Pressura-Regular.ttf) format("opentype");
 }
 @font-face {
     font-family: "Pressura-mono";
-    src: url(../../public/GT-Pressura/GT-Pressura-Mono-Regular.ttf)format("opentype");
+    src: url(../../public/GT-Pressura/GT-Pressura-Mono-Regular.ttf) format("opentype");
 }
 
 //couleurs
@@ -91,23 +91,24 @@ h1 {
 
 //NAVBAR
 .head-logo {
-    display: none !important;  // Temporaire pour OFF
+    // display: none !important;  // Temporaire pour OFF
+    position: fixed;
+    top: 0;
     z-index: 910;
     display: flex;
     justify-content: center;
-    width: 33rem;
+    width: 25rem;
     margin: 3vh auto;
-    position: fixed;
-    top: 0;
     left: 50%;
-    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
 }
 .navbar {
-    display: none !important;  //Attention à le remettre après la mise en OFF
+    // display: none !important;  //Attention à le remettre après la mise en OFF
     position: fixed;
     display: -moz-box;
     width: 100%;
-    height: 13rem;
+    height: 10rem;
     z-index: 900;
     top: 0;
     background-color: #ffffff;
@@ -179,7 +180,6 @@ header {
         padding: 1vh 1vw;
         a {
             color: $main-red;
-            text-transform: capitalize;
         }
     }
 }
@@ -188,7 +188,7 @@ header {
 .container {
     max-width: 100%;
     height: auto;
-    margin-top: 17rem;
+    margin-top: 14rem;
     padding-bottom: 15vh;
     .row {
         display: flex;
@@ -222,7 +222,7 @@ header {
         .col {
             max-width: 40vw;
             &.article-content {
-            display: none;
+                display: none;
             }
             .imgActu {
                 width: 40vw;
@@ -281,9 +281,9 @@ header {
 //membres
 .quote {
     max-width: 70vw;
-    color: $main-red;
-    font-family: $font-titles;
-    font-size: 2rem;
+    color: #eb1615;
+    font-family: Pressura, sans-serif;
+    font-size: 1.6rem;
     padding: 6vw 10vh;
     margin: auto;
 }
@@ -325,16 +325,15 @@ header {
 }
 #membre-types {
     display: flex;
-    padding-left: 5vw;
-    min-width: 25vw;
+    min-width: 34vw;
     margin-right: 2vw;
     text-align: start;
+    align-items: flex-start;
     .type {
         width: 11vw;
         margin: 0 0.6vw;
         thead {
             tr {
-                text-transform: capitalize;
                 text-align: start;
                 font-family: $font-titles-regular;
                 font-size: 1.1rem;
@@ -367,11 +366,11 @@ header {
                 border-collapse: collapse;
                 font-size: 1.5rem;
                 width: auto;
-                border: none;
-                border: 1.7px solid black;
+                border: 1.7px solid #000;
                 border-top: none;
                 border-right: none;
-                padding: 0 5vh 0 5vh;
+                padding: 0 5vh;
+                position: relative;
                 a {
                     &:hover {
                         text-decoration: none;
@@ -392,7 +391,8 @@ header {
         text-align: end;
         position: absolute;
         right: 0;
-        margin-top: 4.45rem;
+        top: 100%;
+        z-index: 1;
     }
 }
 //Get Spectacle
@@ -447,7 +447,6 @@ header {
     }
     .subtitle {
         font-size: 1.4rem;
-        text-transform: capitalize;
         margin-top: 0.5rem;
         color: $main-red;
         position: absolute;
@@ -489,11 +488,20 @@ header {
             }
             &.b {
                 margin-right: 8vw;
+                max-height: 130vh;
+                .scroll-down {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .arrow-down {
+                        transform: rotate(90deg);
+                        width: 18px;
+                    }
+                }
             }
         }
         .status {
             font-size: 1.3rem;
-            text-transform: capitalize;
             justify-content: space-between;
         }
         .middle-col {
@@ -518,9 +526,36 @@ header {
     .gallery {
         overflow-x: scroll;
         scroll-behavior: smooth;
-        -ms-overflow-style: none; /* IE and Edge */
+        -ms-overflow-style: none;
         scrollbar-width: none;
         padding: 0 2vw;
+        position: relative;
+        img {
+            width: auto;
+            height: 60vh;
+            margin: 0 1vw;
+        }
+    }
+    #slideLeft,
+    #slideRight {
+        position: absolute;
+        height: 10vh;
+        width: 10vw;
+        border: none;
+        background: transparent;
+    }
+    #slideLeft {
+        left: 0;
+        img {
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+    }
+    #slideRight {
+        right: 0;
+    }
+    img {
+        width: 18px;
     }
 }
 .shows {
@@ -531,7 +566,9 @@ header {
 }
 .generic {
     padding-left: 5vw;
-    font-family: $fact-font;
+    font-family: Junicode, sans-serif;
+    max-height: 100%;
+    overflow: auto;
     h2 {
         font-family: $font-titles;
         margin-bottom: 0;
@@ -741,16 +778,16 @@ header {
 //     }
 //   }
 
-    //////////
-    //Tablet//
-    //////////
+//////////
+//Tablet//
+//////////
 
-    // @media (min-width: 769px) and (max-width: 1023px) {
-    //     .sous-menu {
-    //         top: 12.2rem;
-    //         width: 93vw;
-    //     }
-    // }
+// @media (min-width: 769px) and (max-width: 1023px) {
+//     .sous-menu {
+//         top: 12.2rem;
+//         width: 93vw;
+//     }
+// }
 
 @media screen and (max-width: 768px) {
     .container {
@@ -793,9 +830,9 @@ header {
         z-index: 8;
         position: relative;
         top: 24vh;
-        margin-left: 3vw;
         height: 0;
-        margin: 0 .7rem;    
+        margin: 0 0.7rem;
+        width: 80vw;
     }
     //wrapper
     .vertical-title {
@@ -812,7 +849,7 @@ header {
         margin-top: 19vh;
         margin-left: 3vh;
         text-transform: capitalize;
-        color: #ffffff;
+        color: #fff;
     }
     //MEMBRES
     .member-container {
@@ -861,7 +898,7 @@ header {
             margin-left: 0;
             p {
                 font-size: 0.9rem;
-                line-height: .5;
+                line-height: 0.5;
             }
             .date {
                 font-size: 1.4rem;
@@ -951,6 +988,9 @@ header {
     }
     .b {
         order: 3;
+        .scroll-down {
+            display: none !important;
+        }
     }
     .middle-col {
         order: 2;
@@ -962,6 +1002,10 @@ header {
     .spectacle-text .gallery img {
         height: 35vh;
     }
+    #slideLeft,
+    #slideRight {
+        display: none;
+    }
     //CONTACTS
     .container .contacts {
         flex-direction: column;
@@ -970,9 +1014,11 @@ header {
             .imgContacts {
                 max-width: 90vw;
             }
+            p {
+                font-size: 2.4rem;
+            }
         }
     }
-
 
     //CURSOR MOBILE
     .ring {
