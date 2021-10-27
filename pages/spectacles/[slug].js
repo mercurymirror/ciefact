@@ -31,9 +31,11 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
 
   useEffect(() => {
     const bigTitle = document.getElementById('big-title');
+    const vertTitle = document.getElementById('ver-title');
     const title = spectacle.title;
     if (title.length > 30) {
       bigTitle.style.fontSize = "8vw";
+      vertTitle.style.fontSize = "3rem";
     }
   }, []);
   
@@ -50,7 +52,7 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
       <Container className="spectacle-text">
         <Row className="bloc-mob">
           <Col className="ext a">
-            <h1 className="vertical-title red">{spectacle.title}</h1>
+            <h1 id="ver-title" className="vertical-title red">{spectacle.title}</h1>
             <h2 className="quote shows">{spectacle.citation}</h2>
           </Col>
           <Col className="middle-col">

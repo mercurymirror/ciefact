@@ -12,7 +12,8 @@ const Membre = ({ types }) => {
     useEffect(() => {
         gsap.to(window, {
             duration: 1,
-            scrollTo: 400
+            delay: 2,
+            scrollTo: 350
         })
     })
 
