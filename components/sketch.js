@@ -1,5 +1,3 @@
-import { pipe } from "gsap/all";
-
 function sketch(p) {
     // if(typeof window === 'undefined') return;
     // UNITS
