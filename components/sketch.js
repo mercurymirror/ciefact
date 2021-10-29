@@ -1,5 +1,4 @@
 function sketch(p) {
-    // if(typeof window === 'undefined') return;
     // UNITS
     let padding = [2,2]; // units
     let logo_dimensions = [80, 22]; // units
@@ -128,7 +127,7 @@ function sketch(p) {
     
     
     p.mouse_dir = function(x, y) {
-        return p.atan2( p.mouseY-y-padding[1]/2*tile_size, p.mouseX-x-padding[0]/2*tile_size)
+        return p.atan2(p.mouseY-y-padding[1]/2*tile_size, p.mouseX-x-padding[0]/2*tile_size)
     }
     
     p.noise_dir = function(x, y) {
@@ -149,7 +148,7 @@ function sketch(p) {
     }
     
     p.sin_dir = function(x, y) {
-        let angle_value = p.sin(p.mouse_dir(x,y)* p.PI)
+        let angle_value = p.sin(p.atan2( 300-y-padding[1]/2*tile_size, p.mouseX-x-padding[0]/2*tile_size)* p.PI)
         return angle_value
     }
     
