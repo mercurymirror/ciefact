@@ -148,21 +148,24 @@ function sketch(p) {
     }
     
     p.sin_dir = function(x, y) {
-        let angle_value = p.sin(p.atan2( 300-y-padding[1]/2*tile_size, p.mouseX-x-padding[0]/2*tile_size)* p.PI)
+        let dx = 0.025
+        let d = p.dist(x, y, p.width/2, p.height/2)
+        let mousex_norm = p.map(p.mouseX, -p.windowWidth/2 + p.width/2 , p.windowWidth/2 + p.width/2, 1, -1)
+        let angle_value = p.sin(d*dx*mousex_norm*2) + mousex_norm*p.PI
         return angle_value
     }
     
     p.sin_y_dir = function(x, y) {
-        let value =  p.map( y/p.height, 0, 1, 0, p.PI)
-        let mousex_norm = p.map(p.mouseX, -p.windowWidth/2 + p.width/2 , p.windowWidth/2 + p.width/2, -1, 1)
-        let angle_value = p.sin(mousex_norm*value)
+        let value =  p.map( y/p.height, 0, 1, -p.PI/2, p.PI/2)
+        let mousex_norm = p.map(p.mouseX, -p.windowWidth/2 + p.width/2 , p.windowWidth/2 + p.width/2, 1, -1)
+        let angle_value = p.sin(value*mousex_norm*2) + mousex_norm*p.PI
         return angle_value
     }
 
     p.sin_x_dir = function(x, y) {
-        let value = p.map(x/ p.width, 0, 1, -p.PI, p.PI)
-        let mousex_norm = p.map(p.mouseX, -p.windowWidth/2 + p.width/2 , p.windowWidth/2 + p.width/2, -1, 1)
-        let angle_value = p.sin(mousex_norm*value)
+        let value = p.map(x/ p.width, 0, 1, 0, p.TWO_PI)
+        let mousex_norm = p.map(p.mouseX, -p.windowWidth/2 + p.width/2 , p.windowWidth/2 + p.width/2, 1, -1)
+        let angle_value = p.sin(value*mousex_norm*2) + mousex_norm*p.PI
         return angle_value
     }
 
