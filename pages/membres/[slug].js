@@ -9,39 +9,28 @@ export default function Member({ membre, membres, categories, quote, types }) {
   return (
     <>
       <Container className="member-container">
-        <Row className="row-quote">
+        <Row>
           <p className="quote">
             {quote.text}
           </p>
-          <span className="section">
-            <svg viewBox="0 0 20 20">
-              <path
-                fill="none"
-                stroke="#eb1615"
-                strokeMiterlimit={10}
-                d="M5.55-.15l6.95 10L5.19 20"
-              />
-            </svg>
-          </span>
         </Row>
-        <a id="membre-anchor" className='anchor'></a>
-        <Row className="col-membre">
-          <Col className="img-membre">
-            <img src={membre.img.url}
-              width="200" />
-          </Col>
-          <Col className="text-membre">
-            <p className="name" >
-              {membre.name}
-            </p>
-            <p className="fonction">
-              {membre.fonctions}
-            </p>
-            <div>
-              <ReactMarkdown source={membre.bio} />
-            </div>
-          </Col>
-          <Membre types={types} />
+        <Row className="col-membre" id="membre-anchor">
+              <Col className="img-membre">
+                <img src={membre.img.url}
+                  width="200" />
+              </Col>
+              <Col className="text-membre">
+                <p className="name" >
+                  {membre.name}
+                </p>
+                <p className="fonction">
+                  {membre.fonctions}
+                </p>
+                <div>
+                  <ReactMarkdown source={membre.bio} />
+                </div>
+              </Col>
+              <Membre types={types} />
         </Row>
       </Container>
     </>
@@ -75,4 +64,3 @@ export async function getStaticProps({ params }) {
     revalidate: 1,
   }
 }
-

@@ -63,9 +63,9 @@ const PodcastList = ({ podcasts }) => {
   return (
     <div className="bloc-actu">
       <Container>
-      <Row className= "row-quote">
+      <Row className= "row-podcast">
           <p className="quote">
-            {quote.text}
+            {/* {quote.text} */}
           </p>
           <span className="section">
             <svg viewBox="0 0 20 20">

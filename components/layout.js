@@ -24,7 +24,7 @@ const Layout = ({ children, categories, seo }) => (
     </div>
     </Link>
     <div className="cursor">
-    <DynamicCursor />
+    {/* <DynamicCursor /> */}
     </div>
     <Nav categories={categories} />
     {children}
