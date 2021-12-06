@@ -43,7 +43,7 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
   const hasPdf = Boolean(spectacle.pdf);
   let pdf;
   if (spectacle.pdf !== null) {
-     pdf = spectacle.pdf.url;
+    pdf = spectacle.pdf.url;
   }
 
   const hasIllu = spectacle.Illustration.length;
@@ -81,11 +81,11 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
                 <ReactMarkdown source={spectacle.description} />
               </p>
               {hasPdf && (
-              <a href={pdf} target="_blank"><h4>Télécharger le document</h4></a>
+                <a href={pdf} target="_blank"><h4>Télécharger le document</h4></a>
               )}
 
               <div className="video"
-              dangerouslySetInnerHTML={{ __html: spectacle.video}} >
+                dangerouslySetInnerHTML={{ __html: spectacle.video }} >
               </div>
             </div>
           </Col>
@@ -94,7 +94,7 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
               <ReactMarkdown source={spectacle.cast} />
             </p>
 
-           
+
             <div className="scroll-down">
               Scroll down
               <img src="https://res.cloudinary.com/ciefact/image/upload/v1634668021/arrow_0e058f1520.svg"
@@ -102,9 +102,9 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
             </div>
           </Col>
           {hasIllu > 0 && (
-          <Col className="illu">
-            <img src={spectacle.Illustration.url} />
-          </Col>
+            <Col className="illu">
+              <img src={spectacle.Illustration.url} />
+            </Col>
           )}
         </Row>
 
