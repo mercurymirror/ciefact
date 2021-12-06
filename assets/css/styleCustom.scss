@@ -91,7 +91,7 @@ h1 {
 
 //NAVBAR
 .head-logo {
-    // display: none !important;  // Temporaire pour OFF
+    display: none !important;  // Temporaire pour OFF
     position: fixed;
     top: 0;
     z-index: 910;
@@ -104,7 +104,7 @@ h1 {
     transform: translate(-50%);
 }
 .navbar {
-    // display: none !important;  //Attention à le remettre après la mise en OFF
+    display: none !important;  //Attention à le remettre après la mise en OFF
     position: fixed;
     display: -moz-box;
     width: 100%;
@@ -270,7 +270,7 @@ a.anchor {
     justify-content: center;
     flex-direction: column !important;
     margin-top: -13rem;
-    background-image: url("https://res.cloudinary.com/ciefact/image/upload/v1634114068/PREMSE_63b59fc3a3.jpg");
+    // background-image: url("https://res.cloudinary.com/ciefact/image/upload/v1634114068/PREMSE_63b59fc3a3.jpg");
     background-repeat: no-repeat;
     background-position-y: center;
     background-size: 100vw;

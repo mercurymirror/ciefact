@@ -12,9 +12,10 @@ export default function Homepage({ homepage, quote, types }) {
       <Container>
         <Row className= "row-quote">
           <p className="quote">
-            {quote.text}
+          Site en Construction. Retrouvez-nous très vite
+            {/* {quote.text} */}
           </p>
-          <span className="section">
+          {/* <span className="section">
             <svg viewBox="0 0 20 20">
               <path
                 fill="none"
@@ -23,17 +24,17 @@ export default function Homepage({ homepage, quote, types }) {
                 d="M5.55-.15l6.95 10L5.19 20"
               />
             </svg>
-          </span>
+          </span> */}
         </Row>
         
-        <Row className="col-membre">
+        {/* <Row className="col-membre">
           <Col className="presentation">
                 <div>
                   <ReactMarkdown source={homepage.hero[0].bio} />
                 </div>
               </Col>
               <Membre types={types} />
-        </Row>
+        </Row> */}
       </Container>
       </>
   )
