@@ -10,6 +10,12 @@ const DynamicComponentWithNoSSR = dynamic(
   { ssr: false }
 )
 
+const DynamicCursor = dynamic(
+  () => import('./Cursor'), 
+
+  { ssr: false }
+)
+
 const Layout = ({ children, categories, seo }) => (
   <>
         <Link href="/membres">
@@ -17,6 +23,9 @@ const Layout = ({ children, categories, seo }) => (
       <DynamicComponentWithNoSSR />
     </div>
     </Link>
+    <div className="cursor">
+    <DynamicCursor />
+    </div>
     <Nav categories={categories} />
     {children}
   </>

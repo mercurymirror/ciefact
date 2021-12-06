@@ -13,10 +13,10 @@ const Contacts = ({ contacts, categories }) => {
     return (
         <>
         <BreadCrumb />
-            <Container>
+            <Container className="contacts-container">
                 {contacts.map((contacts) => (
                     <Row className="contacts" key="contacts.id">
-                        <Col>
+                        <Col className="text">
                 <p >
                     {contacts.name}
                 </p>
@@ -26,8 +26,11 @@ const Contacts = ({ contacts, categories }) => {
                 <p>
                     {contacts.mail}
                 </p>
+                <p>
+                    <a href="https://www.facebook.com/factasbl" target="_blank" style={{marginRight: "2vw"}}>Facebook</a> <a href="" target="_blank">Instagram</a>
+                </p>
                 </Col>
-                <Col>
+                <Col className="image">
                 <img className="imgContacts" src={contacts.img.url}
                   />
                 </Col>

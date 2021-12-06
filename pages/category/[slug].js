@@ -1,10 +1,12 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useRef } from "react"
 import { fetchAPI } from "../../lib/api"
-import { Container, Col, Row }  from "react-bootstrap"
+import { Container, Col, Row } from "react-bootstrap"
 import Link from "next/link";
 import gsap from "gsap";
 import SubMenu from "../../components/sousMenu";
+import SubMenuDesk from "../../components/sousMenuDesk";
 import BreadCrumb from "../../components/breadCrumbs";
+import SideBar from "../../components/sideBar";
 
 
 const Category = ({ category, categories }) => {
@@ -12,72 +14,57 @@ const Category = ({ category, categories }) => {
   const imagesRef = useRef({});
 
 
-//state for subtitle
-const [state, setState] = useState({
-  clicked: null,
-  subtitle: " ",
-});
-
-const handleHover = (e, id) => {
-  gsap.to(imagesRef.current[id], {
-    display: "block",
-  })
-}
-
-const handleHoverExit = (e, id) => {
-  gsap.to(imagesRef.current[id], {
-    display: "none",
-    delay: "none"
-  })
-}
-
-const [toggle, setToggle] = useState(false)
-
-useEffect(() => {
-  const path = window.location.pathname;
-  console.log(path);
-  if (path == "/spectacles" || "/category/soutenues" || "/category/fondateurs") {
-    setToggle(true);
+  const handleHover = (e, id) => {
+    gsap.to(imagesRef.current[id], {
+      duration: 0,
+      display: "block",
+    })
   }
-}, []);
+
+  const handleHoverExit = (e, id) => {
+    gsap.to(imagesRef.current[id], {
+      duration: 0,
+      display: "none",
+      delay: "none"
+    })
+  }
 
 
   return (
     <>
-      {toggle && (
-      <SubMenu 
-      categories={categories} 
-      />
-      )}
-      <BreadCrumb />
-      <Container>
+      <h1 className="breadcrumb">
+        Spectacle
+      </h1>
+      <Container className="spect-list container">
         <Row>
-          <Col sm={1}>
-            <h1 className="vertical-title">Spectacles</h1>
-            <h5 className="vertical-title subtitle">{category.name}</h5>
-          </Col>
-          <Col sm={11}>
-            <div className="tableau">
-              {category.spectacles.sort((a, b) => b.year - a.year)
-              .map((item) => (
-                <Row key={item.id}
-                  onMouseEnter={(e) => handleHover(e, item.id)}
-                  onMouseLeave={(e) => handleHoverExit(e, item.id)}
-                >
-                    <img className="imgCatalog" src={item.image.url}
-                    width="50%"
-                    ref={(el) => (imagesRef.current[item.id] = el)}
-                  />
-                  <Link as={`/spectacles/${item.slug}`} href={`/spectacles/${item.id}`}>
-                    <a className="titre"
-                    >{item.title} </a>
-                  </Link>
-                
-                </Row>
+          <SideBar categories={categories} />
+          <Row className="right-row">
+            <SubMenuDesk
+              categories={categories}
+            />
+            <Col sm={11}>
+              <div className="tableau">
+                {category.spectacles.sort((a, b) => b.year - a.year)
+                  .map((item) => (
+                    <Row key={item.id}
+                      onMouseEnter={(e) => handleHover(e, item.id)}
+                      onMouseLeave={(e) => handleHoverExit(e, item.id)}
+                    >
+                      <img className="imgCatalog" src={item.image.url}
+                        width="50%"
+                        ref={(el) => (imagesRef.current[item.id] = el)}
+                      />
+                      <Link as={`/spectacles/${item.slug}`} href={`/spectacles/${item.id}`}>
+                        <a className="titre"
+                        >{item.title} </a>
+                      </Link>
 
-              ))}
-            </div>
-          </Col>
+                    </Row>
+
+                  ))}
+              </div>
+            </Col>
+          </Row>
         </Row>
       </Container>
     </>

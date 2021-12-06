@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container } from "react-bootstrap"
 import Moment from "react-moment"
 import Link from "next/link";
@@ -14,7 +14,7 @@ const Agenda = ({ angendas, categories }) => {
             <BreadCrumb />
             <Container>
                 <div className="agenda-bloc">
-                    {angendas.sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
+                    {angendas.sort((a, b) => new Date(a.representations[0].debutDate) - new Date(b.representations[0].debutDate))
                         .map((agenda) => (
                             <div key={agenda.id}>
                                 <p className="agenda title">
@@ -25,26 +25,26 @@ const Agenda = ({ angendas, categories }) => {
                                 </p>
                                 <hr />
                                 {agenda.representations.sort((a, b) => new Date(a.debutDate) - new Date(b.debutDate))
-                                    .map((representation) =>
-                                    (
+                                    .map((representation) => (
                                         <div className="agenda repres" key={representation.id}>
-                                            <a href={representation.link}><span><Moment format="DD.MM.YYYY" className="agenda dates">{representation.debutDate}</Moment></span>
-                                                <span className="section">
-                                                    <svg viewBox="0 0 20 20">
-                                                        <path
-                                                            fill="none"
-                                                            stroke="#eb1615"
-                                                            strokeMiterlimit={10}
-                                                            d="M5.55-.15l6.95 10L5.19 20"
-                                                        />
-                                                    </svg>
-                                                </span>
-                                                <span><Moment format="DD.MM.YYYY" className="agenda dates">{representation.endDate}</Moment></span>
+                                            <span><Moment format="DD.MM.YYYY" className="agenda dates">{representation.debutDate}</Moment></span>
+                                            <span className="section">
+                                                <svg viewBox="0 0 20 20">
+                                                    <path
+                                                        fill="none"
+                                                        stroke="#eb1615"
+                                                        strokeMiterlimit={10}
+                                                        d="M5.55-.15l6.95 10L5.19 20"
+                                                    />
+                                                </svg>
+                                            </span>
+                                            <span><Moment format="DD.MM.YYYY" className="agenda dates">{representation.endDate}</Moment></span>
+                                            <a href={representation.link} target="blank">
                                                 <p className="agenda place">
                                                     {representation.place}
                                                 </p>
                                             </a>
-                                            <hr />
+                                                <hr />                                        
                                         </div>
                                     ))}
                             </div>

@@ -143,7 +143,7 @@ const Hamburger = ({ state }, categories) => {
                     </ActiveLink>
                   </li>
                   <li>
-                    <ActiveLink activeClassName="active" as="/spectacles" href="/spectacles">
+                    <ActiveLink activeClassName="active" as="/category/fondateurs" href="/category/fondateurs">
                       <a
                         onMouseEnter={(e) => handleHover(e)}
                         onMouseOut={(e) => handleHoverExit(e)}

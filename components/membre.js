@@ -1,19 +1,22 @@
 import { Col } from "react-bootstrap"
 import Link from "next/link";
 import { gsap } from "gsap/dist/gsap";
-import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
 import { useEffect, useState } from "react";
 import Router from "next/router";
 
 
 const Membre = ({ types }) => {
-    gsap.registerPlugin(ScrollToPlugin);
 
     useEffect(() => {
-        gsap.to(window, {
-            duration: 1,
-            delay: 2,
-            scrollTo: 350
+        gsap.from('.img-membre' , {
+            duration: 1.3,
+            opacity: 0,
+            delay: .5
+        })
+        gsap.from('.text-membre' , {
+            duration: 1.3,
+            opacity: 0,
+            delay: .5
         })
     })
 
@@ -21,7 +24,7 @@ const Membre = ({ types }) => {
     return (
         <>
             <Col id="membre-types">
-                {types.map((type) => (
+                {types.sort((a, b) => (a.id) - (b.id)).map((type) => (
                     <div key={type.id} className="type">
                         <table>
                             <thead>
@@ -34,14 +37,9 @@ const Membre = ({ types }) => {
                                     <td>
                                         {type.membres.map((membres) => (
                                             <div key={membres.id}>
-                                                {/* <Link id="membre" href={`/membres/${membres.slug}`}
-                                                    ariaLabel="Scroll to #membre-anchor"
-                                                > */}
-                                                    <a onClick={() => Router.push(`/membres/${membres.slug}`)}>
-
-                                                        {membres.name}
-                                                    </a>
-                                                {/* </Link> */}
+                                                <a onClick={() => Router.push(`/membres/${membres.slug}#membre-anchor`)}>
+                                                    {membres.name}
+                                                </a>
                                             </div>
                                         ))}
                                     </td>

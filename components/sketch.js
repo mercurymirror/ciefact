@@ -1,5 +1,4 @@
 function sketch(p) {
-    // if(typeof window === 'undefined') return;
     // UNITS
     let padding = [2,2]; // units
     let logo_dimensions = [80, 22]; // units
@@ -14,8 +13,12 @@ function sketch(p) {
     ALL_DIR: 'all_dir',
     NOISE: 'noise',
     MOUSE_NOISE: 'mouse_noise',
-    FIXE: 'fixe'
+    FIXE: 'fixe',
+    SIN: 'sin',
+    SINX: 'sinx',
+    SINY: 'siny',
     }
+
     let mode = modes.MOUSE_DIR;
     let zoff = 0;
     let zinc = 0.005;
@@ -54,7 +57,6 @@ function sketch(p) {
     //     SETUP       //
     /////////////////////
     p.setup = function() {
-        // p.colorMode(p.RGB);
         let div_width = document.getElementById("logo_canvas").offsetWidth
         tile_size = div_width / (logo_dimensions[0]+padding[1]);
         box_size = [p.floor(tile_size*box_dimensions[0]), p.floor(tile_size*box_dimensions[1])]
@@ -71,8 +73,7 @@ function sketch(p) {
     //      DRAW      //
     ////////////////////
     p.draw = function() {
-        // ICI LA COULEUR DU FOND / background-color
-        p.background(255,255,255);
+        p.clear();
         p.translate(padding[0]*tile_size/2, padding[1]*tile_size/2)
         p.draw_logo();
         zoff += zinc;
@@ -105,41 +106,67 @@ function sketch(p) {
     /////////////////////////
     p.get_angle = function(x, y ) {
         if (mode === modes.MOUSE_DIR) {
-        return p.mouse_dir(x, y)
+            return p.mouse_dir(x, y)
         } else if (mode === modes.ALL_DIR) {
-        return p.mouse_all(x, y)
+            return p.mouse_all(x, y)
         } else if (mode === modes.NOISE) {
-        return p.noise_dir(x,y)
+            return p.noise_dir(x,y)
         } else if (mode === modes.FIXE) {
-        return 0
+            return 0
         } else if (mode === modes.MOUSE_NOISE) {
-        return p.mouse_noise_dir(x, y)
+            return p.mouse_noise_dir(x, y)
+        } else if (mode === modes.SIN) {
+            return p.sin_dir(x, y)
+        } else if (mode === modes.SINY) {
+            return p.sin_y_dir(x, y)
+        } else if (mode === modes.SINX) {
+            return p.sin_x_dir(x, y)
         }
         return 0   
     }
     
     
     p.mouse_dir = function(x, y) {
-        return p.atan2( p.mouseY-y-padding[1]/2*tile_size, p.mouseX-x-padding[0]/2*tile_size)
+        return p.atan2(p.mouseY-y-padding[1]/2*tile_size, p.mouseX-x-padding[0]/2*tile_size)
     }
     
     p.noise_dir = function(x, y) {
-        let value = p.noise(x, y, zoff);
-        value *= p.TWO_PI;
+        let value = p.noise(x, y, zoff) * p.TWO_PI;
         return value
         
     }
     
     p.mouse_noise_dir = function(x, y) {
-        let value = p.noise(x, y, p.mouseX*zinc);
-        value *= p.TWO_PI;
+        let z = p.map(p.mouseX, 0, p.windowWidth, 0, 1)
+        let value = p.noise(x, y, z+zoff) * p.TWO_PI;
         return value
     }
     
     p.mouse_all = function(x, y) {
-        return p.map(p.mouseX, 0, p.width, 0, p.PI)
+        let half_screen = p.windowWidth /2 
+        return p.map(p.mouseX, -half_screen + p.width/2 , half_screen + p.width/2, -p.PI/2, p.PI/2)
     }
     
+    p.sin_dir = function(x, y) {
+        let angle_value = p.sin(p.atan2( 300-y-padding[1]/2*tile_size, p.mouseX-x-padding[0]/2*tile_size)* p.PI)
+        return angle_value
+    }
+    
+    p.sin_y_dir = function(x, y) {
+        let value =  p.map( y/p.height, 0, 1, 0, p.PI)
+        let mousex_norm = p.map(p.mouseX, -p.windowWidth/2 + p.width/2 , p.windowWidth/2 + p.width/2, -1, 1)
+        let angle_value = p.sin(mousex_norm*value)
+        return angle_value
+    }
+
+    p.sin_x_dir = function(x, y) {
+        let value = p.map(x/ p.width, 0, 1, -p.PI, p.PI)
+        let mousex_norm = p.map(p.mouseX, -p.windowWidth/2 + p.width/2 , p.windowWidth/2 + p.width/2, -1, 1)
+        let angle_value = p.sin(mousex_norm*value)
+        return angle_value
+    }
+
+
     /////////////////////
     //       PROPS     //
     /////////////////////

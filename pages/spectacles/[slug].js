@@ -3,19 +3,20 @@ import Moment from "react-moment"
 import { fetchAPI } from "../../lib/api"
 import { Container, Row, Col } from "react-bootstrap";
 import { useEffect } from "react";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import ModalImage from "react-modal-image";
+
 
 
 
 const Spectacle = ({ spectacle, spectacles, categories }) => {
 
- 
+
 
   const slideRight = () => {
     const slider = document.querySelector('.gallery');
     console.log(slider);
     slider.scrollBy({
-      left: 300,
+      left: 450,
       behavior: 'smooth'
     });
   }
@@ -24,7 +25,7 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
     const slider = document.querySelector('.gallery');
     console.log(slider);
     slider.scrollBy({
-      left: -300,
+      left: -450,
       behavior: 'smooth'
     });
   }
@@ -38,7 +39,15 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
       vertTitle.style.fontSize = "3rem";
     }
   }, []);
-  
+
+  const hasPdf = Boolean(spectacle.pdf);
+  let pdf;
+  if (spectacle.pdf !== null) {
+     pdf = spectacle.pdf.url;
+  }
+
+  const hasIllu = spectacle.Illustration.length;
+  console.log(hasIllu);
 
   return (
     <>
@@ -67,28 +76,49 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
                 <span>{spectacle.category.name}</span>
               </Col>
             </Row>
-            <Row>
-              <p className="description">
+            <div>
+              <p className="description" id='desc'>
                 <ReactMarkdown source={spectacle.description} />
               </p>
-            </Row>
+              {hasPdf && (
+              <a href={pdf} target="_blank"><h4>Télécharger le document</h4></a>
+              )}
+
+              <div className="video"
+              dangerouslySetInnerHTML={{ __html: spectacle.video}} >
+              </div>
+            </div>
           </Col>
           <Col className="ext b">
-            <p className="generic">
+            <p className="generic" id="generic">
               <ReactMarkdown source={spectacle.cast} />
             </p>
+
+           
             <div className="scroll-down">
               Scroll down
               <img src="https://res.cloudinary.com/ciefact/image/upload/v1634668021/arrow_0e058f1520.svg"
                 className="arrow-down" />
             </div>
           </Col>
+          {hasIllu > 0 && (
+          <Col className="illu">
+            <img src={spectacle.Illustration.url} />
+          </Col>
+          )}
         </Row>
 
         <Row className="gallery">
 
           {spectacle.galery.map((item) => (
-            <img key={item.id} className="gallery-content" src={item.url} />
+            <ModalImage
+              key={item.id}
+              small={item.url}
+              large={item.url}
+              alt={item.title}
+              hideZoom={true}
+              hideDownload={true}
+            />
           ))}
         </Row>
         <button

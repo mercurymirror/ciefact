@@ -1,21 +1,16 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import { Row, Col, Container } from "react-bootstrap"
 import Link from "next/link";
 import gsap from "gsap";
 import SubMenu from "../../components/sousMenu";
 import { fetchAPI } from "../../lib/api";
 import BreadCrumb from "../../components/breadCrumbs";
+import SideBar from "../../components/sideBar";
 
 
 const Spectacles = ({ spectacles, categories }) => {
 
   const imagesRef = useRef({});
-
-  //state for subtitle
-  const [state, setState] = useState({
-    clicked: null,
-    subtitle: " ",
-  });
 
   const handleHover = (e, id) => {
     gsap.to(imagesRef.current[id], {
@@ -32,28 +27,13 @@ const Spectacles = ({ spectacles, categories }) => {
     })
   }
 
-  const [toggle, setToggle] = useState(false)
-
-  useEffect(() => {
-    const path = window.location.pathname;
-    if (path === "/spectacles" || "/spectacles/soutenues" || "/spectacles/fondateurs") {
-      setToggle(true);
-    }
-  }, []);
-
   return (
     <>
-        {toggle && (
-      <SubMenu 
-      categories={categories} 
-      />
-      )}
+   
       <BreadCrumb />
-      <Container>
+      <Container className="spect-list">
         <Row>
-          <Col sm={1}>
-            <h1 className="vertical-title">Spectacles</h1>
-          </Col>
+         <SideBar categories={categories} />
           <Col sm={11} className="wrapper-spectacle">
             <div className="tableau">
               {spectacles.sort((a, b) => b.year - a.year)
@@ -63,7 +43,7 @@ const Spectacles = ({ spectacles, categories }) => {
                   onMouseLeave={(e) => handleHoverExit(e, item.id)}
                 >
                     <img className="imgCatalog" src={item.image.url}
-                    width="50%"
+                    width="20%"
                     ref={(el) => (imagesRef.current[item.id] = el)}
                   />
                   <Link as={`/spectacles/${item.slug}`} href={`/spectacles/${item.id}`}>

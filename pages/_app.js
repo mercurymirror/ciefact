@@ -6,8 +6,9 @@ import { createContext } from "react"
 import { fetchAPI } from "../lib/api"
 import { getStrapiMedia } from "../lib/media"
 import Layout from "../components/layout";
-import DotRing from "../components/DotRing/DotRing";
-import MouseContextProvider from "../lib/context/mouse-context";
+// import DotRing from "../components/DotRing/DotRing";
+// import MouseContextProvider from "../lib/context/mouse-context";
+
 
 
 
@@ -24,10 +25,10 @@ const MyApp = ({ Component, pageProps }) => {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <GlobalContext.Provider value={global}>
-        <MouseContextProvider>
-          <DotRing />
+        {/* <MouseContextProvider> */}
+          {/* <DotRing /> */}
           <Component {...pageProps} />
-        </MouseContextProvider>
+        {/* </MouseContextProvider> */}
       </GlobalContext.Provider>
     </Layout>
   )

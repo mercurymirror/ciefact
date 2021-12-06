@@ -1,38 +1,24 @@
 import React, { useContext } from "react";
-import Link from "next/link";
-import dynamic from 'next/dynamic';
 import ActiveLink from './ActiveLink';
 import { Row, Col, Navbar } from "react-bootstrap";
 import Header from "./header";
 import { MouseContext } from "../lib/context/mouse-context";
-import DotRing from "../components/DotRing/DotRing";
+// import DotRing from "../components/DotRing/DotRing";
 
 
 const Nav = () => {
-  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
-
-  
-  // const DynamicComponentWithNoSSR = dynamic(
-  //   () => import('./logo'), //ici j'importe le module ,enfin voulais importer
-    
-  //   { ssr: false }
-  // )
   
  
-
   return (
     <>
     <Navbar>
-      <DotRing />
-      <Row>
-    {/* <DynamicComponentWithNoSSR /> */}
-    </Row>
+      {/* <DotRing /> */}
       <Row>
         <Col>
         <Header/>
         </Col>
       </Row>
-      <Navbar.Collapse id="responsive-navbar-nav">
+      <Navbar.Collapse className="navRow" id="responsive-navbar-nav">
         <style jsx>{`
       .nav-link {
         text-decoration: none;
@@ -46,30 +32,24 @@ const Nav = () => {
         <ul className="menu">
           <li>
             <ActiveLink activeClassName="active" href="/actualites">
-              <a
-              onMouseEnter={() => cursorChangeHandler("hovered")}
-              onMouseLeave={() => cursorChangeHandler("")}
-              >
+              <a>
                 Actualités
               </a>
             </ActiveLink>
           </li>
           <li>
-            <ActiveLink activeClassName="active" href="/membres"
-            onMouseEnter={() => cursorChangeHandler("hovered")}
-            onMouseLeave={() => cursorChangeHandler("")}>
+            <ActiveLink activeClassName="active" href="/membres">
               <a>
                 Membres
               </a>
             </ActiveLink>
           </li>
-          <li >
-            <ActiveLink activeClassName="active" as="/spectacles" href="/spectacles">
+          <li>
+            <ActiveLink activeClassName="active" as="/category/fondateurs" href="/category/fondateurs">
               <a>
                 Spectacles
               </a>
             </ActiveLink>
-          
           </li>
           <li>
             <ActiveLink activeClassName="active" as="/podcast" href="/podcast">
