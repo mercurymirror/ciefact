@@ -23,8 +23,8 @@ const Layout = ({ children, categories, seo }) => (
       <DynamicComponentWithNoSSR />
     </div>
     </Link>
-    <div className="cursor">
-    {/* <DynamicCursor /> */}
+    <div className="head-cursor">
+      <DynamicCursor />
     </div>
     <Nav categories={categories} />
     {children}

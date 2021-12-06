@@ -1,19 +1,19 @@
-
+import p5 from "p5";
 
 export default function cursor_sketch(p) {
 
     let parent_canvas = 'cursor'
 
     let vehicle;
-    let vRadius = 30;
-    let vMaxSpeed = 20;
-    let vMaxForce = 1.5;
-    let vSlowRadius = 80;
+    let vRadius = 40;
+    let vMaxSpeed = 30;
+    let vMaxForce = 10;
+    let vSlowRadius = 50;
 
     p.setup = function() {
         console.log('CURSOR!!')
         let canvas = p.createCanvas(p.windowWidth, p.windowHeight , p.P2D)
-        console.log(canvas);
+        // console.log(canvas);
         canvas.parent(parent_canvas)
         p.noCursor();
 
@@ -42,43 +42,45 @@ export default function cursor_sketch(p) {
         p.ellipse(vehicle.pos.x, vehicle.pos.y, vRadius)
 
     };
-}
 
+    
 
 class Vehicle {
-    constructor(x, y, maxSpeed, maxForce, radius, slowRadius) {
-      this.pos = createVector(x, y);
-      this.vel = createVector(0, 0);
-      this.acc = createVector(0, 0);
-      this.maxSpeed = maxSpeed;
-      this.maxForce = maxForce;
-      this.r = radius;
-      this.slowRadius = slowRadius
-    }
-    
-    arrive(target) {
-        let force = p5.Vector.sub(target, this.pos);
-        let desiredSpeed = this.maxSpeed;
-        let distance = force.mag();
-        if (distance < this.slowRadius) {
-            desiredSpeed = map(distance, 0, this.slowRadius, 0, this.maxSpeed);
-        }
-        
-        force.setMag(desiredSpeed);
-        force.sub(this.vel);
-        force.limit(this.maxForce);
-        return force;
-    }
-  
-    applyForce(force) {
-      this.acc.add(force);
-    }
-  
-    update() {
-      this.vel.add(this.acc);
-      this.vel.limit(this.maxSpeed);
-      this.pos.add(this.vel);
-      this.acc.set(0, 0);
-    }
-  
+  constructor(x, y, maxSpeed, maxForce, radius, slowRadius) {
+    this.pos = p.createVector(x, y);
+    this.vel = p.createVector(0, 0);
+    this.acc = p.createVector(0, 0);
+    this.maxSpeed = maxSpeed;
+    this.maxForce = maxForce;
+    this.r = radius;
+    this.slowRadius = slowRadius
   }
+  
+  arrive(target) {
+      let force = p5.Vector.sub(target, this.pos);
+      let desiredSpeed = this.maxSpeed;
+      let distance = force.mag();
+      if (distance < this.slowRadius) {
+          desiredSpeed = p.map(distance, 0, this.slowRadius, 0, this.maxSpeed);
+      }
+      
+      force.setMag(desiredSpeed);
+      force.sub(this.vel);
+      force.limit(this.maxForce);
+      return force;
+  }
+
+  applyForce(force) {
+    this.acc.add(force);
+  }
+
+  update() {
+    this.vel.add(this.acc);
+    this.vel.limit(this.maxSpeed);
+    this.pos.add(this.vel);
+    this.acc.set(0, 0);
+  }
+
+}
+}
+
