@@ -6,10 +6,6 @@ import { createContext } from "react"
 import { fetchAPI } from "../lib/api"
 import { getStrapiMedia } from "../lib/media"
 import Layout from "../components/layout";
-// import DotRing from "../components/DotRing/DotRing";
-// import MouseContextProvider from "../lib/context/mouse-context";
-
-
 
 
 // Store Strapi Global object in context
@@ -19,18 +15,18 @@ const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps
 
   return (
+    <>
     <Layout>
       <Head>
       <title>CIE FACT</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <GlobalContext.Provider value={global}>
-        {/* <MouseContextProvider> */}
-          {/* <DotRing /> */}
+    
           <Component {...pageProps} />
-        {/* </MouseContextProvider> */}
       </GlobalContext.Provider>
     </Layout>
+    </>
   )
 }
 

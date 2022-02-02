@@ -6,66 +6,26 @@ import gsap from "gsap";
 import { func } from "prop-types";
 
 
-const PodcastList = ({ podcasts }) => {
+const PodcastList = ({ podcasts, quote, homepage }) => {
 
-  const showRef = useRef({});
-
-  const [state, setState] = useState({
-    initial: false,
-    clicked: null,
-    readMore: "Voir plus",
-  });
-  const [disabled, setDisabled] = useState(false);
-  
-  const handleShow = (e, id) => {
-    disabledMenu();
-    const articleContent = document.querySelector('.article-content');
-  console.log(articleContent);
-    if (state.initial === false) {
-      gsap.to(showRef.current[id], {
-        duration: 1,
-        display: "block",
-      });
-      setState({
-        initial: null,
-        clicked: true,
-        readMore: "Voir moins",
-      });
-    } else if (state.clicked === true) {
-      gsap.to(showRef.current[id], {
-        duration: 0,
-        display: "none",
-      })
-      setState({
-        clicked: !state.clicked,
-        readMore: "Voir plus",
-      });
-    } else if (state.clicked === false) {
-      gsap.to(showRef.current[id], {
-        duration: 0,
-        display: "block",
-      })
-      setState({
-        clicked: !state.clicked,
-        readMore: "Voir moins",
-      });
-    }
-  }
-
-
-  const disabledMenu = () => {
-    setDisabled(!disabled);
-    setTimeout(() => {
-      setDisabled(false);
-    }, 1200);
-  };
+  const hasImg = Boolean(homepage.homeImg)
+  const hasImgMob = Boolean(homepage.homeImg_mobile)
+  const podcastImgMob = homepage.home_podcast_mobile.url;
 
   return (
     <div className="bloc-actu">
       <Container>
-      <Row className= "row-podcast">
-          <p className="quote">
-            {/* {quote.text} */}
+        <Row className="row-quote">
+          <picture>
+            {hasImgMob && (
+              <source media="(max-width: 768px)" srcSet={podcastImgMob} />
+            )}
+            {hasImg && (
+              <img src={homepage.home_podcast.url} />
+            )}
+          </picture>
+          <p className="quote home">
+            <ReactMarkdown source={quote.podcast} />
           </p>
           <span className="section">
             <svg viewBox="0 0 20 20">
@@ -95,11 +55,17 @@ const PodcastList = ({ podcasts }) => {
                 >{item.title}
                 </h1>
                 <p>
-              </p>
-            </Col>
-            <Col>
-                <ReactMarkdown source={item.text} 
-                  />
+                </p>
+              </Col>
+              <Col>
+                <ReactMarkdown source={item.text}
+                />
+              </Col>
+              <Col>
+                <div
+                  dangerouslySetInnerHTML={{ __html: item.mediaplayer }} >
+                </div>
+
               </Col>
             </Col>
           </Row>

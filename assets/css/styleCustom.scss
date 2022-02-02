@@ -32,11 +32,13 @@ $font-titles-regular: "Pressura-regular", sans-serif;
 $font-titles-mono: "Pressura-mono", sans-serif;
 
 // paragraphs styles
-$indent: 3rem;
+$indent: 1rem;
 
-// * {
-//     cursor: none !important;
-// }
+*,
+html,
+body {
+    cursor: none !important;
+}
 
 html,
 body {
@@ -56,6 +58,7 @@ a {
 
 a:hover {
     text-decoration: underline;
+    cursor: none;
 }
 
 p {
@@ -91,7 +94,7 @@ h1 {
 
 //NAVBAR
 .head-logo {
-    display: none !important;  // Temporaire pour OFF
+    // display: none !important;  // Temporaire pour OFF
     position: fixed;
     top: 0;
     z-index: 910;
@@ -104,7 +107,7 @@ h1 {
     transform: translate(-50%);
 }
 .navbar {
-    display: none !important;  //Attention à le remettre après la mise en OFF
+    // display: none !important;  //Attention à le remettre après la mise en OFF
     position: fixed;
     display: -moz-box;
     width: 100%;
@@ -141,7 +144,7 @@ h1 {
             min-height: 0;
             font-family: $font-titles;
             &:hover {
-                text-decoration: none;
+                // text-decoration: none;
                 color: $main-red !important;
                 text-decoration: underline solid 0.14rem;
                 text-underline-offset: 5px;
@@ -151,6 +154,7 @@ h1 {
 }
 .active {
     text-decoration: underline solid 0.14rem;
+    text-decoration: underline;
     text-underline-offset: 5px;
     color: $main-red !important;
 }
@@ -201,6 +205,9 @@ header {
             max-width: 40vw;
             &.article-content {
                 display: none;
+            }
+            p {
+                font-size: 1.125rem;
             }
             .imgActu {
                 width: 40vw;
@@ -264,15 +271,13 @@ a.anchor {
     visibility: hidden;
 }
 .row-quote {
-    height: 100vh;
+    min-height: 56vh;
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: center;
     flex-direction: column !important;
-    margin-top: -13rem;
-    // background-image: url("https://res.cloudinary.com/ciefact/image/upload/v1634114068/PREMSE_63b59fc3a3.jpg");
-    background-repeat: no-repeat;
-    background-position-y: center;
+    margin-top: -5rem;
     background-size: 100vw;
     .section {
         z-index: 100;
@@ -280,16 +285,40 @@ a.anchor {
         height: 30px;
         transform: rotate(90deg);
         position: absolute;
-        top: 90vh;
+        bottom: 6%;
+        display: none;
+    }
+    picture {
+        img {
+            width: 100vw;
+        }
     }
 }
 .quote {
-    max-width: 70vw;
+    max-width: 80vw;
     color: #eb1615;
     font-family: Pressura, sans-serif;
     font-size: 1.6rem;
     padding: 6vw 10vh;
     margin: auto;
+    width: 60vw;
+}
+.quote.home {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+@media (min-width: 767px) and (max-width: 1024px) {
+    .quote.home {
+        top: 50%;
+    }
+    .row-quote {
+        min-height: unset;
+        .quote {
+            font-size: 2.5vw;
+        }
+    }
 }
 .col-membre {
     display: flex;
@@ -318,16 +347,22 @@ a.anchor {
             margin-top: -0.8vh;
         }
     }
+    .row {
+        flex-direction: columns;
+    }
     .presentation {
         padding-left: 1vw;
         min-width: 30vw;
         max-width: 60vw;
         margin-left: 25vw;
-    }
-    h1 {
-        color: $main-red;
-        font-family: "Pressura";
-        font-weight: 100;
+        h1 {
+            color: $main-red;
+            font-family: "Pressura";
+            font-weight: 100;
+        }
+        p {
+            font-size: 1.125rem;
+        }
     }
 }
 #membre-types {
@@ -336,6 +371,14 @@ a.anchor {
     margin-right: 2vw;
     text-align: start;
     align-items: flex-start;
+    flex-direction: column;
+    .row {
+        margin-bottom: 5vh;
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    }
     .type {
         width: 11vw;
         margin: 0 0.6vw;
@@ -430,7 +473,7 @@ a.anchor {
 }
 //Get Spectacle
 .spectacle-header {
-    margin-top: 10rem;
+    margin-top: 11rem;
     position: relative;
     img {
         width: 100vw;
@@ -442,12 +485,11 @@ a.anchor {
         flex-direction: column;
         justify-content: center;
         left: 50%;
-        top: 40%;
+        top: 50%;
         transform: translate(-50%, -50%);
         transform-origin: center;
         .big-title {
             max-width: 80vw;
-            width: 80vw;
             position: relative;
             font-size: 12vw;
             font-family: $font-titles-bold;
@@ -462,6 +504,7 @@ a.anchor {
             font-weight: 200;
             font-size: 1.7vw;
             margin: auto;
+            text-align: center;
         }
     }
 }
@@ -517,7 +560,7 @@ a.anchor {
         .illu {
             img {
                 margin-top: 22vh;
-                width: 12vw;
+                width: 14vw;
             }
         }
         .ext {
@@ -565,7 +608,7 @@ a.anchor {
                     align-items: center;
                     .arrow-down {
                         transform: rotate(90deg);
-                        width: 18px;
+                        width: 0.875rem;
                     }
                 }
             }
@@ -591,11 +634,10 @@ a.anchor {
                 }
             }
             .description {
-                text-indent: $indent;
                 color: #000;
                 font-weight: 100;
                 font-family: $font-titles;
-                font-size: 1.2rem;
+                font-size: 1.125rem;
             }
             a h4 {
                 font: $font-titles;
@@ -751,33 +793,32 @@ a.anchor {
 //Contacts
 .contacts-container {
     padding-bottom: 0;
-    margin-top: 12rem;
+    margin-top: 10rem;
     .contacts {
-        padding-left: 3vw;
-        justify-content: end;
+        display: flex;
+        justify-content: start;
         align-items: center;
         .text {
-            max-width: 50vw;
+            max-width: 40vw;
             padding: 2vw 5vw;
             p {
-                font-size: 4vw;
+                font-size: 3vw;
                 margin-top: 0;
                 margin-bottom: 3vh;
-                &:nth-child(2) {
+                &:nth-child(n + 2) {
                     color: $main-red;
                     font-family: $fact-font;
                 }
                 a {
                     font-size: 3vw;
+                    color: $main-red;
                 }
             }
         }
         .image {
             margin-right: 0;
-            margin-top: 2rem;
             .imgContacts {
-                max-width: 50vw;
-                max-height: 60vh;
+                height: calc(100vh - 12rem);
             }
         }
     }
@@ -867,7 +908,7 @@ header {
                 justify-content: space-between;
                 align-items: center;
                 position: relative;
-                top: 8vh;
+                top: 7vh;
                 padding-left: 5.5vw;
                 nav {
                     display: block;
@@ -876,10 +917,10 @@ header {
                         margin: 0;
                         li {
                             list-style: none;
-                            font-size: 3.3rem;
+                            font-size: 2.8rem;
                             font-weight: 500;
                             cursor: pointer;
-                            height: 11vh;
+                            height: 10vh;
                             overflow: hidden;
                             position: relative;
                             width: 700px;
@@ -899,30 +940,25 @@ header {
     }
 }
 
-// @media (min-width: 1440px) and (max-width: 2200px){
-//     .container {
-//       width: 1370px;
-//     }
-//     .sous-menu {
-//         top: 12.2rem;
-//         width: 94.5vw;
-//     }
-//   }
-
-//////////
-//Tablet//
-//////////
-
-// @media (min-width: 769px) and (max-width: 1023px) {
-//     .sous-menu {
-//         top: 12.2rem;
-//         width: 93vw;
-//     }
-// }
+@media (min-width: 1400px) and (max-width: 2200px) {
+    .row-quote .section {
+        display: block;
+    }
+    //     .container {
+    //       width: 1370px;
+    //     }
+    //     .sous-menu {
+    //         top: 12.2rem;
+    //         width: 94.5vw;
+    //     }
+}
 
 @media screen and (max-width: 768px) {
+    #cursor {
+        display: none;
+    }
     .container {
-        margin-top: 0;
+        margin-top: 10rem;
         .row {
             padding-top: 0;
         }
@@ -934,7 +970,7 @@ header {
     .head-logo {
         width: 15rem;
         margin-left: -10%;
-        margin-top: 0.8vh;
+        margin-top: 1.2vh;
     }
     header {
         display: block;
@@ -947,7 +983,7 @@ header {
     }
 
     .navbar {
-        height: 10vh;
+        height: 4.625rem;
         .navRow {
             display: none;
         }
@@ -967,12 +1003,13 @@ header {
         margin-left: 3vw;
     }
     .breadcrumb {
+        font-family: $font-titles;
         display: block;
-        margin-top: 19vh;
+        margin-top: 6.5rem;
         margin-left: 3vh;
         text-transform: capitalize;
         color: #fff;
-        font-weight: 600;
+        font-weight: 500;
     }
     //MEMBRES
     a.anchor {
@@ -993,6 +1030,8 @@ header {
         }
         .text-membre {
             order: 2;
+            max-width: 90vw;
+            padding: 2vw;
         }
         #membre-types {
             order: 3;
@@ -1008,19 +1047,24 @@ header {
         }
         .presentation {
             margin: auto;
+            max-width: 90vw;
+            p {
+                font-size: 1rem;
+            }
         }
     }
-    .quote {
+    .quote.home {
         max-width: 90vw;
-        margin: 16vw auto;
         padding: 6vw 3vw;
         font-size: 1.3rem;
+        width: 70vw;
     }
     .row-quote {
-        margin-top: -14vh;
         height: auto;
-        background-image: url("https://res.cloudinary.com/ciefact/image/upload/v1634553194/Copyright_Hubert_Amiel_HOME_32_61f26b7875.jpg");
         background-size: 100vh;
+        picture {
+            position: relative;
+        }
         .section {
             display: none;
         }
@@ -1029,12 +1073,23 @@ header {
     //ACTU
     .bloc-actu .row {
         flex-direction: column;
+        .col {
+            p {
+                font-size: 1rem;
+            }
+        }
+        .quote {
+            padding: 0;
+            p {
+                margin: 0;
+            }
+        }
         .widget {
             text-align: start;
             padding-left: 5vw;
             margin-left: 0;
             p {
-                font-size: 0.9rem;
+                font-size: 1rem;
                 line-height: 0.5;
             }
             .date {
@@ -1097,7 +1152,7 @@ header {
         height: 0;
         margin: 0 1.5rem;
         width: 80vw;
-        top: -6vh;
+        top: -5.5vh;
     }
     .container .col-sm-11 {
         margin-left: 3vh;
@@ -1115,30 +1170,39 @@ header {
         }
         .spectacle-titles {
             top: 50%;
+            .big-title {
+                font-size: 15vw;
+                width: 80vw;
+                word-break: break-all;
+            }
             .subtitle {
-                font-size: 3vw;
+                font-size: 3.5vw;
                 margin-top: 1vh;
             }
         }
     }
-    .spectacle-text .bloc-mob {
-        display: flex;
-        position: relative;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 0 5vw;
-        img {
-            margin-bottom: 3vh;
-        }
-        .ext.a {
-            width: 90vw;
-            max-width: 90vw;
-            align-self: center;
-        }
-        .quote.shows {
-            width: auto;
-            font-size: 1.5rem;
+    .spectacle-text {
+        margin-top: 0;
+        .bloc-mob {
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 5vw;
+            img {
+                margin-bottom: 3vh;
+            }
+            .ext.a {
+                width: 90vw;
+                max-width: 90vw;
+                align-self: center;
+            }
+            .quote.shows {
+                width: auto;
+                font-size: 1.5rem;
+                margin-top: 0;
+            }
         }
     }
     .spectacle-text .row .ext {
@@ -1169,6 +1233,9 @@ header {
             flex-direction: row;
             padding-left: 0 0;
         }
+        .description p {
+            font-size: 1rem;
+        }
         .row {
             margin-bottom: 3vh;
         }
@@ -1198,17 +1265,23 @@ header {
         transform: translate3d(-50%, -50%, 0px) rotate(0deg) scale(1.2) !important;
     }
     //CONTACTS
-    .container .contacts {
-        flex-direction: column;
-        .col {
-            max-width: 90vw;
-            .imgContacts {
+    .container.contacts-container {
+        margin-top: 0rem;
+        .contacts {
+            flex-direction: column;
+            padding: 0;
+            .col {
                 max-width: 90vw;
-            }
-            p {
-                font-size: 2.4rem;
-                a {
-                    font-size: 5vw;
+                margin-top: 0;
+                .imgContacts {
+                    max-width: 90vw;
+                    height: unset;
+                }
+                p {
+                    font-size: 2.4rem;
+                    a {
+                        font-size: 5vw;
+                    }
                 }
             }
         }
@@ -1223,11 +1296,20 @@ header {
     }
 }
 
+//////////
+//Tablet//
+//////////
+
+@media (min-width: 500px) and (max-width: 769px) {
+    .quote.home {
+        top: 36%;
+    }
+}
+
 @media screen and (max-width: 426px) {
     .row-quote {
         .quote {
             font-size: 5.4vw;
-            margin-top: 13vh;
         }
     }
 }

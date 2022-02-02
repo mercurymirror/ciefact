@@ -7,10 +7,10 @@ const Cursor = () => {
         position : 'fixed',
         width : '100%',
         height: '100%',
-        'z-index' : '1',
-        'margin-top' : '-15%',
+        'z-index' : '100000000000',
+        top : 0,
+        left : 0,
         'pointer-events' : 'none',
-        'cursor': 'none'
     }
   
 

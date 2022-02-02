@@ -7,26 +7,30 @@ import BreadCrumb from "../components/breadCrumbs";
 import PodcastList from "../components/PodcastList";
 
 
-const Podcast = ({ podcasts, categories }) => {
+const Podcast = ({ podcasts, categories, quote, homepage }) => {
 
 
   return (
     <>
-    <BreadCrumb />
-    <PodcastList podcasts={podcasts} />
+    <PodcastList 
+    podcasts={podcasts}
+    quote ={quote}
+    homepage={homepage} />
     </>
   )
 }
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [podcasts, categories] = await Promise.all([
+  const [podcasts, categories, quote, homepage] = await Promise.all([
     fetchAPI("/podcasts"),
     fetchAPI("/categories"),
+    fetchAPI("/quote"),
+    fetchAPI("/homepage")
   ])
 
   return {
-    props: { podcasts, categories },
+    props: { podcasts, categories, quote, homepage },
     revalidate: 1,
   }
 }

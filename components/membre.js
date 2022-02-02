@@ -1,11 +1,13 @@
-import { Col } from "react-bootstrap"
+import { Col, Row } from "react-bootstrap"
 import Link from "next/link";
 import { gsap } from "gsap/dist/gsap";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Router from "next/router";
+import ReactMarkdown from "react-markdown";
 
 
-const Membre = ({ types }) => {
+
+const Membre = ({ types, theatres }) => {
 
     useEffect(() => {
         gsap.from('.img-membre' , {
@@ -24,6 +26,7 @@ const Membre = ({ types }) => {
     return (
         <>
             <Col id="membre-types">
+            <Row>
                 {types.sort((a, b) => (a.id) - (b.id)).map((type) => (
                     <div key={type.id} className="type">
                         <table>
@@ -48,6 +51,10 @@ const Membre = ({ types }) => {
                         </table>
                     </div>
                 ))}
+                </Row>
+            <Row>
+            <ReactMarkdown source={theatres.theatres} />
+            </Row>
             </Col>
         </>
     )

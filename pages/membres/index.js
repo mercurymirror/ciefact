@@ -3,7 +3,7 @@ import Seo from "../../components/seo"
 import { fetchAPI } from "../../lib/api"
 import Homepage from "../../components/homepage";
 
-const Home = ({ categories, homepage, quote, types }) => {
+const Home = ({ homepage, quote, types, theatres }) => {
 
   return (
     <>
@@ -13,7 +13,8 @@ const Home = ({ categories, homepage, quote, types }) => {
           <h1>{homepage.hero.title}</h1>
           <Homepage quote={quote}
           homepage={homepage}
-          types={types} />
+          types={types}
+          theatres={theatres} />
         </div>
       </div>
     </>
@@ -22,15 +23,15 @@ const Home = ({ categories, homepage, quote, types }) => {
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [categories, homepage, quote, types] = await Promise.all([
-    fetchAPI("/categories"),
+  const [ homepage, quote, types, theatres] = await Promise.all([
     fetchAPI("/homepage"),
     fetchAPI("/quote"),
     fetchAPI("/types"),
+    fetchAPI("/theatres"),
   ])
 
   return {
-    props: { categories, homepage, quote, types },
+    props: { homepage, quote, types, theatres },
     revalidate: 1,
   }
 }

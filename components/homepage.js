@@ -5,17 +5,28 @@ import Membre from "./membre";
 import BreadCrumb from "./breadCrumbs";
 
 
-export default function Homepage({ homepage, quote, types }) {
+export default function Homepage({ homepage, quote, types, theatres }) {
+ 
+  const hasImg = Boolean(homepage.homeImg)
+  const hasImgMob = Boolean(homepage.homeImg_mobile)
+  
   return (
     <>
-    <BreadCrumb className="bread-membre" />
       <Container>
         <Row className= "row-quote">
-          <p className="quote">
-          Site en Construction. Retrouvez-nous très vite
-            {/* {quote.text} */}
+        <picture>
+        {hasImgMob && (
+              <source media="(max-width: 768px)" srcSet={homepage.homeImg_mobile.url} />
+              )}
+              {hasImg && (
+              <img src={homepage.homeImg.url} />
+              )}
+            </picture>
+          <p className="quote home">
+          {/* Site en Construction. Retrouvez-nous très vite */}
+            {quote.home}
           </p>
-          {/* <span className="section">
+          <span className="section">
             <svg viewBox="0 0 20 20">
               <path
                 fill="none"
@@ -24,17 +35,19 @@ export default function Homepage({ homepage, quote, types }) {
                 d="M5.55-.15l6.95 10L5.19 20"
               />
             </svg>
-          </span> */}
+          </span>
         </Row>
         
-        {/* <Row className="col-membre">
+        <Row className="col-membre">
           <Col className="presentation">
                 <div>
                   <ReactMarkdown source={homepage.hero[0].bio} />
                 </div>
               </Col>
-              <Membre types={types} />
-        </Row> */}
+              <Membre 
+              types={types}
+              theatres={theatres} />
+        </Row>
       </Container>
       </>
   )
@@ -53,6 +66,7 @@ export async function getStaticPaths() {
     fallback: false,
   }
 }
+
 
 
 

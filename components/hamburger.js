@@ -115,7 +115,7 @@ const Hamburger = ({ state }, categories) => {
         className="menu-secondary-background-color"
       ></div>
       <div ref={(el) => (revealMenu = el)} className="menu-layer">
-        <div className="container">
+        <div>
           <div className="wrapper">
             <div className="menu-links">
               <nav>

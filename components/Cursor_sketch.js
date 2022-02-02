@@ -3,17 +3,14 @@ import p5 from "p5";
 export default function cursor_sketch(p) {
 
     let parent_canvas = 'cursor'
-
     let vehicle;
-    let vRadius = 40;
+    let vRadius = 30;
     let vMaxSpeed = 30;
     let vMaxForce = 10;
     let vSlowRadius = 50;
 
     p.setup = function() {
-        console.log('CURSOR!!')
-        let canvas = p.createCanvas(p.windowWidth, p.windowHeight , p.P2D)
-        // console.log(canvas);
+        let canvas = p.createCanvas(p.windowWidth*2, p.windowHeight*2 , p.P2D)
         canvas.parent(parent_canvas)
         p.noCursor();
 
@@ -30,15 +27,16 @@ export default function cursor_sketch(p) {
     p.draw = function() {
         p.clear()
         let target = p.createVector(p.mouseX, p.mouseY);
-        p.fill(0);
-        p.ellipse(target.x, target.y, 10)
+        p.fill("#eb1615");
+        p.ellipse(target.x, target.y, 8)
 
         let steering = vehicle.arrive(target);
         vehicle.applyForce(steering);
         vehicle.update();
 
         p.noFill();
-        p.strokeWeight(2);
+        p.stroke("#eb1615");
+        p.strokeWeight(1.5);
         p.ellipse(vehicle.pos.x, vehicle.pos.y, vRadius)
 
     };

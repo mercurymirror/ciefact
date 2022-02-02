@@ -24,7 +24,6 @@ const responsive = {
 };
 
 const images = spectacle.galery.map((item) => item.url)
-console.log(images)
 
 
 return (

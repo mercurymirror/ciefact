@@ -35,24 +35,43 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
     const vertTitle = document.getElementById('ver-title');
     const title = spectacle.title;
     if (title.length > 30) {
-      bigTitle.style.fontSize = "8vw";
+      bigTitle.style.fontSize = "6.5vw";
       vertTitle.style.fontSize = "3rem";
+    }
+    if (title.length > 30 && screen.width < 768) {
+      bigTitle.style.fontSize = "10vw";
+      bigTitle.style.wordBreak = "unset";
     }
   }, []);
 
   const hasPdf = Boolean(spectacle.pdf);
   let pdf;
   if (spectacle.pdf !== null) {
-    pdf = spectacle.pdf.url;
+    pdf = spectacle.pdf;
   }
 
-  const hasIllu = spectacle.Illustration.length;
+  const hasIllu = Boolean(spectacle.Illustration)
   console.log(hasIllu);
+  let illu;
+  if (spectacle.Illustration !== null) {
+    illu = spectacle.Illustration;
+    console.log(illu);
+  }
+  
+  const hasImg = Boolean(spectacle.image)
+  const hasImgMob = Boolean(spectacle.image_mobile)
 
   return (
     <>
       <div className="spectacle-header">
-        <img src={spectacle.image.url} />
+      <picture>
+        {hasImgMob && (
+              <source media="(max-width: 768px)" srcSet={spectacle.image_mobile.url} />
+              )}
+              {hasImg && (
+                <img src={spectacle.image.url} />              )}
+            </picture>
+        
         <div className="spectacle-titles">
           <h1 id="big-title" className="big-title">{spectacle.title}</h1>
           <h5 className="subtitle">{spectacle.sousTitre}</h5>
@@ -62,7 +81,7 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
         <Row className="bloc-mob">
           <Col className="ext a">
             <h1 id="ver-title" className="vertical-title red">{spectacle.title}</h1>
-            <h2 className="quote shows">{spectacle.citation}</h2>
+            <h2 className="quote shows"> <ReactMarkdown source={spectacle.citation}/></h2>
           </Col>
           <Col className="middle-col">
             <p className="">
@@ -80,9 +99,11 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
               <p className="description" id='desc'>
                 <ReactMarkdown source={spectacle.description} />
               </p>
-              {hasPdf && (
-                <a href={pdf} target="_blank"><h4>Télécharger le document</h4></a>
-              )}
+              {pdf.map((item) => (
+              hasPdf && (
+                <a href={item.url} target="_blank"><h4>{item.name.split('.pdf')}</h4></a>
+              )
+              ))}
 
               <div className="video"
                 dangerouslySetInnerHTML={{ __html: spectacle.video }} >
@@ -97,11 +118,11 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
 
             <div className="scroll-down">
               Scroll down
-              <img src="https://res.cloudinary.com/ciefact/image/upload/v1634668021/arrow_0e058f1520.svg"
+              <img src="/arrow.svg"
                 className="arrow-down" />
             </div>
           </Col>
-          {hasIllu > 0 && (
+          {hasIllu && (
             <Col className="illu">
               <img src={spectacle.Illustration.url} />
             </Col>
@@ -109,7 +130,6 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
         </Row>
 
         <Row className="gallery">
-
           {spectacle.galery.map((item) => (
             <ModalImage
               key={item.id}
@@ -126,7 +146,7 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
           type="button"
           onClick={slideLeft}
         >
-          <img src="https://res.cloudinary.com/ciefact/image/upload/v1634668021/arrow_0e058f1520.svg"
+          <img src="/arrow.svg"
             className="arrow-down" />
         </button>
         <button
@@ -134,7 +154,7 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
           type="button"
           onClick={slideRight}
         >
-          <img src="https://res.cloudinary.com/ciefact/image/upload/v1634668021/arrow_0e058f1520.svg"
+          <img src="/arrow.svg"
             className="arrow-down" />
         </button>
       </Container>
@@ -156,7 +176,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const spectacle = (await fetchAPI(`/spectacles?slug=${params.slug}`))[0]
+  const spectacle = (await fetchAPI(`/spectacles?slug=${params.slug}`))[0];
 
   const [spectacles, categories] = await Promise.all([
     fetchAPI("/spectacles"),

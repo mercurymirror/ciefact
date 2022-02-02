@@ -12,7 +12,7 @@ const Agenda = ({ angendas, categories }) => {
     return (
         <>
             <BreadCrumb />
-            <Container>
+            <Container className="contacts-container">
                 <div className="agenda-bloc">
                     {angendas.sort((a, b) => new Date(a.representations[0].debutDate) - new Date(b.representations[0].debutDate))
                         .map((agenda) => (

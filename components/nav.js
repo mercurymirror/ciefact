@@ -2,9 +2,6 @@ import React, { useContext } from "react";
 import ActiveLink from './ActiveLink';
 import { Row, Col, Navbar } from "react-bootstrap";
 import Header from "./header";
-import { MouseContext } from "../lib/context/mouse-context";
-// import DotRing from "../components/DotRing/DotRing";
-
 
 const Nav = () => {
   
@@ -12,7 +9,6 @@ const Nav = () => {
   return (
     <>
     <Navbar>
-      {/* <DotRing /> */}
       <Row>
         <Col>
         <Header/>

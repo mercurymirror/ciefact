@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 const BreadCrumbCat = () => {
 
     const pathname = useRouter().asPath.slice(1);
-    console.log('pathname is', pathname)
     const [isPathname, setIsPathname] = useState(pathname);
 
     useEffect(() => {
