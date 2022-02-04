@@ -8,6 +8,10 @@
     src: url(../../public/junicode/Junicode-ItalicCondensed.ttf) format("opentype");
 }
 @font-face {
+    font-family: "Junicode-bold";
+    src: url(../../public/junicode/Junicode-BoldCondensed.ttf) format("opentype");
+}
+@font-face {
     font-family: "Pressura";
     src: url(../../public/GT-Pressura/GT-Pressura-Light.ttf) format("opentype");
 }
@@ -31,6 +35,7 @@ $main-grey: #e6e7e8;
 //fonts
 $fact-font: "Junicode", sans-serif;
 $fact-font-italic: "Junicode-italic", sans-serif;
+$fact-font-bold: "Junicode-bold", sans-serif;
 $font-titles: "Pressura", sans-serif;
 $font-titles-bold: "Pressura-bold", sans-serif;
 $font-titles-regular: "Pressura-regular", sans-serif;
@@ -845,7 +850,7 @@ a.anchor {
 .footer-elm {
     color: $main-red;
     padding: .5rem;
-    font-family: $font-titles-regular;
+    font-family: $font-titles;
     .name {
         font-family: $fact-font-italic;
         a {
@@ -857,7 +862,6 @@ a.anchor {
     }
     .titre {
         font-family: $fact-font;
-        font-weight: 600;
         font-size: 1.2rem;
     }
 }
@@ -868,11 +872,9 @@ a.anchor {
     margin-top: 2rem;
     padding: 2rem 13rem;
     color: $main-red;
-    h1 {
+    h1, h2 {
         font-family: $fact-font;
-    }
-    h2 {
-        font-family: $fact-font;
+        font-weight: 100;
     }
 }
 ///////////

@@ -7,7 +7,7 @@ const Footer = () => {
         <footer>
             <div className="container-footer">
                 <div className="footer-elm">
-                <span className="titre">Cie Fact &nbsp;&nbsp;–</span>
+                <span className="titre">Cie Fact &nbsp;&nbsp;&mdash;</span>
                 </div>
                 <div className="footer-elm">
                     Développement : <span className="name"><a href="https://www.malt.fr/profile/romainpruvost">Romain Pruvost</a></span>
