@@ -1,6 +1,7 @@
 import Nav from "./nav"
 import dynamic from 'next/dynamic';
 import Link from "next/link";
+import Footer from "./footer";
 
 const DynamicCursor = dynamic(
   () => import('../components/Cursor'), 
@@ -24,6 +25,7 @@ const Layout = ({ children, categories, seo }) => (
     </Link>
     <Nav categories={categories} />
     {children}
+    <Footer />
   </>
 )
 

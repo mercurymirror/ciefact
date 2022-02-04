@@ -4,6 +4,10 @@
     src: url(../../public/junicode/Junicode-RegularCondensed.ttf) format("opentype");
 }
 @font-face {
+    font-family: "Junicode-italic";
+    src: url(../../public/junicode/Junicode-ItalicCondensed.ttf) format("opentype");
+}
+@font-face {
     font-family: "Pressura";
     src: url(../../public/GT-Pressura/GT-Pressura-Light.ttf) format("opentype");
 }
@@ -26,6 +30,7 @@ $main-grey: #e6e7e8;
 
 //fonts
 $fact-font: "Junicode", sans-serif;
+$fact-font-italic: "Junicode-italic", sans-serif;
 $font-titles: "Pressura", sans-serif;
 $font-titles-bold: "Pressura-bold", sans-serif;
 $font-titles-regular: "Pressura-regular", sans-serif;
@@ -92,6 +97,9 @@ h1 {
     line-height: 1.75;
 }
 
+.d-mob-block {
+    display: none;
+}
 //NAVBAR
 .head-logo {
     // display: none !important;  // Temporaire pour OFF
@@ -794,6 +802,7 @@ a.anchor {
 .contacts-container {
     padding-bottom: 0;
     margin-top: 10rem;
+    height: calc(100vh - 13rem);
     .contacts {
         display: flex;
         justify-content: start;
@@ -823,9 +832,53 @@ a.anchor {
         }
     }
 }
+
+//FOOTER 
+
+.container-footer {
+    display: grid;
+    grid-template-columns: repeat(5, auto [col-start]);
+    justify-content: center;
+    align-items: center;
+    padding-bottom: .2rem;
+}
+.footer-elm {
+    color: $main-red;
+    padding: .5rem;
+    font-family: $font-titles-regular;
+    .name {
+        font-family: $fact-font-italic;
+        a {
+            color: $main-red;
+        }
+    }
+    a {
+        color: $main-red;
+    }
+    .titre {
+        font-family: $fact-font;
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+}
+
+//MENTIONS LEGALES
+
+.ml-wrapper {
+    margin-top: 2rem;
+    padding: 2rem 8rem;
+    color: $main-red;
+    h1 {
+        font-family: $fact-font;
+    }
+    h2 {
+        font-family: $fact-font;
+    }
+}
 ///////////
 //MOBILE///
 //////////
+
 
 //header
 .catergories-btn {
@@ -954,6 +1007,9 @@ header {
 }
 
 @media screen and (max-width: 768px) {
+    .d-mob-block {
+        display: block;
+    }
     #cursor {
         display: none;
     }
@@ -1286,6 +1342,39 @@ header {
             }
         }
     }
+
+    //FOOTER 
+
+.container-footer {
+    display: grid;
+    grid-template-columns: repeat(5, auto [col-start]);
+    justify-content: center;
+    align-items: baseline;
+    background-color: #ffffff;
+}
+.footer-elm {
+    color: $main-red;
+    padding: .5rem;
+    font-family: $font-titles-regular;
+    font-size: .8rem;
+    .name {
+        font-family: $fact-font-italic;
+    }
+    .titre {
+        font-family: $fact-font;
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+}
+//MENTIONS LEGALES
+
+.container-ml {
+    margin-top: 6rem;
+}
+.ml-wrapper {
+    margin-top: 3rem;
+    padding: 2rem 1rem;
+}
 
     //CURSOR MOBILE
     .ring {
