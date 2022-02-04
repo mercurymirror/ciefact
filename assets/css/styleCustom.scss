@@ -827,7 +827,7 @@ a.anchor {
         .image {
             margin-right: 0;
             .imgContacts {
-                height: calc(100vh - 12rem);
+                height: calc(100vh - 13rem);
             }
         }
     }
@@ -1346,23 +1346,12 @@ header {
     //FOOTER 
 
 .container-footer {
-    display: grid;
-    grid-template-columns: repeat(5, auto [col-start]);
-    justify-content: center;
     align-items: baseline;
-    background-color: #ffffff;
 }
 .footer-elm {
-    color: $main-red;
     padding: .5rem;
-    font-family: $font-titles-regular;
     font-size: .8rem;
-    .name {
-        font-family: $fact-font-italic;
-    }
     .titre {
-        font-family: $fact-font;
-        font-weight: 600;
         font-size: 1.2rem;
     }
 }
