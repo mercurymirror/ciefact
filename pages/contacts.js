@@ -31,7 +31,7 @@ const Contacts = ({ contacts, categories }) => {
                     {contacts.mail}
                 </p>
                 <p className="social">
-                    <a href="https://www.facebook.com/factasbl" target="_blank" style={{marginRight: "2vw"}}>Facebook</a> <a href="" target="_blank">Instagram</a>
+                    <a href={contacts.fb} target="_blank" style={{marginRight: "2vw"}}>Facebook</a> <a href={contacts.ig} target="_blank">Instagram</a>
                 </p>
                 </Col>
                 </Row>

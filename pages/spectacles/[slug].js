@@ -14,7 +14,6 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
 
   const slideRight = () => {
     const slider = document.querySelector('.gallery');
-    console.log(slider);
     slider.scrollBy({
       left: 450,
       behavior: 'smooth'
@@ -23,7 +22,6 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
 
   const slideLeft = () => {
     const slider = document.querySelector('.gallery');
-    console.log(slider);
     slider.scrollBy({
       left: -450,
       behavior: 'smooth'
@@ -44,6 +42,18 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
     }
   }, []);
 
+  useEffect(() => {
+    const generic = document.getElementById('generic');
+    const desc = document.getElementById('desc');
+    const scrollDown = document.querySelector('.scroll-down');
+    if (generic.scrollHeight <= generic.offsetHeight) {
+    scrollDown.style.display = 'none';
+    }
+    if (generic.offsetHeight > desc.offsetHeight) {
+      generic.style.height = desc.offsetHeight
+    }
+  }, []);
+
   const hasPdf = Boolean(spectacle.pdf);
   let pdf;
   if (spectacle.pdf !== null) {
@@ -51,11 +61,9 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
   }
 
   const hasIllu = Boolean(spectacle.Illustration)
-  console.log(hasIllu);
   let illu;
   if (spectacle.Illustration !== null) {
     illu = spectacle.Illustration;
-    console.log(illu);
   }
   
   const hasImg = Boolean(spectacle.image)
