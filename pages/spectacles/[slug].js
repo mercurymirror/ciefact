@@ -45,13 +45,16 @@ const Spectacle = ({ spectacle, spectacles, categories }) => {
   useEffect(() => {
     const generic = document.getElementById('generic');
     const desc = document.getElementById('desc');
+    console.log("generic :" + generic.offsetHeight);
+    console.log(desc.offsetHeight);
     const scrollDown = document.querySelector('.scroll-down');
     if (generic.scrollHeight <= generic.offsetHeight) {
     scrollDown.style.display = 'none';
     }
-    if (generic.offsetHeight > desc.offsetHeight) {
-      generic.style.height = desc.offsetHeight
+    if (generic.offsetHeight < desc.offsetHeight) {
+      generic.style.height = desc.offsetHeight+'px'
     }
+    console.log(generic.height);
   }, []);
 
   const hasPdf = Boolean(spectacle.pdf);
