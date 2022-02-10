@@ -17,7 +17,7 @@ const DynamicComponentWithNoSSR = dynamic(
 
 const Layout = ({ children, categories, seo }) => (
   <>
-      <DynamicCursor />
+      {/* <DynamicCursor /> */}
         <Link href="/membres">
     <div className="head-logo">
       <DynamicComponentWithNoSSR />
