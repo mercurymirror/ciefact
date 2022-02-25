@@ -2,83 +2,58 @@ import p5 from "p5";
 
 export default function cursor_sketch(p) {
 
-    let parent_canvas = 'cursor'
-    let vehicle;
-    let vRadius = 30;
-    let vMaxSpeed = 30;
-    let vMaxForce = 10;
-    let vSlowRadius = 50;
+    p.disableFriendlyErrors = true
+
+    let parent_canvas = 'cursor' ;
+
+    let size_cursor = 10 ;
+    let size_around = 30 ;
+
+    let position_delay = 3 ;
+    let positions = [];
+    let idx = 0;
+
+    let fact_color = p.color(235, 22, 21)
 
     p.setup = function() {
-        let canvas = p.createCanvas(p.windowWidth*2, p.windowHeight*2 , p.P2D)
-        canvas.parent(parent_canvas)
+        let canvas = p.createCanvas(p.windowWidth, p.windowHeight , p.P2D) ;
+        canvas.parent(parent_canvas) ;
         p.noCursor();
-
-        vehicle = new Vehicle(p.mouseX, p.mouseY, vMaxSpeed, vMaxForce, vRadius, vSlowRadius);
-
     };
 
     p.windowResized = function() {
-        let canvas = p.createCanvas(p.windowWidth, p.windowHeight , p.P2D)
-        canvas.parent(parent_canvas)
+        let canvas = p.createCanvas(p.windowWidth, p.windowHeight , p.P2D) ;
+        canvas.parent(parent_canvas) ; 
       }
       
     
     p.draw = function() {
-        p.clear()
-        let target = p.createVector(p.mouseX, p.mouseY);
-        p.fill("#eb1615");
-        p.ellipse(target.x, target.y, 8)
-
-        let steering = vehicle.arrive(target);
-        vehicle.applyForce(steering);
-        vehicle.update();
-
-        p.noFill();
-        p.stroke("#eb1615");
-        p.strokeWeight(1.5);
-        p.ellipse(vehicle.pos.x, vehicle.pos.y, vRadius)
+        p.clear() ;
+        p.basicPursue();
 
     };
 
-    
 
-class Vehicle {
-  constructor(x, y, maxSpeed, maxForce, radius, slowRadius) {
-    this.pos = p.createVector(x, y);
-    this.vel = p.createVector(0, 0);
-    this.acc = p.createVector(0, 0);
-    this.maxSpeed = maxSpeed;
-    this.maxForce = maxForce;
-    this.r = radius;
-    this.slowRadius = slowRadius
-  }
-  
-  arrive(target) {
-      let force = p5.Vector.sub(target, this.pos);
-      let desiredSpeed = this.maxSpeed;
-      let distance = force.mag();
-      if (distance < this.slowRadius) {
-          desiredSpeed = p.map(distance, 0, this.slowRadius, 0, this.maxSpeed);
+    p.basicPursue = function() {
+      p.fill(fact_color);
+      p.ellipse(p.mouseX, p.mouseY, size_cursor) ;
+
+      let current_position = [p.mouseX, p.mouseY] ;
+      if (positions[idx] != current_position) {
+        positions[idx] = current_position ;
+        idx = (idx+1) % position_delay ;
       }
-      
-      force.setMag(desiredSpeed);
-      force.sub(this.vel);
-      force.limit(this.maxForce);
-      return force;
-  }
 
-  applyForce(force) {
-    this.acc.add(force);
-  }
+      p.noFill();
+      p.stroke(fact_color);
+      p.strokeWeight(2);
+      let old_position = positions[idx] ;
+      if (old_position === undefined) {
+          old_position = current_position ;
+      }
+      p.ellipse(old_position[0], old_position[1], size_around) ;
 
-  update() {
-    this.vel.add(this.acc);
-    this.vel.limit(this.maxSpeed);
-    this.pos.add(this.vel);
-    this.acc.set(0, 0);
-  }
+
+  }   
 
 }
-}
-
