@@ -750,6 +750,7 @@ a.anchor {
     grid-template-columns: repeat(auto-fit, 17vw [col-start]);
     column-gap: 3vw;
     justify-content: space-evenly;
+    margin-top: 13rem;
     .agenda {
         color: $main-red;
         text-align: center;
