@@ -808,7 +808,7 @@ a.anchor {
 .contacts-container {
     padding-bottom: 0;
     margin-top: 10rem;
-    height: calc(100vh - 13rem);
+    min-height: calc(100vh - 13rem);
     .contacts {
         display: flex;
         justify-content: start;
