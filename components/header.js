@@ -1,64 +1,61 @@
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import Hamburger from "./hamburger";
-import { GiHamburgerMenu } from "react-icons/gi";
-
-
+import React, { useState, useEffect } from "react"
+import { useRouter } from "next/router"
+import Hamburger from "./hamburger"
+import { GiHamburgerMenu } from "react-icons/gi"
 
 const Header = () => {
-
   //state for menu button
   const [state, setState] = useState({
     initial: false,
     clicked: null,
     menuName: "Menu",
-  });
+  })
 
   //state for disabled button
-  const [disabled, setDisabled] = useState(false);
+  const [disabled, setDisabled] = useState(false)
 
-  const router = useRouter();
+  const router = useRouter()
   useEffect(() => {
-    const handleRouteChange = (url) => {
-      setState({ clicked: false, menuName: "Menu" });
-    };
+    const handleRouteChange = () => {
+      setState({ clicked: false, menuName: "Menu" })
+    }
 
-    router.events.on("routeChangeStart", handleRouteChange);
+    router.events.on("routeChangeStart", handleRouteChange)
 
     // If the component is unmounted, unsubscribe
     // from the event with the `off` method:
     return () => {
-      router.events.off("routeChangeStart", handleRouteChange);
-    };
-  }, []);
+      router.events.off("routeChangeStart", handleRouteChange)
+    }
+  }, [router.events])
   const handleMenu = () => {
-    disabledMenu();
+    disabledMenu()
     if (state.initial === false) {
       setState({
         initial: null,
         clicked: true,
         menuName: "Close",
-      });
+      })
     } else if (state.clicked === true) {
       setState({
         clicked: !state.clicked,
         menuName: "Menu",
-      });
+      })
     } else if (state.clicked === false) {
       setState({
         clicked: !state.clicked,
         menuName: "Close",
-      });
+      })
     }
-  };
+  }
 
   // determine if our menu button should be disabled
   const disabledMenu = () => {
-    setDisabled(!disabled);
+    setDisabled(!disabled)
     setTimeout(() => {
-      setDisabled(false);
-    }, 1200);
-  };
+      setDisabled(false)
+    }, 1200)
+  }
 
   return (
     <header>
@@ -69,21 +66,19 @@ const Header = () => {
               <button
                 disabled={disabled}
                 onClick={handleMenu}
-              // {...cursorHandlers}
+                // {...cursorHandlers}
               >
                 <a className="menuBtn">
-<GiHamburgerMenu />
-                  </a>
+                  <GiHamburgerMenu />
+                </a>
               </button>
-
             </div>
           </div>
         </div>
       </div>
       <Hamburger state={state} />
     </header>
-  );
+  )
 }
-
 
 export default Header

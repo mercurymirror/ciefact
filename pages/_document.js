@@ -6,17 +6,14 @@ class MyDocument extends Document {
       <Html>
         <Head>
           {/* eslint-disable-next-line */}
-          <link 
-          rel="shortcut icon" 
-          href="../static/favicon.ico" 
-          />
+          <link rel="shortcut icon" href="../static/favicon.ico" />
+          {/* eslint-disable-next-line @next/next/google-font-display */}
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Staatliches"
           />
-         
 
-{/* 
+          {/* 
           <link 
           rel="stylesheet" 
           href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" /> */}

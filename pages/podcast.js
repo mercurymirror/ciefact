@@ -1,21 +1,10 @@
-import { Container, Row, Col } from "react-bootstrap"
-import Link from "next/link";
-import gsap from "gsap";
-import { getStrapiMedia } from "../lib/media";
 import { fetchAPI } from "../lib/api"
-import BreadCrumb from "../components/breadCrumbs";
-import PodcastList from "../components/PodcastList";
+import PodcastList from "../components/PodcastList"
 
-
-const Podcast = ({ podcasts, categories, quote, homepage }) => {
-
-
+const Podcast = ({ podcasts, quote, homepage }) => {
   return (
     <>
-    <PodcastList 
-    podcasts={podcasts}
-    quote ={quote}
-    homepage={homepage} />
+      <PodcastList podcasts={podcasts} quote={quote} homepage={homepage} />
     </>
   )
 }
@@ -26,7 +15,7 @@ export async function getStaticProps() {
     fetchAPI("/podcasts"),
     fetchAPI("/categories"),
     fetchAPI("/quote"),
-    fetchAPI("/homepage")
+    fetchAPI("/homepage"),
   ])
 
   return {

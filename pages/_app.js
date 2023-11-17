@@ -4,9 +4,7 @@ import "../assets/css/style.css"
 import "../assets/css/styleCustom.scss"
 import { createContext } from "react"
 import { fetchAPI } from "../lib/api"
-import { getStrapiMedia } from "../lib/media"
-import Layout from "../components/layout";
-
+import Layout from "../components/layout"
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({})
@@ -16,16 +14,18 @@ const MyApp = ({ Component, pageProps }) => {
 
   return (
     <>
-    <Layout>
-      <Head>
-      <title>CIE FACT</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
-      <GlobalContext.Provider value={global}>
-    
+      <Layout>
+        <Head>
+          <title>CIE FACT</title>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+        </Head>
+        <GlobalContext.Provider value={global}>
           <Component {...pageProps} />
-      </GlobalContext.Provider>
-    </Layout>
+        </GlobalContext.Provider>
+      </Layout>
     </>
   )
 }

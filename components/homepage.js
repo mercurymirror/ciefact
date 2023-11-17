@@ -1,29 +1,30 @@
-import { fetchAPI } from "../lib/api";
-import ReactMarkdown from "react-markdown";
-import { Container, Col, Row } from "react-bootstrap";
-import Membre from "./membre";
-import BreadCrumb from "./breadCrumbs";
-
+/* eslint-disable @next/next/no-img-element */
+import { fetchAPI } from "../lib/api"
+import ReactMarkdown from "react-markdown"
+import { Container, Col, Row } from "react-bootstrap"
+import Membre from "./membre"
 
 export default function Homepage({ homepage, quote, types, theatres }) {
- 
   const hasImg = Boolean(homepage.homeImg)
   const hasImgMob = Boolean(homepage.homeImg_mobile)
-  
+
   return (
     <>
       <Container>
-        <Row className= "row-quote">
-        <picture>
-        {hasImgMob && (
-              <source media="(max-width: 768px)" srcSet={homepage.homeImg_mobile.url} />
-              )}
-              {hasImg && (
-              <img src={homepage.homeImg.url} />
-              )}
-            </picture>
+        <Row className="row-quote">
+          <picture>
+            {hasImgMob && (
+              <source
+                media="(max-width: 768px)"
+                srcSet={homepage.homeImg_mobile.url}
+              />
+            )}
+            {hasImg && (
+              <img src={homepage.homeImg.url} alt={homepage.homeImg.name} />
+            )}
+          </picture>
           <p className="quote home">
-          {/* Site en Construction. Retrouvez-nous très vite */}
+            {/* Site en Construction. Retrouvez-nous très vite */}
             {quote.home}
           </p>
           <span className="section">
@@ -37,22 +38,19 @@ export default function Homepage({ homepage, quote, types, theatres }) {
             </svg>
           </span>
         </Row>
-        
+
         <Row className="col-membre">
           <Col className="presentation">
-                <div>
-                  <ReactMarkdown source={homepage.hero[0].bio} />
-                </div>
-              </Col>
-              <Membre 
-              types={types}
-              theatres={theatres} />
+            <div>
+              <ReactMarkdown source={homepage.hero[0].bio} />
+            </div>
+          </Col>
+          <Membre types={types} theatres={theatres} />
         </Row>
       </Container>
-      </>
+    </>
   )
 }
-
 
 export async function getStaticPaths() {
   const membres = await fetchAPI("/membres")
@@ -60,13 +58,9 @@ export async function getStaticPaths() {
   return {
     paths: membres.map((membre) => ({
       params: {
-        id: membre.id.toString()
+        id: membre.id.toString(),
       },
     })),
     fallback: false,
   }
 }
-
-
-
-
