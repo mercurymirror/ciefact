@@ -23,10 +23,8 @@ const Layout = ({ children }) => {
     const fetchFirstCategorySlug = async () => {
       try {
         const categories = await fetchAPI("/categories")
-        console.log(categories)
         if (categories && categories.length > 0) {
           const firstCategory = categories.find((cat) => (cat.nb = 1))
-          console.log(firstCategory)
           setFirstCategorySlug(firstCategory.slug)
         }
       } catch (error) {

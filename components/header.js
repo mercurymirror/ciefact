@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import Hamburger from "./hamburger"
 import { GiHamburgerMenu } from "react-icons/gi"
 
-const Header = () => {
+const Header = ({ categories }) => {
   //state for menu button
   const [state, setState] = useState({
     initial: false,
@@ -76,7 +76,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <Hamburger state={state} />
+      <Hamburger state={state} categories={categories} />
     </header>
   )
 }

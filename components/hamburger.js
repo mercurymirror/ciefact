@@ -1,18 +1,18 @@
-import React, { useEffect, useRef } from "react";
-import ActiveLink from "./ActiveLink";
-import gsap from "gsap";
+import React, { useEffect, useRef } from "react"
+import ActiveLink from "./ActiveLink"
+import gsap from "gsap"
 
-const Hamburger = ({ state }, categories) => {
+const Hamburger = ({ state, categories }) => {
   //vars for our animated DOM nodes
-  let menu = useRef(null);
-  let revealMenu = useRef(null);
-  let revealMenuBackground = useRef(null);
-  let line1 = useRef();
-  let line2 = useRef();
-  let line3 = useRef();
-  let line4 = useRef();
-  let line5 = useRef();
-  let line6 = useRef();
+  let menu = useRef(null)
+  let revealMenu = useRef(null)
+  let revealMenuBackground = useRef(null)
+  let line1 = useRef()
+  let line2 = useRef()
+  let line3 = useRef()
+  let line4 = useRef()
+  let line5 = useRef()
+  let line6 = useRef()
 
   useEffect(() => {
     if (state.clicked === false) {
@@ -24,11 +24,11 @@ const Hamburger = ({ state }, categories) => {
         stagger: {
           amount: 0.07,
         },
-      });
+      })
       gsap.to(menu, {
         duration: 1,
         css: { display: "none" },
-      });
+      })
     } else if (
       state.clicked === true ||
       (state.clicked === true && state.initial === null)
@@ -36,7 +36,7 @@ const Hamburger = ({ state }, categories) => {
       gsap.to(menu, {
         duration: 0,
         css: { display: "block" },
-      });
+      })
       gsap.fromTo(
         [revealMenuBackground, revealMenu],
         {
@@ -50,11 +50,11 @@ const Hamburger = ({ state }, categories) => {
             amount: 0.07,
           },
         }
-      );
-      staggerReveal(revealMenuBackground, revealMenu);
-      staggerText(line1, line2, line3, line4, line5, line6);
+      )
+      staggerReveal(revealMenuBackground, revealMenu)
+      staggerText(line1, line2, line3, line4, line5, line6)
     }
-  }, [state]);
+  }, [state])
 
   const staggerReveal = (node1, node2) => {
     gsap.from([node1, node2], {
@@ -65,8 +65,8 @@ const Hamburger = ({ state }, categories) => {
       stagger: {
         amount: 0.1,
       },
-    });
-  };
+    })
+  }
 
   const staggerText = (node1, node2, node3, node4, node5, node6) => {
     gsap.from(
@@ -87,8 +87,8 @@ const Hamburger = ({ state }, categories) => {
           amount: 0.5,
         },
       }
-    );
-  };
+    )
+  }
 
   const handleHover = (e) => {
     gsap.to(e.target, {
@@ -96,8 +96,8 @@ const Hamburger = ({ state }, categories) => {
       y: 3,
       skewX: 4,
       ease: "power3.inOut",
-    });
-  };
+    })
+  }
 
   const handleHoverExit = (e) => {
     gsap.to(e.target, {
@@ -105,8 +105,8 @@ const Hamburger = ({ state }, categories) => {
       y: -3,
       skewX: 0,
       ease: "power3.inOut",
-    });
-  };
+    })
+  }
 
   return (
     <div ref={(el) => (menu = el)} className="hamburger-menu">
@@ -121,7 +121,11 @@ const Hamburger = ({ state }, categories) => {
               <nav>
                 <ul>
                   <li>
-                    <ActiveLink activeClassName="active" as="/actualites" href="/articles">
+                    <ActiveLink
+                      activeClassName="active"
+                      as="/actualites"
+                      href="/articles"
+                    >
                       <a
                         onMouseEnter={(e) => handleHover(e)}
                         onMouseOut={(e) => handleHoverExit(e)}
@@ -143,7 +147,11 @@ const Hamburger = ({ state }, categories) => {
                     </ActiveLink>
                   </li>
                   <li>
-                    <ActiveLink activeClassName="active" as="/category/fondateurs" href="/category/fondateurs">
+                    <ActiveLink
+                      activeClassName="active"
+                      as={`/category/${categories.categories}`}
+                      href={`/category/${categories.categories}`}
+                    >
                       <a
                         onMouseEnter={(e) => handleHover(e)}
                         onMouseOut={(e) => handleHoverExit(e)}
@@ -154,7 +162,11 @@ const Hamburger = ({ state }, categories) => {
                     </ActiveLink>
                   </li>
                   <li>
-                    <ActiveLink activeClassName="active" as="/podcast" href="/podcast">
+                    <ActiveLink
+                      activeClassName="active"
+                      as="/podcast"
+                      href="/podcast"
+                    >
                       <a
                         onMouseEnter={(e) => handleHover(e)}
                         onMouseOut={(e) => handleHoverExit(e)}
@@ -165,7 +177,11 @@ const Hamburger = ({ state }, categories) => {
                     </ActiveLink>
                   </li>
                   <li>
-                    <ActiveLink activeClassName="active" as="/agenda" href="/agenda">
+                    <ActiveLink
+                      activeClassName="active"
+                      as="/agenda"
+                      href="/agenda"
+                    >
                       <a
                         onMouseEnter={(e) => handleHover(e)}
                         onMouseOut={(e) => handleHoverExit(e)}
@@ -176,7 +192,11 @@ const Hamburger = ({ state }, categories) => {
                     </ActiveLink>
                   </li>
                   <li>
-                    <ActiveLink activeClassName="active" as="/contacts" href="/contacts">
+                    <ActiveLink
+                      activeClassName="active"
+                      as="/contacts"
+                      href="/contacts"
+                    >
                       <a
                         onMouseEnter={(e) => handleHover(e)}
                         onMouseOut={(e) => handleHoverExit(e)}
@@ -193,7 +213,7 @@ const Hamburger = ({ state }, categories) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Hamburger;
+export default Hamburger

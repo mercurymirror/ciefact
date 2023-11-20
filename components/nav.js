@@ -9,7 +9,7 @@ const Nav = (categories) => {
       <Navbar>
         <Row>
           <Col>
-            <Header />
+            <Header categories={categories} />
           </Col>
         </Row>
         <Navbar.Collapse className="navRow" id="responsive-navbar-nav">
