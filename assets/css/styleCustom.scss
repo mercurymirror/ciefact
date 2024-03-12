@@ -751,7 +751,7 @@ a.anchor {
 // Agenda
 .agenda-bloc {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 17vw [col-start]);
+  grid-template-columns: repeat(auto-fit, minmax(17vw, max(100% / 5, 17vw)));
   column-gap: 3vw;
   justify-content: space-evenly;
   margin-top: 13rem;

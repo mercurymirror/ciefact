@@ -42,7 +42,7 @@ export default function Homepage({ homepage, quote, types, theatres }) {
         <Row className="col-membre">
           <Col className="presentation">
             <div>
-              <ReactMarkdown source={homepage.hero[0].bio} />
+              <ReactMarkdown>{homepage.hero[0].bio}</ReactMarkdown>
             </div>
           </Col>
           <Membre types={types} theatres={theatres} />
